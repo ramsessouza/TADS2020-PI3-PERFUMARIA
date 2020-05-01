@@ -1,4 +1,4 @@
-package com.MuchachosPerfumaria.dao;
+package com.muchachos.dao;
 
 /**
  * 30/04/2020 22:11

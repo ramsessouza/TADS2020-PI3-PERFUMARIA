@@ -1,4 +1,4 @@
-package com.MuchachosPerfumaria.model;
+package com.muchachos.model;
 
 /**
  * 30/04/2020 22:03

@@ -1,4 +1,4 @@
-package com.MuchachosPerfumaria.db;
+package com.muchachos.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
