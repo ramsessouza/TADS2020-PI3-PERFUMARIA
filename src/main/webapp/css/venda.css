@@ -1,0 +1,42 @@
+@charset "UTF-8";
+@font-face {font-family: 'FuturaLight';	src: url("../fonts/FuturaPTLight.otf");}
+@font-face {font-family: 'FuturaBold';	src: url("../fonts/FuturaPTBold.otf");}
+
+/*CONTEUDO DA PAGINA GERAL*/
+.grade-geral{height: 100vh; height: 100%;}
+.grade-geral fieldset{padding: 10px; background-color: rgba(244,128,41,0.8); border-radius: 5px; border: 1px solid rgba(0,0,0,0.9); }
+.grade-geral legend{font-family: FuturaBold; font-size: 30px;}
+.grade-geral input{margin-right: 10px;}
+
+/*produtos*/
+.grade-geral .coluna1{padding-right: 0;}
+.grade-geral .coluna1 .produtos{overflow: auto;}
+.grade-geral .coluna1 .produtos .pesquisar-produto{float:left; margin-bottom: 10px;}
+.grade-geral .coluna1 .produtos .pesquisar-produto input{width: 300px;}
+.grade-geral .coluna1 .produtos .inserir-produto{float: right;}
+.grade-geral .coluna1 .produtos .inserir-produto input{width: 70px;}
+.grade-geral .coluna1 .produtos table tbody{height: 120px;}
+/*itens venda*/
+.grade-geral .coluna1 .itens-venda{overflow: auto; height: calc(100vh - 340px)}/*Cabecalho 42 + Fieldset_Produtos 283 + Margem_Embaixo 15 = 340*/
+.grade-geral .coluna1 .itens-venda table tbody{height: calc(100vh - 456px);}/*Cabecalho 42 + Fieldset_Produtos 267 + Itens_Venda 48 + Margem_Embaixo_Legenda_Field_Set 8 + Margem_Embaixo 63 = 422*/
+
+/*cliente*/
+.grade-geral .coluna2 .cliente{overflow: auto;}
+.grade-geral .coluna2 .cliente .pesquisa-cliente input{width: 65%}
+.grade-geral .coluna2 .cliente .dados-cliente{margin: 10px 0 0 0}
+.grade-geral .coluna2 .cliente .dados-cliente .legenda{font-family: "FuturaBold"}
+.grade-geral .coluna2 .cliente p{font-size: 10pt; margin-bottom: 0}
+/*finalizar compra*/
+/*Cabecalho 42 + Cliente 149 + Margem_embaixo 15 = 201*/
+.grade-geral .coluna2 .finalizar-compra{overflow: auto; height: calc(100vh - 206px); position: relative;}
+.grade-geral .coluna2 .finalizar-compra h2{font-family:FuturaBold;}
+.grade-geral .coluna2 .finalizar-compra .finalizar-container{position: absolute; bottom: 15px; width: 95%;}
+.grade-geral .coluna2 .finalizar-compra .finalizar-container .place-branco ::placeholder{color: white;}
+
+/*====================================================================*/
+/*RESPONSIVIDADE- Não altere os valores*/
+/*====================================================================*/
+@media screen and (max-width: 1060px){
+.grade-geral .coluna1 .itens-venda{overflow: auto; height: calc(100vh - 360px)}/*Cabecalho 62 + Fieldset_Produtos 283 + Margem_Embaixo 15 = 360*/
+.grade-geral .coluna1 .itens-venda table tbody{height: calc(100vh - 476px);}/*Cabecalho 62 + Fieldset_Produtos 267 + Itens_Venda 48 + Margem_Botom_Legenda_Field_Set 8 + Margem_Bottom 63 = 476*/
+}

@@ -1,0 +1,11 @@
+/*TABELAS*/
+table thead{width: calc(100% - 16px)}/*largura total - largura do scroll*/
+table tbody{display: block; overflow: auto;}
+table thead, tbody tr{display: table; width: 100%; table-layout: fixed;}
+table tbody{font-size: 10pt;}
+table .td-id{width: 50px;}/*coloque essa classe na sua <td> = id da tabela-->*/
+table .td-produto{width: 250px;}/*coloque essa classe na sua <td> = produto da tabela-->*/
+table .td-qtd{width: 40px; text-align: center}/*coloque essa classe na sua <td> = quantidade da tabela-->*/
+table .td-categoria{width: 200px; text-align: center}/*coloque essa classe na sua <td> = categoria da tabela-->*/
+table .td-valor{width: 100px; text-align: center}/*coloque essa classe na sua <td> = valor da tabela-->*/
+table .td-remover{text-align: center}/*coloque essa classe na sua <td> = remover da tabela-->*/

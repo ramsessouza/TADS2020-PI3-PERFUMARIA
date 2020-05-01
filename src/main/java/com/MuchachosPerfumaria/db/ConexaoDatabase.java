@@ -1,0 +1,29 @@
+package com.MuchachosPerfumaria.db;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ * 30/04/2020 22:01
+ * @author Ramses
+ */
+public class ConexaoDatabase {
+
+    static {
+        try {
+            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ConexaoDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static Connection getConexao() throws SQLException {
+        String dbURL = "jdbc:derby://localhost:1527/muchachosperfumaria;create=true";
+        String user = "muchachosperfumaria";
+        String password = "muchachosperfumaria";
+        return DriverManager.getConnection(dbURL, user, password);
+    }    
+}

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@font-face {font-family: 'FuturaLight';	src: url("../fonts/FuturaPTLight.otf");}
+@font-face {font-family: 'FuturaBold';	src: url("../fonts/FuturaPTBold.otf");}
+
+*{font: 16px "FuturaLight" }
+
+/*CORPO*/
+.corpo{background: url("../img/background.jpg"); background-repeat: no-repeat; background-size:100%; background-attachment: fixed; background-size: cover; text-align: center; background-position: top center}
+
+/*CABEÇALHO*/
+.cabecalho h1 {font: 40pt "FuturaBold"; color: #343a40;}
+
+/*FORMULÁRIO*/
+#formulario{margin: 0 auto; width: 230px;}
+.containner input{padding: 0 5px 0 5px; margin: 0 0; width: 100%; height: 30px; background-position: left; background-repeat: no-repeat; background-size: 20px;}
+#senha{}
+#entrar{margin-top: 1%; width: 100%; color: white; font-size: 20px; padding: 0;}
+
+/*RODAPÉ*/
+.rodape{position:absolute; bottom:0; text-align: left;}
+.rodape p{font-size: 8pt;  color: #ffffff;}
+
+/*====================================================================*/
+/* FULL RESOLUTION */
+/*====================================================================*/
+@media screen and (min-width: 720px){
+.cabecalho{margin-bottom: 10%;}
+}

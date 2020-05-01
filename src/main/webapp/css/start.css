@@ -1,0 +1,42 @@
+@charset "UTF-8";
+@font-face {font-family: 'FuturaLight';	src: url("../fonts/FuturaPTLight.otf");}
+@font-face {font-family: 'FuturaBold';	src: url("../fonts/FuturaPTBold.otf");}
+
+/*TUDO - Não altere os valores*/
+*{padding: 0px; margin: 0px; font: 16px "FuturaLight";}
+html, body{height: 100%; overflow: hidden;}
+
+/*CABEÇALHO - Não altere os valores*/
+.cabecalho{align-items: center; background: url("../img/background.jpg"); background-repeat: no-repeat; background-size:100%; background-attachment: fixed; background-size: cover; background-position: top center; border-bottom: 3px solid rgba(0,0,0,0.06); border-top: 3px solid rgba(255,255,255,0.06);}
+.cabecalho button{border: 0;}
+.cabecalho img{width: 70%; height: 70%;}
+.cabecalho h1{font-size: 15pt;}
+
+/*BARRA NAVEGACAO LATERAL - Não altere os valores*/
+.barra-lateral{height: 100vh; width: 220px; position: fixed; transition: all 0.8s; background-color: rgba(0, 0, 0, 0.8);  border-right: 4px solid rgba(255,255,255,0.05);}
+.barra-lateral p{margin: 10px 0 2px 1px; color: #999; font-size: 10pt}
+.barra-lateral ul li{border-bottom: 1px solid rgba(0,0,0,0.05); border-top: 1px solid rgba(255,255,255,0.05);}
+.barra-lateral ul li a{display: block;}
+.barra-lateral a{padding: 8px 5px; text-decoration: none; color: #fff; font-size: 11pt;}
+.barra-lateral a:hover{background-color: rgba(0, 0, 0, 0.4)}
+.barra-lateral span{color: rgb(244 128 41);}
+/*Ativado no javascript para expandir e recolher a barra lateral*/
+#barra-lateral.ativo{margin-left: -220px;}
+
+/*CONTEUDO DA PAGINA - Não altere os valores*/
+/*altura 100% do viewport, largura 100% - 220 pixels da barra lateral, começa 220px da lateral esquerda*/
+.conteudo-pagina{height: 100vh; width: calc(100% - 220px); margin-left: 220px; transition: all 0.8s; overflow: auto;}
+/*ativado no javascript para expandir e recolher o conteudo da pagina*/
+/*assume 100% da largura*/
+#conteudo-pagina.ativo{width: 100%; margin: 0;}
+
+/*====================================================================*/
+/*RESPONSIVIDADE- Não altere os valores*/
+/*====================================================================*/
+@media screen and (max-width: 1060px){
+.cabecalho img{width: 100%; height: 100%;}
+}
+
+@media screen and (max-width: 575px){
+.cabecalho img{width: 20%; height: 20%;}
+}
