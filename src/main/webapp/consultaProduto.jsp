@@ -6,80 +6,326 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-       <meta charset="utf-8">
-       <link rel="stylesheet" href="css/tabela.css">
-       <link rel="shortcut icon" href="imagem/muchachos.png">
-       <link rel="stylesheet" href="css/estilobootstrap.css">
-       <link rel="stylesheet" href="css/base.css">
-       <link rel="stylesheet" href="css/layout.css">
-       <link rel="stylesheet" href="css/cadastroProduto.css">
-       <!-- Latest compiled and minified CSS -->
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  </head>
+<html lang="pt-br">
 
-  <body>
+<head>
+  <!-- Meta tags Obrigatórias -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <!--CSS -->
+  <!--Fonts Awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!--Específica da Página-->
+  <link href="css/start.css" rel="stylesheet">
 
-     <header class="layout-cabecalho layout-cabecalho--tabela">
-      <div class="container">
-        <nav class="navegacao">
-          <a href="index.html"><img src="img/muchachos.png" width="60" height="60" alt="Muchachos" /></a>
-        </nav> 
+  <link href="css/componentes.css" rel="stylesheet">
+
+  <link href="css/consultaProduto.css" rel="stylesheet">
+  <!--Titulo e icone-->
+  <link rel="shortcut icon" href="img/logo-branco.png"/>
+  <title>Perfumaria Muchachos: Início do sistema</title>
+</head>
+<body>
+  <!--CABEÇALHO-->
+  <div class="container-fluid">
+    <div class="row cabecalho">
+      <div class="col-lg-2 col-sm-2"><!--BUTTON HUMBURGER-->
+        <button id="hamburger" type="button" class="btn btn-outline-dark"><span class="fas fa-bars"></span></button>
       </div>
-    </header>
-
-
-
-
-     <div class="container">
-       <h1 class="titulo-formulario">Gerenciamento de Produto</h1>
-          <form>    
-            <div class="row">
-              <div class="col-sm-5">
-             <div class="grupo-entrada">
-           <input placeholder="Digite o nome ou código produto do aqui " type="text" class="campo" required>
+      <div class="col-lg-3 col-sm-3"><!--LOGO CABEÇALHO-->
+        <!--Colorir logo efeito em jquery - usa-se o id #logocab-->
+        <img id="logocab" src="img/grupo-2.png" alt="Logo Muchachos Perfumaria">
+      </div>
+      <div class="col-lg-3 col-sm-3"><!--HORA E DATA-->
+        <h1 id="calendario"></h><!--Data e calendario feito em jquery - usa-se o id #calendario-->
+        </div>
+        <div class="col-lg-2 col-sm-2"><!--USUÁRIO-->
+          <h1><span class="fas fa-user"></span> Ramses Souza</h>
+          </div>
+          <div class="col-lg-1 col-sm-1"><!--SAIR DO SISTEMA-->
+            <button type="button" class="btn btn-outline-dark" >Sair <span class="fas fa-sign-out-alt"></span></button>
+          </div>
         </div>
       </div>
-
-       <div class="col-sm-3">
-       <div class="grupo-entrada">
-            <div style="text-align: center; margin-top: 20px">
-              <input type="submit" value="Buscar" class="botao-tabela">
+      <!--BARRA NAVEGACAO LATERAL-->
+      <div id="barra-lateral" class="barra-lateral"><!--expandir/recolher, feito em jquery - usa o id #barra-lateral-->
+        <ul><!--Colorir botões ao apertar, feito em jquery - usa a classe .item-linha-->
+          <p>Vendas</p>
+          <li><a class="item-linha" href="#"><span class="fas fa-shopping-cart mr-4"></span> Venda</a></li>
+          <li><a class="item-linha" href="#"><span class="fas fa-user-plus mr-4"></span>Cadastro de Cliente</a></li>
+          <li><a class="item-linha" href="#"><span class="fas fa-users mr-4"></span>Consulta de Cliente</a></li>
+          <p>Marketing</p>
+          <li><a class="item-linha" href="#"><span class="fas fa-pump-soap mr-4"></span> Cadastro de Produto</a></li>
+          <li><a class="item-linha" href="#"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
+          <li><a class="item-linha" href="#"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
+          <p>Tecnologia da Informação</p>
+          <li><a class="item-linha" href="#"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
+          <li><a class="item-linha" href="#"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+          <p>Recursos Humanos</p>
+          <li><a class="item-linha" href="#"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+          <p>Gerência</p>
+          <li><a class="item-linha" href="#"><span class="fas fa-chart-line mr-3"></span> Relatório Filial</a></li>
+          <p>Diretoria</p>
+          <li><a class="item-linha" href="#"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
+        </ul>
+      </div>
+      <!--CONTEUDO DA PAGINA-->
+      <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
+      <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
+        <h1>Gerenciamento de Produto</h1>
+        <!--Formulário-->
+        <form clas="formulario">    
+          <!--Linha 1-->
+          <div class="row">
+            <div class="col-sm-5">
+              <!--Campo de Pesquisa de produto-->
+              <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend ">
+                  <div class="input-group-text">
+                    <span class="fas fa-pump-soap mr-1"></span>
+                  </div>
+                </div>
+                <input class="form-control" placeholder="Pesquisar Produto por nome" type="text" required>
+              </div><!--Fim do campo de Pesquisa de produto-->
             </div>
-         </div> 
-        </div>
-      </div>         
-        </div> 
-         </form>
-      </div>
+            <div class="col-sm-2">
+              <button class="btn btn-dark btn-block" type="submit">Pesquisar
+                <span class="ml-1 fas fa-search"></span>
+              </button>
+            </div>
+          </div><!--Fim da linha 1--> 
+        </form><!--Fim do formulario--> 
 
-      <table class="tabela">     
-       <thead>
-        <tr>
-          <th>Código</th>
-          <th>Produto</th>
-          <th>Quantidade</th>
-          <th>Categoria</th>
-          <th>Valor</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+        <!--Tabela--> 
+        <div class="tabela">
+          <table class="table table-sm table-secondary table-hover table-striped">   
+            <thead class="thead-dark">
+              <tr>
+                <th class="td-id">ID</th>
+                <th class="td-produto">PRODUTO</th>
+                <th class="td-qtd">QTD</th>
+                <th class="td-categoria">CATEGORIA</th>
+                <th class="td-valor">VALOR</th>
+                <th class="td-editar">EDITAR</th>
+                <th class="td-remover">REMOVER</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+              
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+
+              <tr>
+                <td class="td-id">1</td>
+                <td class="td-produto">sdasdsa</td>
+                <td class="td-qtd">sdasdsa</td>
+                <td class="td-categoria">sdasdsa</td>
+                <td class="td-valor">sdasdsa</td>
+                <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
+                <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+              </tr>
+            </tbody>
+          </div><!--Fim da Tabela--> 
 
 
-       <footer class="layout-rodape">
-      <div class="container">
-        <p>&copy; Muchachos. Todos os direitos reservados.</p>
-      </div>
-    </footer>
-     </body>
-</html>
+
+          <!--1-jQuery.js-->
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <!--2-Popper.js-->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+          <!--3-Bootstrap.js-->
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+          <!--4-Específica da página-->
+          <script type="text/javascript" src="js/start.js"></script>
+        </body>
+        </html>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : cadastroProduto
     Created on : 01/05/2020, 19:29:31
-    Author     : AS
+    Author     :  Diego Souza
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
