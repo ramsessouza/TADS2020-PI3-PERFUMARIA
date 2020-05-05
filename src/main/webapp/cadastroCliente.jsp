@@ -18,12 +18,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!--Página-->
+    <!--Específica da Página-->
     <link href="css/start.css" rel="stylesheet">
     <link href="css/cadastroCliente.css" rel="stylesheet">
     <!--Titulo e icone-->
     <link rel="shortcut icon" href="img/logo-branco.png"/>
-    <title>Perfumaria Muchachos: Início do sistema</title>
+    <title>Perfumaria Muchachos: Cadastro de Clientes</title>
   </head>
   <body>
     <!--CABEÇALHO-->
@@ -74,158 +74,190 @@
     <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
       <!--Formulário Geral-->
       <form class="formulario">
+        <h1 class="titulo-formulario">Cadastro de Cliente</h1> 
         <!--Linha 1-->
         <div class="row linha-do-nome">
-          <div class="col-md-11 col-sm-11">
+          <!--Nome-->
+          <div class="col-md-3 col-sm-3">
             <div class="form-group">
               <label>Nome</label>
-              <input type="text" class="form-control" id="nome">
+              <input type="text" class="form-control" id="nome" placeholder="Exemplo.: Zlatan Ibrahimovic">
             </div>
-          </div>
-          <div class="col-md-1 col-sm-1">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-              <label class="form-check-label" for="defaultCheck1">
-                Ativo
-              </label>
+          </div><!--Fim do Nome-->
+          <!--Sexo-->
+          <div class="col-md-2 col-sm-2">
+            <div class="form-group">
+              <label>Sexo</label>
+              <select id="Sexo" class="form-control">
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+              </select>
             </div>
-          </div>
-        </div><!--Fim Linha 1-->
-
-        <!--Linha 2-->
-        <div class="row">
+          </div><!--Fim Sexo-->
+          <!--Nascimento-->
           <div class="col-md-3 col-sm-3">
             <div class="form-group">
               <label>Nascimento</label>
               <input type="date" class="form-control">
             </div>
-          </div>
-          <div class="col-md-9 col-sm-9">
-            <!--Linha 2.1-->
-            <div class="row">
-              <div class="col-md-3 col-sm-3">
-                <div class="form-group">
-                  <label>RG</label>
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-3">
-                <div class="form-group">
-                  <label>CPF</label>
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-              <div class="dropdown col-md-3 col-sm-3">
-                <div class="form-group">
-                  <label>Estado Civil</label>
-                  <select id="EstadoCivil" class="form-control">
-                    <option value="Casado">Casado</option>
-                    <option value="Solteiro">Solteiro</option>
-                    <option value="Divorciado">Divorciado</option>
-                    <option value="UniaoEstavel">União Estável</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-3">
-                <div class="form-group">
-                  <label>Sexo</label>
-                  <select id="Sexo" class="form-control">
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
-                  </select>
-                </div>
-              </div>
-            </div><!--Fim Linha 2.1-->
-          </div>
+          </div><!--Fim Nascimento-->
+          <!--Estado Civil-->
+          <div class="dropdown col-md-2 col-sm-2">
+            <div class="form-group">
+              <label>Estado Civil</label>
+              <select id="EstadoCivil" class="form-control">
+                <option value="Casado">Selecione</option>
+                <option value="Casado">Casado</option>
+                <option value="Solteiro">Solteiro</option>
+                <option value="Divorciado">Divorciado</option>
+                <option value="UniaoEstavel">União Estável</option>
+              </select>
+            </div>
+          </div><!--Fim Estado Civil-->
+          <!--Ativo-->
+          <div class="col-md-2 col-sm-2">
+            <div class="form-group">
+              <label>Status</label>
+              <select id="status" class="form-control">
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+              </select>
+            </div>
+          </div><!--Fim Ativo-->
+        </div><!--Fim Linha 1-->
+
+        <!--Linha 2-->
+        <div class="row">
+          <!--RG-->
+          <div class="col-md-3 col-sm-3">
+            <div class="form-group">
+              <label>RG</label>
+              <input type="text" class="form-control" placeholder="Exemplo.: 52.498.635-9">
+            </div>
+          </div><!--Fim RG-->
+          <!--CPF-->
+          <div class="col-md-3 col-sm-3">
+            <div class="form-group">
+              <label>CPF</label>
+              <input type="text" class="form-control" placeholder="Exemplo.: 522.498.635-49">
+            </div>
+          </div><!--Fim CPF-->
+          <!--Email-->
+          <div class="col-md-3 col-sm-3">
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="e-mail" class="form-control" placeholder="Exemplo.: cliente@cliente.com">
+            </div>
+          </div><!--Fim Email-->
+          <!--Telefone-->
+          <div class="col-md-3 col-sm-3">
+            <div class="form-group">
+              <label>Telefone</label>
+              <input type="text" class="form-control" placeholder="Exemplo.: 11991887754">
+            </div>
+          </div><!--Fim Telefone-->
         </div><!--Fim Linha 2-->
           
         <!--Linha 3-->
         <div class="row">
-          <div class="col-md-8 col-sm-8">
-            <div class="form-group">
-              <label>Endereço</label>
-              <input type="text" class="form-control">
-            </div>
-          </div>
+          <!--Estado-->
           <div class="col-md-2 col-sm-2">
             <div class="form-group">
-              <label>Número</label>
-              <input type="text" class="form-control">
+              <label>Estado</label>
+              <select id="estado" class="form-control">
+                <option value="acre">Selecione</option>
+                <option value="acre">Acre</option>
+                <option value="alagoas">Alagoas</option>
+                <option value="amapá">Amapá</option>
+                <option value="amazonas">Amazonas</option>
+                <option value="bahia">Bahia</option>
+                <option value="ceará">Ceará</option>
+                <option value="distrito federal">Distrito Federal</option>
+                <option value="espírito santo">Espírito Santo</option>
+                <option value="goiás">Goiás</option>
+                <option value="maranhão">Maranhão</option>
+                <option value="mato grosso">Mato Grosso</option>
+                <option value="mato grosso do sul">Mato Grosso do Sul</option>
+                <option value="minas gerais">Minas Gerais</option>
+                <option value="pará">Pará</option>
+                <option value="paraíba">Paraíba</option>
+                <option value="paraná">Paraná</option>
+                <option value="pernambuco">Pernambuco</option>
+                <option value="piauí">Piauí</option>
+                <option value="rio de janeiro">Rio de Janeiro</option>
+                <option value="rio grande do norte">Rio Grande do Norte</option>
+                <option value="rio grande do sul">Rio Grande do Sul</option>
+                <option value="rondônia">Rondônia</option>
+                <option value="roraima">Roraima</option>
+                <option value="santa catarina">Santa Catarina</option>
+                <option value="são paulo">São Paulo</option>
+                <option value="sergipe">Sergipe</option>
+                <option value="tocantins">Tocantins</option>
+              </select>
             </div>
-          </div>  
-          <div class="col-md-2 col-sm-2">
-            <div class="form-group">
-              <label>Cep</label>
-              <input type="text" class="form-control">
-            </div>
-          </div>
-        </div><!--Fim Linha 3-->
-          
-        <!--Linha 4-->
-        <div class="row">
-          <div class="col-md-4 col-sm-4">
-            <div class="form-group">
-              <label>Bairro</label>
-              <input type="text" class="form-control">
-            </div>
-          </div>
+          </div><!--Fim Estado-->
+          <!--Cidade-->
           <div class="col-md-4 col-sm-4">
             <div class="form-group">
               <label>Cidade</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" placeholder="Exemplo.: Diadema">
             </div>
-          </div>
+          </div><!--Fim Cidade-->
+          <!--Bairro-->
+          <div class="col-md-4 col-sm-4">
+            <div class="form-group">
+              <label>Bairro</label>
+              <input type="text" class="form-control" placeholder="Exemplo.: Barueri">
+            </div>
+          </div><!--Fim Bairro-->
+          <!--CEP-->
+          <div class="col-md-2 col-sm-2">
+            <div class="form-group">
+              <label>Cep</label>
+              <input type="text" class="form-control" placeholder="Exemplo.: 05849-890">
+            </div>
+          </div><!--Fim CEP-->
+        </div><!--Fim Linha 3-->
+        
+        <!--Linha 4-->
+        <div class="row">
+          <!--Endereco-->
+          <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+              <label>Logradouro</label>
+              <input type="text" class="form-control" placeholder="Exemplo.: Av Rubens de Oliveira">
+            </div>
+          </div><!--Fim Endereco-->
+          <!--Numero-->
+          <div class="col-md-2 col-sm-2">
+            <div class="form-group">
+              <label>Número</label>
+              <input type="text" class="form-control" placeholder="Exemplo.: 1359">
+            </div>
+          </div><!--Fim Numero-->
+          <!--Complemento-->
           <div class="col-md-4 col-sm-4">
             <div class="form-group">
               <label>Complemento</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" placeholder="Exemplo.: Torre 3">
             </div>
-          </div>
+          </div><!--Fim Complemento-->
         </div><!--Fim Linha 4-->
-          
+
         <!--Linha 5-->
-        <div class="row">
-          <div class="col-md-3 col-sm-3">
-            <div class="form-group">
-              <label>Estado</label>
-              <input type="text" class="form-control">
-            </div>
-          </div>
-          <div class="col-md-9 col-sm-9">
-            <!--Linha 5.1-->
-            <div class="row">
-              <div class="col-md-4 col-sm-4">
-                <div class="form-group">
-                  <label>Telefone</label>
-                  <input type="text" class="form-control">
-                </div>
-              </div>  
-              <div class="col-md-4 col-sm-4">
-                <div class="form-group">
-                  <label>Telefone celular</label>
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-4">
-                <div class="form-group">
-                  <label>E-mail</label>
-                  <input type="E-mail" class="form-control">
-                </div>
-              </div>
-            </div><!--Fim Linha 5.1-->  
-          </div>
-        </div><!--Fim Linha 5-->
-              
-        <!--Linha 6-->
         <div class="botoes">
           <div class="row">
-            <div class="offset-md-10 col-md-2 col-sm-2">          
-              <input class="btn btn-success btn-block" type="submit" value="Salvar">
-            </div>
-          </div><!--Fim Linha 6-->
+            <!--Botão Limpar-->
+            <div class=" offset-md-8 col-sm-2">
+              <input type="reset" value="Limpar" class="btn btn btn-danger btn-block">            
+            </div><!--Fim Botão Limpar-->
+            <!--Botão Salvar-->
+            <div class="col-sm-2">
+              <input type="submit" value="Salvar" class="btn btn-success btn-block">
+            </div><!--Fim Botão Salvar-->
+          </div><!--Fim Linha 5-->
         </div><!--Fim classe botoes-->
       </form><!--Fim do Form-->
-      
     </div><!--Fim do conteudo da pagina-->
     
     <!--1-jQuery.js-->

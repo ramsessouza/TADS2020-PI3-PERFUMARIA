@@ -3,19 +3,9 @@
 @font-face {font-family: 'FuturaLight';	src: url("../fonts/FuturaPTLight.otf");}
 @font-face {font-family: 'FuturaBold';	src: url("../fonts/FuturaPTBold.otf");}
 
-
 /*CONTEÚDO DA PAGINA*/
 .conteudo-pagina{padding: 15px; height: calc(100vh - 42px); position: relative; overflow: hidden;}
+.conteudo-pagina h1{margin-bottom: 21px; font-family: FuturaBold; color: #343a40;}
 .conteudo-pagina .formulario .linha-do-nome{align-items: center;}
- .conteudo-pagina .formulario label{font-family: FuturaBold;}
+.conteudo-pagina .formulario label{font-family: FuturaBold; color: #343a40;}
 .conteudo-pagina .formulario .botoes{position: absolute; bottom: 15px; width: 97.6%;}
-
-/*====================================================================*/
-/*RESPONSIVIDADE*/
-/*====================================================================*/
-@media screen and (max-width: 1027px){
-    .conteudo-pagina{height: calc(100vh - 62px);}
-}
-@media screen and (max-width: 623px){
-    .conteudo-pagina{height: calc(100vh - 83px);}
-}
