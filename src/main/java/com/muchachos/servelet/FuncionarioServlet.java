@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muchachos.servelet;
 
 import com.muchachos.db.FuncionarioDao;
@@ -20,14 +15,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Valter Lafuente Junior
  */
-@WebServlet(name = "funcionarioServlet", urlPatterns = {"/FuncionarioServlet"})
+@WebServlet(name = "funcionarioServlet", urlPatterns = {"/funcionarioServlet"})
 public class FuncionarioServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
-	private FuncionarioDao funcionarioDao = new FuncionarioDao(); 
-	
-	
-        
+	private  FuncionarioDao funcionarioDao = new FuncionarioDao(); 
+	      
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String acao = request.getParameter("acao");
@@ -51,8 +44,6 @@ public class FuncionarioServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/paginas/editarFuncionario.jsp");
 		dispatcher.forward(request, response);
 	}
-
-	
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

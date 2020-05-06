@@ -21,7 +21,7 @@ public class FuncionarioDao {
 		Connection conexao = ConexaoDatabase.getConexao();
 		PreparedStatement ps = conexao.prepareStatement("SELECT id, nome, Cpf, Rg, Sexo,"
 				+ "estadoCivil, dataNascimento, Estado, Cidade, bairro, Logradouro, Numero,complemento, Telefone,"
-				+ "Email,situacao, Senha, Cargo, Filial, Departamento FROM cadastroFuncionario");
+				+ "Email,situacao, Senha, Cargo, Filial, Departamento FROM TB_COLABORADOR");
 
 		ResultSet rs = ps.executeQuery();
 		List<Funcionario> funcionarios = new ArrayList<>(); 
@@ -39,7 +39,7 @@ public class FuncionarioDao {
 	public void salvar(Funcionario funcionario) throws ClassNotFoundException, SQLException {
 		Connection conexao = ConexaoDatabase.getConexao();
 		PreparedStatement statement = conexao.prepareStatement(
-				" insert into cadastroFuncionario(nome, cpf, rg, sexo, estadoCivil, dataNascimento, estado, cidade, bairro,  logradouro,"
+				" insert into TB_COLABORADOR(nome, cpf, rg, sexo, estadoCivil, dataNascimento, estado, cidade, bairro,  logradouro,"
 						+ " numero,complemento, telefone,email,situacao, senha, cargo, filial, departamento)"
 						+ " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
@@ -68,7 +68,7 @@ public class FuncionarioDao {
 	public List<Funcionario> getFuncionario1() throws SQLException, ClassNotFoundException {
     Connection conexao = ConexaoDatabase.getConexao();
     PreparedStatement ps = conexao.prepareStatement("Select id, nome, cpf, situacao, cargo, "
-    		+ "filial , departamento from cadastroFuncionario");
+    		+ "filial , departamento from TB_COLABORADOR");
     
     ResultSet rs = ps.executeQuery();
     List<Funcionario> funcionarios = new ArrayList<>();
@@ -86,7 +86,7 @@ public class FuncionarioDao {
 	public void excluir(Integer cod)throws ClassNotFoundException, SQLException  {
 		Connection conexao = ConexaoDatabase.getConexao();
 		PreparedStatement statement = conexao.prepareStatement(
-				"DELETE FROM cadastrofuncionario WHERE id = ?");
+				"DELETE FROM TB_COLABORADOR WHERE id = ?");
 
 		statement.setInt(1, cod);
 		statement.execute();
@@ -97,7 +97,7 @@ public class FuncionarioDao {
 		Connection conexao = ConexaoDatabase.getConexao();
 		PreparedStatement ps = conexao.prepareStatement("SELECT id, nome, Cpf, Rg, Sexo,"
 				+ "estadoCivil, dataNascimento, Estado, Cidade, bairro, Logradouro, Numero,complemento, Telefone,"
-				+ "Email,situacao, Senha, Cargo, Filial, Departamento FROM cadastroFuncionario WHERE id=?");
+				+ "Email,situacao, Senha, Cargo, Filial, Departamento FROM TB_COLABORADOR WHERE id=?");
         ps.setInt(1, cod);
 		ResultSet rs =  ps.executeQuery();
 		
@@ -115,7 +115,7 @@ public class FuncionarioDao {
 	public void atualizar(Funcionario funcionario) throws ClassNotFoundException, SQLException  {
 		Connection conexao = ConexaoDatabase.getConexao();
 		PreparedStatement statement = conexao.prepareStatement(
-				" UPDATE cadastroFuncionario SET nome=?, cpf=?, rg=?, sexo=?, estadoCivil=?, dataNascimento=?, estado=?, cidade=?, bairro=?,  logradouro=?,"
+				" UPDATE TB_COLABORADOR SET nome=?, cpf=?, rg=?, sexo=?, estadoCivil=?, dataNascimento=?, estado=?, cidade=?, bairro=?,  logradouro=?,"
 						+ " numero=?,complemento=?, telefone=?,email=?,situacao=?, senha=?, cargo=?, filial=?, departamento=? WHERE id=?");
 
 		statement.setString(1, funcionario.getNome());
@@ -143,7 +143,7 @@ public class FuncionarioDao {
 	}	
   
 	      public static List<Funcionario> buscar(String busca)throws SQLException, Exception {
-		  String sql = "SELECT * FROM cadastroFuncionario WHERE id like ? or nome like ? or cpf like ? \n"
+		  String sql = "SELECT * FROM TB_COLABORADOR WHERE id like ? or nome like ? or cpf like ? \n"
 		  		+ " or situacao like ? or cargo like ? or filial like ? or departamento like ? ";
 		  busca = busca+ '%';
 		  
@@ -204,11 +204,11 @@ public class FuncionarioDao {
 	      
 	  public Funcionario validar(String nome, String senha) throws ClassNotFoundException, SQLException {
 		  Funcionario funcionario = new Funcionario();
-		  PreparedStatement ps = null;
-		  Connection conexao = null;
-		  ResultSet rs = null;
+		  PreparedStatement ps ;
+		  Connection conexao;
+		  ResultSet rs ;
 		  
-		  String sql = "SELECT * FROM cadastroFuncionario WHERE nome = ? and senha = ? ";
+		  String sql = "SELECT * FROM TB_COLABORADOR WHERE nome = ? and senha = ? ";
 		  try {
 			   conexao = ConexaoDatabase.getConexao();
 			   ps = conexao.prepareStatement(sql);
@@ -221,8 +221,6 @@ public class FuncionarioDao {
 				   
 				   funcionario.setNome(rs.getString("nome"));
 				   funcionario.setSenha(rs.getString("senha"));
-				  
-				   
 			   }
 			   
 		} catch (Exception e) {
