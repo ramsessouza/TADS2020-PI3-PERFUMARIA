@@ -61,14 +61,14 @@ public class FuncionarioServlet extends HttpServlet {
 		String complemento = request.getParameter("complemento");
 		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");
-		String situacao = request.getParameter("situacao");
+		String status = request.getParameter("status");
 		String senha = request.getParameter("senha");
 		String cargo = request.getParameter("cargo");
 		String filial = request.getParameter("filial");
 		String departamento = request.getParameter("departamento");
 		String id = request.getParameter("id");
 		Funcionario funcionario = new Funcionario(null,nome, cpf, rg, sexo, estadoCivil, dataNascimento,
-				estado, cidade, bairro, logradouro, numero, complemento, telefone, email,situacao, senha, cargo, filial, departamento);
+				estado, cidade, bairro, logradouro, numero, complemento, telefone, email,status, senha, cargo, filial, departamento);
 		if(id != null && !id.equals("")) {
 			funcionario.setId(Integer.parseInt(id));
 		}
@@ -99,7 +99,7 @@ public class FuncionarioServlet extends HttpServlet {
 			request.setAttribute("mensagem", "Erro de Driver: " + e.getMessage());
 			 request.setAttribute("funcionario", funcionario);
 	    }
-		RequestDispatcher dispatcher = request.getRequestDispatcher("//WEB-INF/paginas/funcionario.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastroFuncionario.jsp");
 		dispatcher.forward(request, response);
 		
 	   }

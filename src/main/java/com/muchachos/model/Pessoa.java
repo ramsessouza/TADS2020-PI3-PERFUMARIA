@@ -22,7 +22,7 @@ public class Pessoa {
 	private String complemento;
 	private String telefone;
 	private String email;
-	private String situacao;
+	private String status;
 	
 	
 	public Pessoa() {
@@ -35,7 +35,7 @@ public class Pessoa {
 
 	public Pessoa(Integer id, String nome, String cpf, String rg, String sexo, String estadoCivil,
 			String dataNascimento, String estado, String cidade, String bairro, String logradouro, int numero,
-			String complemento, String telefone, String email, String situacao) {
+			String complemento, String telefone, String email, String status) {
 		
 		this.id = id;
 		this.nome = nome;
@@ -52,7 +52,7 @@ public class Pessoa {
 		this.complemento = complemento;
 		this.telefone = telefone;
 		this.email = email;
-		this.situacao = situacao;
+		this.status = status;
 	}
 
     
@@ -79,11 +79,11 @@ public class Pessoa {
 		this.email = email;
 	}
 
-	public Pessoa(Integer id, String nome, String cpf, String situacao) {
+	public Pessoa(Integer id, String nome, String cpf, String status) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
-		this.situacao = situacao;
+		this.status = status;
 	}
 	
 	
@@ -223,12 +223,12 @@ public class Pessoa {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getSituacao() {
-		return situacao;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
+	public void setStatus(String status) {
+		this.status = status;
         }
 
 }

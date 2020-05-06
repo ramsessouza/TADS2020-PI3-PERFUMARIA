@@ -39,8 +39,8 @@ public class FuncionarioDao {
 	public void salvar(Funcionario funcionario) throws ClassNotFoundException, SQLException {
 		Connection conexao = ConexaoDatabase.getConexao();
 		PreparedStatement statement = conexao.prepareStatement(
-				" insert into TB_COLABORADOR(nome, cpf, rg, sexo, estadoCivil, dataNascimento, estado, cidade, bairro,  logradouro,"
-						+ " numero,complemento, telefone,email,situacao, senha, cargo, filial, departamento)"
+				" insert into TB_COLABORADOR(NOME,SEXO, NASCIMENTO, ESTADO_CIVIL, STATUS, RG,CPF, TELEFONE, EMAIL, SENHA ,"
+						+ " FILIAL,DEPARTAMENTO,CARGO,ESTADO,CIDADE, BAIRRO,LOGRADOURO, NUMERO,COMPLEMENTO)"
 						+ " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
 		statement.setString(1, funcionario.getNome());  
@@ -57,7 +57,7 @@ public class FuncionarioDao {
 		statement.setString(12, funcionario.getComplemento());
 		statement.setString(13, funcionario.getTelefone());
 		statement.setString(14, funcionario.getEmail());
-		statement.setString(15, funcionario.getSituacao());
+		statement.setString(15, funcionario.getStatus());
 		statement.setString(16, funcionario.getSenha());
 		statement.setString(17, funcionario.getCargo());
 		statement.setString(18, funcionario.getFilial());
@@ -132,7 +132,7 @@ public class FuncionarioDao {
 		statement.setString(12, funcionario.getComplemento());
 		statement.setString(13, funcionario.getTelefone());
 		statement.setString(14, funcionario.getEmail());
-		statement.setString(15, funcionario.getSituacao());
+		statement.setString(15, funcionario.getStatus());
 		statement.setString(16, funcionario.getSenha());
 		statement.setString(17, funcionario.getCargo());
 		statement.setString(18, funcionario.getFilial());
@@ -171,7 +171,7 @@ public class FuncionarioDao {
 			
 			while(rs.next()) {
 				if(listaFuncionario == null) {
-					listaFuncionario = new ArrayList<Funcionario>();
+			           listaFuncionario = new ArrayList<Funcionario>();
 				}
 				int id = rs.getInt("id");
 				String nome = rs.getString("nome");

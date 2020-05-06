@@ -21,19 +21,19 @@ public class Funcionario extends Pessoa {
 	}
 	public Funcionario(Integer id, String nome, String cpf, String rg, String sexo, String estadoCivil,
 			String dataNascimento, String estado, String cidade, String bairro, String logradouro, int numero,
-			String complemento, String telefone, String email, String situacao, String senha, String cargo,
+			String complemento, String telefone, String email, String status, String senha, String cargo,
 			String filial, String departamento) {
 		super(id, nome, cpf, rg, sexo, estadoCivil, dataNascimento, estado, cidade, bairro, logradouro, numero,
-				complemento, telefone, email, situacao);
+				complemento, telefone, email, status);
 		this.senha = senha;
 		this.cargo = cargo;
 		this.filial = filial; 
 		this.departamento = departamento;
 	} 
 
-	public Funcionario(Integer id, String nome, String cpf, String situacao, String cargo, String filial,
+	public Funcionario(Integer id, String nome, String cpf, String status, String cargo, String filial,
 			String departamento) {
-		super(id, nome, cpf, situacao);
+		super(id, nome, cpf, status);
 		this.cargo = cargo;
 		this.filial = filial;
 		this.departamento = departamento;
