@@ -20,8 +20,8 @@ public class FuncionarioDao {
 
 		Connection conexao = ConexaoDatabase.getConexao();
 		PreparedStatement ps = conexao.prepareStatement("SELECT id, nome, Cpf, Rg, Sexo,"
-				+ "estadoCivil, dataNascimento, Estado, Cidade, bairro, Logradouro, Numero,complemento, Telefone,"
-				+ "Email,situacao, Senha, Cargo, Filial, Departamento FROM TB_COLABORADOR");
+				+ " ESTADO_CIVIL, NASCIMENTO, Estado, Cidade, bairro, Logradouro, Numero,complemento, Telefone,"
+				+ "Email,status, Senha, Cargo, Filial, Departamento FROM TB_COLABORADOR");
 
 		ResultSet rs = ps.executeQuery();
 		List<Funcionario> funcionarios = new ArrayList<>(); 
@@ -44,30 +44,30 @@ public class FuncionarioDao {
 						+ " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
 		statement.setString(1, funcionario.getNome());  
-		statement.setString(2, funcionario.getCpf()); 
-		statement.setString(3, funcionario.getRg());
-		statement.setString(4, funcionario.getSexo()); 
-		statement.setString(5, funcionario.getEstadoCivil()); 
-		statement.setString(6, funcionario.getDataNascimento());
-		statement.setString(7, funcionario.getEstado());
-		statement.setString(8, funcionario.getCidade());
-		statement.setString(9, funcionario.getBairro()); 
-		statement.setString(10, funcionario.getLogradouro());
-		statement.setInt(11, funcionario.getNumero());
-		statement.setString(12, funcionario.getComplemento());
-		statement.setString(13, funcionario.getTelefone());
-		statement.setString(14, funcionario.getEmail());
-		statement.setString(15, funcionario.getStatus());
-		statement.setString(16, funcionario.getSenha());
-		statement.setString(17, funcionario.getCargo());
-		statement.setString(18, funcionario.getFilial());
-		statement.setString(19, funcionario.getDepartamento());
+		statement.setString(2, funcionario.getSexo()); 
+		statement.setString(3, funcionario.getDataNascimento());
+		statement.setString(4, funcionario.getEstadoCivil()); 
+		statement.setString(5, funcionario.getStatus()); 
+		statement.setString(6, funcionario.getRg());
+		statement.setString(7, funcionario.getCpf());
+		statement.setString(8, funcionario.getTelefone());
+		statement.setString(9, funcionario.getEmail()); 
+		statement.setString(10, funcionario.getSenha());
+		statement.setString(11, funcionario.getFilial());
+		statement.setString(12, funcionario.getDepartamento());
+		statement.setString(13, funcionario.getCargo());
+		statement.setString(14, funcionario.getEstado());
+		statement.setString(15, funcionario.getCidade());
+		statement.setString(16, funcionario.getBairro());
+		statement.setString(17, funcionario.getLogradouro());
+		statement.setInt(18, funcionario.getNumero());
+		statement.setString(19, funcionario.getComplemento());
 		statement.execute();
 	}
 	
 	public List<Funcionario> getFuncionario1() throws SQLException, ClassNotFoundException {
     Connection conexao = ConexaoDatabase.getConexao();
-    PreparedStatement ps = conexao.prepareStatement("Select id, nome, cpf, situacao, cargo, "
+    PreparedStatement ps = conexao.prepareStatement("Select id, nome, cpf, STATUS, cargo, "
     		+ "filial , departamento from TB_COLABORADOR");
     
     ResultSet rs = ps.executeQuery();
@@ -96,8 +96,8 @@ public class FuncionarioDao {
 	public Funcionario getFuncionarioId(Integer cod) throws SQLException, ClassNotFoundException  {
 		Connection conexao = ConexaoDatabase.getConexao();
 		PreparedStatement ps = conexao.prepareStatement("SELECT id, nome, Cpf, Rg, Sexo,"
-				+ "estadoCivil, dataNascimento, Estado, Cidade, bairro, Logradouro, Numero,complemento, Telefone,"
-				+ "Email,situacao, Senha, Cargo, Filial, Departamento FROM TB_COLABORADOR WHERE id=?");
+				+ "ESTADO_CIVIL, NASCIMENTO, Estado, Cidade, bairro, Logradouro, Numero,complemento, Telefone,"
+				+ "Email,STATUS, Senha, Cargo, Filial, Departamento FROM TB_COLABORADOR WHERE id=?");
         ps.setInt(1, cod);
 		ResultSet rs =  ps.executeQuery();
 		
@@ -115,8 +115,8 @@ public class FuncionarioDao {
 	public void atualizar(Funcionario funcionario) throws ClassNotFoundException, SQLException  {
 		Connection conexao = ConexaoDatabase.getConexao();
 		PreparedStatement statement = conexao.prepareStatement(
-				" UPDATE TB_COLABORADOR SET nome=?, cpf=?, rg=?, sexo=?, estadoCivil=?, dataNascimento=?, estado=?, cidade=?, bairro=?,  logradouro=?,"
-						+ " numero=?,complemento=?, telefone=?,email=?,situacao=?, senha=?, cargo=?, filial=?, departamento=? WHERE id=?");
+				" UPDATE TB_COLABORADOR SET nome=?, cpf=?, rg=?, sexo=?, ESTADO_CIVIL=?, NASCIMENTO=?, estado=?, cidade=?, bairro=?,  logradouro=?,"
+						+ " numero=?,complemento=?, telefone=?,email=?,STATUS=?, senha=?, cargo=?, filial=?, departamento=? WHERE id=?");
 
 		statement.setString(1, funcionario.getNome());
 		statement.setString(2, funcionario.getCpf());
@@ -144,7 +144,7 @@ public class FuncionarioDao {
   
 	      public static List<Funcionario> buscar(String busca)throws SQLException, Exception {
 		  String sql = "SELECT * FROM TB_COLABORADOR WHERE id like ? or nome like ? or cpf like ? \n"
-		  		+ " or situacao like ? or cargo like ? or filial like ? or departamento like ? ";
+		  		+ " or status like ? or cargo like ? or filial like ? or departamento like ? ";
 		  busca = busca+ '%';
 		  
 		  List <Funcionario> listaFuncionario = null;
@@ -171,17 +171,17 @@ public class FuncionarioDao {
 			
 			while(rs.next()) {
 				if(listaFuncionario == null) {
-			           listaFuncionario = new ArrayList<Funcionario>();
+			           listaFuncionario = new ArrayList<>();
 				}
 				int id = rs.getInt("id");
 				String nome = rs.getString("nome");
 				String cpf = rs.getString("cpf");
-				String situacao = rs.getString("situacao");
+				String status = rs.getString("status");
 				String cargo = rs.getString("cargo");
 				String filial = rs.getString("filial");
 				String departamento = rs.getString("departamento");
 				
-				Funcionario F = new Funcionario(id,nome,cpf,situacao,cargo,filial,departamento);
+				Funcionario F = new Funcionario(id,nome,cpf,status,cargo,filial,departamento);
 				listaFuncionario.add(F);
 			}
 			

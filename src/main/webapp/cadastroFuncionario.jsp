@@ -60,8 +60,8 @@
         <li><a class="item-linha" href="#"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
         <li><a class="item-linha" href="#"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
         <p>Tecnologia da Informação</p>
-        <li><a class="item-linha" href="#"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
-        <li><a class="item-linha" href="#"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+        <li><a class="item-linha" href="funcionarioServlet"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
+        <li><a class="item-linha" href="consultaFuncionario.jsp"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
         <p>Recursos Humanos</p>
         <li><a class="item-linha" href="#"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
         <p>Gerência</p>
@@ -75,18 +75,19 @@
     <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
       <!--Formulário Geral-->
       <form action="funcionarioServlet" method="post">
+          <h1 class="titulo-formulario">${mensagem}</h1>
         <!--Linha 1-->
         <div class="row linha-do-nome">
           <div class="col-md-11 col-sm-11">
             <div class="form-group">
               <label>Nome</label>
-              <input type="text" class="form-control" id="nome">
+              <input type="text" class="form-control" name="nome" id="nome">
             </div>
           </div>
           <div class="col-md-1 col-sm-1">
             <div class="form-group">
                   <label>Status</label>
-                  <select id="status" class="form-control">
+                  <select name="status" id="status" class="form-control">
                     <option value="Ativo">Ativo</option>
                     <option value="Inativo">Inativo</option>
                   </select>
@@ -99,7 +100,7 @@
           <div class="col-md-3 col-sm-3">
             <div class="form-group">
               <label>Nascimento</label>
-              <input type="date" class="form-control">
+              <input name="dataNascimento" id="dataNascimento" type="date" class="form-control">
             </div>
           </div>
           <div class="col-md-9 col-sm-9">
@@ -108,19 +109,19 @@
               <div class="col-md-3 col-sm-3">
                 <div class="form-group">
                   <label>RG</label>
-                  <input type="text" class="form-control">
+                  <input name="rg" id="rg" type="text" class="form-control">
                 </div>
               </div>
               <div class="col-md-3 col-sm-3">
                 <div class="form-group">
                   <label>CPF</label>
-                  <input type="text" class="form-control">
+                  <input name="cpf" id="cpf" type="text" class="form-control">
                 </div>
               </div>
               <div class="dropdown col-md-3 col-sm-3">
                 <div class="form-group">
                   <label>Estado Civil</label>
-                  <select id="EstadoCivil" class="form-control">
+                  <select name="estadoCivil" id="estadoCivil" class="form-control">
                     <option value="Casado">Casado</option>
                     <option value="Solteiro">Solteiro</option>
                     <option value="Divorciado">Divorciado</option>
@@ -131,7 +132,7 @@
               <div class="col-md-3 col-sm-3">
                 <div class="form-group">
                   <label>Sexo</label>
-                  <select id="Sexo" class="form-control">
+                  <select name="sexo" id="sexo" class="form-control">
                     <option value="Masculino">Masculino</option>
                     <option value="Feminino">Feminino</option>
                   </select>
@@ -146,13 +147,13 @@
           <div class="col-md-8 col-sm-8">
             <div class="form-group">
               <label>Endereço</label>
-              <input type="text" class="form-control">
+              <input name="logradouro" id="logradouro" type="text" class="form-control">
             </div>
           </div>
           <div class="col-md-4 col-sm-2">
             <div class="form-group">
               <label>Número</label>
-              <input type="text" class="form-control">
+              <input name="numero" id="numero" type="text" class="form-control">
             </div>
           </div>  
         </div><!--Fim Linha 3-->
@@ -162,19 +163,19 @@
           <div class="col-md-4 col-sm-4">
             <div class="form-group">
               <label>Bairro</label>
-              <input type="text" class="form-control">
+              <input name="bairro" id="bairro" type="text" class="form-control">
             </div>
           </div>
           <div class="col-md-4 col-sm-4">
             <div class="form-group">
               <label>Cidade</label>
-              <input type="text" class="form-control">
+              <input name="cidade" id="cidade" type="text" class="form-control">
             </div>
           </div>
           <div class="col-md-4 col-sm-4">
             <div class="form-group">
               <label>Complemento</label>
-              <input type="text" class="form-control">
+              <input name="complemento" id="complemento" type="text" class="form-control">
             </div>
           </div>
         </div><!--Fim Linha 4-->
@@ -184,7 +185,7 @@
           <div class="col-md-3 col-sm-3">
             <div class="form-group">
               <label>Estado</label>
-              <input type="text" class="form-control">
+              <input name="estado" id="estado" type="text" class="form-control">
             </div>
           </div>
           <div class="col-md-9 col-sm-9">
@@ -193,13 +194,13 @@
               <div class="col-md-6 col-sm-4">
                 <div class="form-group">
                   <label>Telefone</label>
-                  <input type="text" class="form-control">
+                  <input name="telefone" id="telefone" type="text" class="form-control">
                 </div>
               </div> 
               <div class="col-md-6 col-sm-4">
                 <div class="form-group">
                   <label>E-mail</label>
-                  <input type="E-mail" class="form-control">
+                  <input name="email" id="email" type="E-mail" class="form-control">
                 </div>
               </div>
             </div><!--Fim Linha 5.1-->  
@@ -210,7 +211,7 @@
           <div class="col-md-3 col-sm-3">
             <div class="form-group">
                   <label>Departamento</label>
-                  <select id="EstadoCivil" class="form-control">
+                  <select name="departamento" id="departamento" class="form-control">
                     <option value="Venda">Venda</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Publicidade">Publicidade</option>
@@ -224,7 +225,7 @@
               <div class="col-md-4 col-sm-4">
                  <div class="form-group">
                   <label>Cargo</label>
-                  <select id="EstadoCivil" class="form-control">
+                  <select name="cargo" id="cargo" class="form-control">
                     <option value="Venda">Venda</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Publicidade">Publicidade</option>
@@ -235,7 +236,7 @@
               <div class="col-md-4 col-sm-4">
                 <div class="form-group">
                   <label>Filial</label>
-                  <select id="EstadoCivil" class="form-control">
+                  <select name="filial" id="filial" class="form-control">
                     <option value="Bahia">Bahia</option>
                     <option value="São Paulo">São Paulo</option>
                     <option value="Rio de Janeiro">Rio de Janeiro</option>
@@ -245,7 +246,7 @@
               <div class="col-md-4 col-sm-4">
                 <div class="form-group">
                   <label>Senha</label>
-                  <input type="password" class="form-control">
+                  <input name="senha" id="senha" type="password" class="form-control">
                 </div>
               </div>
             </div><!--Fim Linha 5.1-->  

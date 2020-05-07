@@ -48,27 +48,28 @@ public class FuncionarioServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String nome = request.getParameter("nome");
+                String sexo = request.getParameter("sexo");
+                String dataNascimento = request.getParameter("dataNascimento");
+                String estadoCivil = request.getParameter("estadoCivil");
+                String status = request.getParameter("status");
+                String rg = request.getParameter("rg");
 		String cpf = request.getParameter("cpf");
-		String rg = request.getParameter("rg");
-		String sexo = request.getParameter("sexo");
-		String estadoCivil = request.getParameter("estadoCivil");
-		String dataNascimento = request.getParameter("dataNascimento");
+	        String telefone = request.getParameter("telefone");
+		String email = request.getParameter("email");
+		String senha = request.getParameter("senha");
+		String filial = request.getParameter("filial");
+		String departamento = request.getParameter("departamento");
+                String cargo = request.getParameter("cargo");
 		String estado = request.getParameter("estado");
 		String cidade = request.getParameter("cidade");
 		String bairro = request.getParameter("bairro");
 		String logradouro = request.getParameter("logradouro");
-		int numero = Integer.parseInt(request.getParameter("numero"));
+                int numero = Integer.parseInt(request.getParameter("numero"));
 		String complemento = request.getParameter("complemento");
-		String telefone = request.getParameter("telefone");
-		String email = request.getParameter("email");
-		String status = request.getParameter("status");
-		String senha = request.getParameter("senha");
-		String cargo = request.getParameter("cargo");
-		String filial = request.getParameter("filial");
-		String departamento = request.getParameter("departamento");
 		String id = request.getParameter("id");
+                
 		Funcionario funcionario = new Funcionario(null,nome, cpf, rg, sexo, estadoCivil, dataNascimento,
-				estado, cidade, bairro, logradouro, numero, complemento, telefone, email,status, senha, cargo, filial, departamento);
+		estado, cidade, bairro, logradouro, numero, complemento, telefone, email,status, senha, cargo, filial, departamento);
 		if(id != null && !id.equals("")) {
 			funcionario.setId(Integer.parseInt(id));
 		}
