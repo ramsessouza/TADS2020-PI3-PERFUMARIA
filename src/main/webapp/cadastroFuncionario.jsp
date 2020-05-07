@@ -81,7 +81,7 @@
           <div class="col-md-11 col-sm-11">
             <div class="form-group">
               <label>Nome</label>
-              <input type="text" class="form-control" name="nome" id="nome">
+              <input type="text" class="form-control" name="nome" id="nome" required >
             </div>
           </div>
           <div class="col-md-1 col-sm-1">
@@ -100,7 +100,7 @@
           <div class="col-md-3 col-sm-3">
             <div class="form-group">
               <label>Nascimento</label>
-              <input name="dataNascimento" id="dataNascimento" type="date" class="form-control">
+              <input name="dataNascimento" id="dataNascimento" type="date" class="form-control" required >
             </div>
           </div>
           <div class="col-md-9 col-sm-9">
@@ -115,13 +115,13 @@
               <div class="col-md-3 col-sm-3">
                 <div class="form-group">
                   <label>CPF</label>
-                  <input name="cpf" id="cpf" type="text" class="form-control">
+                  <input name="cpf" id="cpf" type="text" class="form-control" required>
                 </div>
               </div>
               <div class="dropdown col-md-3 col-sm-3">
                 <div class="form-group">
                   <label>Estado Civil</label>
-                  <select name="estadoCivil" id="estadoCivil" class="form-control">
+                  <select name="estadoCivil" id="estadoCivil" class="form-control" required >
                     <option value="Casado">Casado</option>
                     <option value="Solteiro">Solteiro</option>
                     <option value="Divorciado">Divorciado</option>
@@ -147,13 +147,13 @@
           <div class="col-md-8 col-sm-8">
             <div class="form-group">
               <label>Endereço</label>
-              <input name="logradouro" id="logradouro" type="text" class="form-control">
+              <input name="logradouro" id="logradouro" type="text" class="form-control" required>
             </div>
           </div>
           <div class="col-md-4 col-sm-2">
             <div class="form-group">
               <label>Número</label>
-              <input name="numero" id="numero" type="text" class="form-control">
+              <input name="numero" id="numero" type="text" class="form-control" required>
             </div>
           </div>  
         </div><!--Fim Linha 3-->
@@ -169,7 +169,7 @@
           <div class="col-md-4 col-sm-4">
             <div class="form-group">
               <label>Cidade</label>
-              <input name="cidade" id="cidade" type="text" class="form-control">
+              <input name="cidade" id="cidade" type="text" class="form-control" required>
             </div>
           </div>
           <div class="col-md-4 col-sm-4">
@@ -185,7 +185,7 @@
           <div class="col-md-3 col-sm-3">
             <div class="form-group">
               <label>Estado</label>
-              <input name="estado" id="estado" type="text" class="form-control">
+              <input name="estado" id="estado" type="text" class="form-control" required>
             </div>
           </div>
           <div class="col-md-9 col-sm-9">
@@ -194,13 +194,13 @@
               <div class="col-md-6 col-sm-4">
                 <div class="form-group">
                   <label>Telefone</label>
-                  <input name="telefone" id="telefone" type="text" class="form-control">
+                  <input name="telefone" id="telefone" type="text" class="form-control" required >
                 </div>
               </div> 
               <div class="col-md-6 col-sm-4">
                 <div class="form-group">
                   <label>E-mail</label>
-                  <input name="email" id="email" type="E-mail" class="form-control">
+                  <input name="email" id="email" type="E-mail" class="form-control" required>
                 </div>
               </div>
             </div><!--Fim Linha 5.1-->  
@@ -246,7 +246,7 @@
               <div class="col-md-4 col-sm-4">
                 <div class="form-group">
                   <label>Senha</label>
-                  <input name="senha" id="senha" type="password" class="form-control">
+                  <input name="senha" id="senha" type="password" class="form-control" required>
                 </div>
               </div>
             </div><!--Fim Linha 5.1-->  
