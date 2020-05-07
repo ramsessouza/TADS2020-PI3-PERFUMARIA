@@ -1,6 +1,6 @@
 package com.muchachos.servelet;
 
-import com.muchachos.db.FuncionarioDao;
+import com.muchachos.dao.FuncionarioDao;
 import com.muchachos.model.Funcionario;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -41,7 +41,7 @@ public class FuncionarioServlet extends HttpServlet {
 			
 			request.setAttribute("mensagem", "Erro de Driver: " + e.getMessage());
 	   }
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/paginas/editarFuncionario.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/editarFuncionario.jsp");
 		dispatcher.forward(request, response);
 	}
   @Override

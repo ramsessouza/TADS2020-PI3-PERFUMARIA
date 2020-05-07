@@ -1,9 +1,10 @@
-package com.muchachos.db;
+package com.muchachos.dao;
 
 /**
  *
  * @author Valter Lafuente Junior
  */
+import com.muchachos.db.ConexaoDatabase;
 import com.muchachos.model.Funcionario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

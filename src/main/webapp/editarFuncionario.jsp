@@ -60,8 +60,8 @@
         <li><a class="item-linha" href="#"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
         <li><a class="item-linha" href="#"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
         <p>Tecnologia da Informação</p>
-        <li><a class="item-linha" href="cadastroFuncionario.jsp"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
-        <li><a class="item-linha" href="buscaFuncionario.jsp"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+        <li><a class="item-linha" href="funcionarioServlet"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
+        <li><a class="item-linha" href="gerenciarFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
         <p>Recursos Humanos</p>
         <li><a class="item-linha" href="#"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
         <p>Gerência</p>
@@ -78,16 +78,22 @@
           <h1 class="titulo-formulario">${mensagem}</h1>
         <!--Linha 1-->
         <div class="row linha-do-nome">
+            
+          <div class="col-md-11 col-sm-11">
+             <input type="hidden" name="id"  value="${funcionario.id}">
+          </div>
+          
           <div class="col-md-11 col-sm-11">
             <div class="form-group">
               <label>Nome</label>
-              <input type="text" class="form-control" name="nome" id="nome" required >
+              <input type="text" class="form-control" name="nome" value="${funcionario.nome}" id="nome" required >
             </div>
           </div>
           <div class="col-md-1 col-sm-1">
             <div class="form-group">
                   <label>Status</label>
                   <select name="status" id="status" class="form-control">
+                   <option value="${funcionario.status}">${funcionario.status}</option>   
                     <option value="Ativo">Ativo</option>
                     <option value="Inativo">Inativo</option>
                   </select>
@@ -100,7 +106,7 @@
           <div class="col-md-3 col-sm-3">
             <div class="form-group">
               <label>Nascimento</label>
-              <input name="dataNascimento" id="dataNascimento" type="date" class="form-control" required >
+              <input name="dataNascimento" id="dataNascimento" type="date" class="form-control" value="${funcionario.dataNascimento}" required >
             </div>
           </div>
           <div class="col-md-9 col-sm-9">
@@ -109,19 +115,20 @@
               <div class="col-md-3 col-sm-3">
                 <div class="form-group">
                   <label>RG</label>
-                  <input name="rg" id="rg" type="text" class="form-control">
+                  <input name="rg" id="rg" type="text" class="form-control" value="${funcionario.rg}" >
                 </div>
               </div>
               <div class="col-md-3 col-sm-3">
                 <div class="form-group">
                   <label>CPF</label>
-                  <input name="cpf" id="cpf" type="text" class="form-control" required>
+                  <input name="cpf" id="cpf" type="text" class="form-control" value="${funcionario.cpf}" required>
                 </div>
               </div>
               <div class="dropdown col-md-3 col-sm-3">
                 <div class="form-group">
                   <label>Estado Civil</label>
                   <select name="estadoCivil" id="estadoCivil" class="form-control" required >
+                     <option value="${funcionario.estadoCivil}">${funcionario.estadoCivil}</option>     
                     <option value="Casado">Casado</option>
                     <option value="Solteiro">Solteiro</option>
                     <option value="Divorciado">Divorciado</option>
@@ -133,6 +140,7 @@
                 <div class="form-group">
                   <label>Sexo</label>
                   <select name="sexo" id="sexo" class="form-control">
+                    <option value="${funcionario.sexo}">${funcionario.sexo}</option>     
                     <option value="Masculino">Masculino</option>
                     <option value="Feminino">Feminino</option>
                   </select>
@@ -147,13 +155,13 @@
           <div class="col-md-8 col-sm-8">
             <div class="form-group">
               <label>Endereço</label>
-              <input name="logradouro" id="logradouro" type="text" class="form-control" required>
+              <input name="logradouro" id="logradouro" type="text" class="form-control" value="${funcionario.logradouro}" required>
             </div>
           </div>
           <div class="col-md-4 col-sm-2">
             <div class="form-group">
               <label>Número</label>
-              <input name="numero" id="numero" type="text" class="form-control" required>
+              <input name="numero" id="numero" type="text" class="form-control" value="${funcionario.numero}" required>
             </div>
           </div>  
         </div><!--Fim Linha 3-->
@@ -163,19 +171,19 @@
           <div class="col-md-4 col-sm-4">
             <div class="form-group">
               <label>Bairro</label>
-              <input name="bairro" id="bairro" type="text" class="form-control">
+              <input name="bairro" id="bairro" type="text" class="form-control" value="${funcionario.bairro}">
             </div>
           </div>
           <div class="col-md-4 col-sm-4">
             <div class="form-group">
               <label>Cidade</label>
-              <input name="cidade" id="cidade" type="text" class="form-control" required>
+              <input name="cidade" id="cidade" type="text" class="form-control" value="${funcionario.cidade}" required>
             </div>
           </div>
           <div class="col-md-4 col-sm-4">
             <div class="form-group">
               <label>Complemento</label>
-              <input name="complemento" id="complemento" type="text" class="form-control">
+              <input name="complemento" id="complemento" type="text" class="form-control" value="${funcionario.complemento}">
             </div>
           </div>
         </div><!--Fim Linha 4-->
@@ -185,7 +193,7 @@
           <div class="col-md-3 col-sm-3">
             <div class="form-group">
               <label>Estado</label>
-              <input name="estado" id="estado" type="text" class="form-control" required>
+              <input name="estado" id="estado" type="text" class="form-control"value="${funcionario.estado}" required>
             </div>
           </div>
           <div class="col-md-9 col-sm-9">
@@ -194,13 +202,13 @@
               <div class="col-md-6 col-sm-4">
                 <div class="form-group">
                   <label>Telefone</label>
-                  <input name="telefone" id="telefone" type="text" class="form-control" required >
+                  <input name="telefone" id="telefone" type="text" class="form-control" value="${funcionario.telefone}" required >
                 </div>
               </div> 
               <div class="col-md-6 col-sm-4">
                 <div class="form-group">
                   <label>E-mail</label>
-                  <input name="email" id="email" type="E-mail" class="form-control" required>
+                  <input name="email" id="email" type="E-mail" class="form-control" value="${funcionario.email}" required>
                 </div>
               </div>
             </div><!--Fim Linha 5.1-->  
@@ -212,6 +220,7 @@
             <div class="form-group">
                   <label>Departamento</label>
                   <select name="departamento" id="departamento" class="form-control">
+                     <option value="${funcionario.departamento}">${funcionario.departamento}</option>     
                     <option value="Venda">Venda</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Publicidade">Publicidade</option>
@@ -226,6 +235,7 @@
                  <div class="form-group">
                   <label>Cargo</label>
                   <select name="cargo" id="cargo" class="form-control">
+                    <option value="${funcionario.cargo}">${funcionario.cargo}</option>     
                     <option value="Venda">Venda</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Publicidade">Publicidade</option>
@@ -237,6 +247,7 @@
                 <div class="form-group">
                   <label>Filial</label>
                   <select name="filial" id="filial" class="form-control">
+                    <option value="${funcionario.filial}">${funcionario.filial}</option>     
                     <option value="Bahia">Bahia</option>
                     <option value="São Paulo">São Paulo</option>
                     <option value="Rio de Janeiro">Rio de Janeiro</option>
@@ -246,7 +257,7 @@
               <div class="col-md-4 col-sm-4">
                 <div class="form-group">
                   <label>Senha</label>
-                  <input name="senha" id="senha" type="password" class="form-control" required>
+                  <input name="senha" id="senha" type="password" class="form-control" value="${funcionario.senha}"required>
                 </div>
               </div>
             </div><!--Fim Linha 5.1-->  
