@@ -22,7 +22,7 @@ public class BuscarFuncionarioServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
       try {
-	  List<Funcionario> listaFuncionario = FuncionarioDao.buscar(request.getParameter("Busca"));
+	  List<Funcionario> listaFuncionario = FuncionarioDao.buscar(request.getParameter("Buscar"));
 	  request.setAttribute("listaFuncionario", listaFuncionario);	
      } catch (Exception e) {
 	request.setAttribute("mensagem", "Erro de banco de dados: " + e.getMessage());

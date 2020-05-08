@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Valter Lafuente junior
  */
-@WebServlet(name = "gerenciarFuncionarioServlet", urlPatterns = {"/gerenciarFuncionarioServlet"})
-public class GerenciarFuncionarioServlet extends HttpServlet {
+@WebServlet(name = "consultaFuncionarioServlet", urlPatterns = {"/consultaFuncionarioServlet"})
+public class ConsultaFuncionarioServlet extends HttpServlet {
 
         private FuncionarioDao funcionarioDao = new FuncionarioDao(); 
 	private static final long serialVersionUID = 1L;
@@ -40,7 +40,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	request.setAttribute("mensagem", "Erro de driver");
 		}
 	
-	RequestDispatcher dispatcher = request.getRequestDispatcher("/gerenciarFuncionario.jsp");
+	RequestDispatcher dispatcher = request.getRequestDispatcher("/consultaFuncionario.jsp");
 	    dispatcher.forward(request, response);
 	}
 }

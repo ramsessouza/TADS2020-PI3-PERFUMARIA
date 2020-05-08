@@ -22,8 +22,9 @@
   <!--Específica da Página-->
   <link href="css/start.css" rel="stylesheet">
   
+  <!--
   <link href="css/componentes.css" rel="stylesheet">
-
+-->
   <link href="css/consultaProduto.css" rel="stylesheet">
   <!--Titulo e icone-->
   <link rel="shortcut icon" href="img/logo-branco.png"/>
@@ -64,7 +65,7 @@
           <li><a class="item-linha" href="#"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
           <p>Tecnologia da Informação</p>
           <li><a class="item-linha" href="cadastroFuncionario.jsp"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
-          <li><a class="item-linha" href="buscaFuncionario.jsp"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+          <li><a class="item-linha" href="consultaFuncionario.jsp"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
           <p>Recursos Humanos</p>
           <li><a class="item-linha" href="#"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
           <p>Gerência</p>
@@ -89,11 +90,11 @@
                     <span class="fas fa-pump-soap mr-1"></span>
                   </div>
                 </div>
-                <input class="form-control" placeholder="Digite nome ou cpf" type="text" value="Buscar" required>
+                <input class="form-control" placeholder="Digite nome ou cpf" type="text" value="Busca" required>
               </div><!--Fim do campo de Pesquisa de produto-->
             </div>
             <div class="col-sm-2">
-                <button type="submit" class="btn btn-dark btn-block" value="Buscar" >Pesquisar
+                <button class="btn btn-dark btn-block" value="Busca" type="submit">Pesquisar
                 <span class="ml-1 fas fa-search"></span>
               </button>
             </div>
@@ -104,31 +105,32 @@
           <table class="table table-sm table-secondary table-hover table-striped">   
             <thead class="thead-dark">
               <tr>
-                <th class="td-id">ID</th>
-                <th class="td-nome">NOME</th>
-                <th class="td-cpfa  ">CPF</th>
-                <th class="td-categoria">EMAIL</th>
-                <th class="td-valor">CARGO</th>
+                <th>ID</th>
+                <th>NOME</th>
+                <th>CPF</th>
+                <th>EMAIL</th>
+                <th>CARGO</th>
                 <th>FILIAL</th>
                 <th>DEPTO</th>
-                <th>SITUAÇÂO</th>
+                <th>STATUS</th>
                 <th class="td-editar">EDITAR</th>
                 <th class="td-remover">REMOVER</th>
               </tr>
             </thead>
             <tbody>
               
-             <c:forEach var="f" items="${listaFuncionario}">
+            <c:forEach var="f" items="${listaFuncionario}">
 	      <tr>
 		<td>${f.id}</td>
 		<td>${f.nome}</td>
-		<td>${f.cpf}</td>
-		<td>${f.departamento}</td>
+	        <td>${f.cpf}</td>
+		<td>${f.email}</td>
 		<td>${f.cargo}</td>
-	        <td>${f.filial}</td>
-	        <td>${f.status}</td>
+		<td>${f.filial}</td>
+                <td>${f.departamento}</td>
+		<td>${f.status}</td>
                 <td><a href=funcionarioServlet?acao=Editar&id=${f.id}>Editar</a></td>
-	        <td><a href=gerenciarFuncionarioServlet?acao=Excluir&id=${f.id}>Excluir</a></td>
+	        <td><a href=consultaFuncionarioServlet?acao=Excluir&id=${f.id}>Excluir</a></td>
               </tr>
              </c:forEach>
            </table>
