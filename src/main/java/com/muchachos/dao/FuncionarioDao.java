@@ -180,7 +180,7 @@ public class FuncionarioDao {
 				listaFuncionario.add(F);
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.getMessage();
 			System.out.println(e);
 		}finally {
@@ -196,33 +196,7 @@ public class FuncionarioDao {
 		}
 		  return listaFuncionario;
 	}
-	      
-	  public Funcionario validar(String nome, String senha) throws ClassNotFoundException, SQLException {
-		  Funcionario funcionario = new Funcionario();
-		  PreparedStatement ps ;
-		  Connection conexao;
-		  ResultSet rs ;
-		  
-		  String sql = "SELECT * FROM TB_COLABORADOR WHERE nome = ? and senha = ? ";
-		  try {
-			   conexao = ConexaoDatabase.getConexao();
-			   ps = conexao.prepareStatement(sql);
-			   ps.setString(1, nome);
-			   ps.setString(2, senha);
-			 
-			   rs = ps.executeQuery();
-			   
-			   while(rs.next()) {
-				   
-				   funcionario.setNome(rs.getString("nome"));
-				   funcionario.setSenha(rs.getString("senha"));
-			   }
-			   
-		} catch (SQLException e) {
-			// TODO: handle exception
-			e.getMessage();
-		}
-		 return funcionario; 
-	  }
 }
+	    
+
 

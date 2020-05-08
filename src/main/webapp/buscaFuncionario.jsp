@@ -20,9 +20,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <!--Específica da Página-->
   <link href="css/start.css" rel="stylesheet">
-
+ <!--
   <link href="css/componentes.css" rel="stylesheet">
-
+-->
   <link href="css/consultaProduto.css" rel="stylesheet">
   <!--Titulo e icone-->
   <link rel="shortcut icon" href="img/logo-branco.png"/>
@@ -77,7 +77,7 @@
       <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
         <h1>Gerenciamento de Colcaboradores</h1>
         <!--Formulário-->
-        <form clas="formulario" action="consultaFuncionarioServlet"  method="get">  
+        <form clas="formulario" action="buscarFuncionarioServlet"  method="get">  
             <h1 class="titulo-formulario">${mensagem}</h1>
           <!--Linha 1-->
           <div class="row">
@@ -121,16 +121,16 @@
               
               <c:forEach var="f" items="${listaFuncionarios}">
 		<tr>
-		  <td><c:out value="${f.getId()}"/></td>
-		  <td><c:out value="${f.getNome()}"/></td>
-		  <td><c:out value="${f.getCpf()}"/></td>
-		  <td><c:out value="${f.getEmail()}"/></td>
-		  <td><c:out value="${f.getCargo()}"/></td>
-		  <td><c:out value="${f.getFilial()}"/></td>
-                  <td><c:out value="${f.getDepartamento()}"/></td>
-		  <td><c:out value="${f.getStatus()}"/></td>
-		  <td><a href=funcionarioServlet?acao=Editar&id=${f.id}>Editar</a></td>
-		  <td><a href=funcionarioServlet?acao=Excluir&id=${f.id}>Excluir</a></td>
+		 <td>${f.id}</td>
+		 <td>${f.nome}</td>
+		 <td>${f.cpf}</td>
+		 <td>${f.email}</td>
+		 <td>${f.cargo}</td>
+		 <td>${f.filial}</td>
+                  <td>${f.departamento}</td>
+		 <td>${f.status}</td>
+		 <td><a href=funcionarioServlet?acao=Editar&id=${f.id}>Editar</a></td>
+		 <td><a href=funcionarioServlet?acao=Excluir&id=${f.id}>Excluir</a></td>
 		</tr>
 		</c:forEach>
               
