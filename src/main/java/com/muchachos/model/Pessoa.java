@@ -85,16 +85,15 @@ public class Pessoa {
 		this.cpf = cpf;
 		this.status = status;
 	}
-	
-	
 
-	public Pessoa(Integer id, String nome, String cpf, String telefone, String email) {
-		this.id = id;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.telefone = telefone;
-		this.email = email;
-	}
+        public Pessoa(Integer id, String nome, String cpf, String email, String status) {
+                this.id = id;
+                this.nome = nome;
+                this.cpf = cpf;
+                this.email = email;
+                this.status = status;
+    }
+	
 
 	public Integer getId() {
 		return id;

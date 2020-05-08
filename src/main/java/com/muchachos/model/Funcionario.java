@@ -20,11 +20,11 @@ public class Funcionario extends Pessoa {
 		this.senha = senha;
 	}
 	public Funcionario(Integer id, String nome, String cpf, String rg, String sexo, String estadoCivil,
-			String dataNascimento, String estado, String cidade, String bairro, String logradouro, int numero,
-			String complemento, String telefone, String email, String status, String senha, String cargo,
-			String filial, String departamento) {
-		super(id, nome, cpf, rg, sexo, estadoCivil, dataNascimento, estado, cidade, bairro, logradouro, numero,
-				complemento, telefone, email, status);
+	 String dataNascimento, String estado, String cidade, String bairro, String logradouro, int numero,
+         String complemento, String telefone, String email, String status, String senha, String cargo,
+         String filial, String departamento) {
+         super(id, nome, cpf, rg, sexo, estadoCivil, dataNascimento, estado, cidade, bairro, logradouro, numero,
+	 complemento, telefone, email, status);
 		this.senha = senha;
 		this.cargo = cargo;
 		this.filial = filial; 
@@ -39,6 +39,12 @@ public class Funcionario extends Pessoa {
 		this.departamento = departamento;
 	}
 
+        public Funcionario(String cargo, String filial, String departamento, Integer id, String nome, String cpf, String email, String status) {
+               super(id, nome, cpf, email, status);
+               this.cargo = cargo;
+               this.filial = filial;
+                this.departamento = departamento;
+        }
 	public String getSenha() {
 		return senha;
 	}

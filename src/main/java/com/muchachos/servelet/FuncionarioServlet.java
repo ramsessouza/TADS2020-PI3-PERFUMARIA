@@ -1,4 +1,4 @@
-package com.muchachos.servelet;
+ package com.muchachos.servelet;
 
 import com.muchachos.dao.FuncionarioDao;
 import com.muchachos.model.Funcionario;
@@ -26,21 +26,24 @@ public class FuncionarioServlet extends HttpServlet {
 		String acao = request.getParameter("acao");
 		String id = request.getParameter("id");
 		try {
-			if(acao != null && acao.equals("Editar")) {
-				Integer cod = Integer.parseInt(id); 
-			    Funcionario funcionario = funcionarioDao.getFuncionarioId(cod);
-			    request.setAttribute("funcionario", funcionario);
-			} 
-			
-			request.setAttribute("funcionarios", funcionarioDao.getFuncionario());	
+                  if(acao != null && acao.equals("Excluir")) {
+                    Integer cod = Integer.parseInt(id);
+	            funcionarioDao.excluir(cod);
+	            request.setAttribute("mensagem", "Funcionario Excluido com sucesso!!");
+                }else if(acao != null && acao.equals("Editar")) {
+		    Integer cod = Integer.parseInt(id); 
+                    Funcionario funcionario = funcionarioDao.getFuncionarioId(cod);
+                    request.setAttribute("funcionario", funcionario);
+		}
+		request.setAttribute("funcionarios", funcionarioDao.getFuncionario());	
 			
 		} catch (SQLException e) {
-			request.setAttribute("mensagem", "Erro de banco de dados: " + e.getMessage());
+		request.setAttribute("mensagem", "Erro de banco de dados: " + e.getMessage());
 			
-	   }catch (ClassNotFoundException e) {
+	       }catch (ClassNotFoundException e) {
 			
-			request.setAttribute("mensagem", "Erro de Driver: " + e.getMessage());
-	   }
+		request.setAttribute("mensagem", "Erro de Driver: " + e.getMessage());
+	      }
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/editarFuncionario.jsp");
 		dispatcher.forward(request, response);
 	}
