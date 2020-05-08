@@ -130,14 +130,14 @@
                     <div class="col-md-3 col-sm-3">
                         <div class="form-group">
                             <label>RG</label>
-                            <input id="rg" type="text" class="form-control" placeholder="Exemplo.: 52.498.635-9" required>
+                            <input id="rg" type="text" class="form-control mascara-rg" placeholder="Exemplo.: 52.498.635-9" required>
                         </div>
                     </div><!--Fim RG-->
                     <!--CPF-->
                     <div class="col-md-3 col-sm-3">
                         <div class="form-group">
                             <label>CPF</label>
-                            <input id="cpf" type="text" class="form-control" placeholder="Exemplo.: 522.498.635-49" required>
+                            <input id="cpf" type="text" class="form-control mascara-cpf" placeholder="Exemplo.: 522.498.635-49" required>
                         </div>
                     </div><!--Fim CPF-->
                     <!--Email-->
@@ -151,7 +151,7 @@
                     <div class="col-md-3 col-sm-3">
                         <div class="form-group">
                             <label>Telefone</label>
-                            <input id="telefone" type="text" class="form-control" placeholder="Exemplo.: 11991887754" required>
+                            <input id="telefone" type="text" class="form-control mascara-telefone" placeholder="Exemplo.: 11991887754" required>
                         </div>
                     </div><!--Fim Telefone-->
                 </div><!--Fim Linha 2-->
@@ -212,7 +212,7 @@
                     <div class="col-md-2 col-sm-2">
                         <div class="form-group">
                             <label>Cep</label>
-                            <input id="cep" type="text" class="form-control" placeholder="Exemplo.: 05849-890">
+                            <input id="cep" type="text" class="form-control mascara-cep" placeholder="Exemplo.: 05849-890">
                         </div>
                     </div><!--Fim CEP-->
                 </div><!--Fim Linha 3-->
@@ -230,7 +230,7 @@
                     <div class="col-md-2 col-sm-2">
                         <div class="form-group">
                             <label>Número</label>
-                            <input id="numero" type="number" class="form-control" maxlength="6" placeholder="Exemplo.: 1359" required>
+                            <input id="numero" type="number" class="form-control mascara-numero" maxlength="6" placeholder="Exemplo.: 1359" required>
                         </div>
                     </div><!--Fim Numero-->
                     <!--Complemento-->

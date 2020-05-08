@@ -51,7 +51,7 @@ $(function(){
 				  	//verifica se tem a quantidade em estoque em relacao 
 				  	//a oque ja foi inserido e oque esta sendo inserido
 				  	if(qtdEstoque < somaQtdVendendo + qtdInserindo){
-						alert("Você ja inseriu na venda todos '"+produto+"' que você tinha em estoque!");//caso nao tenha da uma mensagem
+						alert("Você não tem essa quantidade de produtos em estoque!");//caso nao tenha da uma mensagem
 			 			return;//e sai da funcao
 			  		}
 					//Novo id para um novo registro 
@@ -95,7 +95,7 @@ $(function(){
 //MASCARAS
 //==================================================================
 	//valores decimais
-	$(".moeda").maskMoney({decimal: ".", thousands: ","});
+	$(".moeda").maskMoney({decimal: ".", thousands: ","}).mask('9999999999');
 
 	//CPF
 	$('.cpf').mask('999.999.999-99');
@@ -126,10 +126,10 @@ $(function(){
 	pagDeb =0; pagDin =0; pagCred =0; valDesc =0; totPag =0; totTroc =0;
 
 	//Quando digitar em qualquer campo chama a função de calcular o troco
-	$('#pag-deb').keyup(function(){pagDeb = parseFloat($('#pag-deb').val()); calcularTroco();});
-	$('#pag-din').keyup(function(){pagDin = parseFloat($('#pag-din').val()); calcularTroco();});
-	$('#pag-cred').keyup(function(){pagCred = parseFloat($('#pag-cred').val()); calcularTroco();});
-	$('#val-desc').keyup(function(){valDesc = parseFloat($('#val-desc').val()); calcularTroco();});
+	$('#pag-deb').keyup(function(){pagDeb = parseFloat($('#pag-deb').val().replace(",","")); calcularTroco();});
+	$('#pag-din').keyup(function(){pagDin = parseFloat($('#pag-din').val().replace(",","")); calcularTroco();});
+	$('#pag-cred').keyup(function(){pagCred = parseFloat($('#pag-cred').val().replace(",","")); calcularTroco();});
+	$('#val-desc').keyup(function(){valDesc = parseFloat($('#val-desc').val().replace(",","")); calcularTroco();});
 
 	//funcao para calcular troco
 	function calcularTroco(){

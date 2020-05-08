@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <!--Específica da Página-->
         <link href="css/start.css" rel="stylesheet">
-        <link href="css/cadastroProduto.css" rel="stylesheet">
+        <link href="css/cadastros.css" rel="stylesheet">
         <!--Titulo e icone-->
         <link rel="shortcut icon" href="img/logo-branco.png"/>
         <title>Perfumaria Muchachos: Cadastro Produto</title>
@@ -113,14 +113,14 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="preco">Preço</label>
-                            <input id="preco" name="Preco" type="number" class="form-control" required >
+                            <input id="preco" name="Preco" class="form-control mascara-decimais" required >
                         </div>
                     </div><!--Fim do preco-->
                     <!--Quantidade-->
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label for="quantidade">Quantidade</label>
-                            <input id="quantidade" name="Quantidade" type="number" class="form-control" required >
+                            <input id="quantidade" name="Quantidade" type="number" class="form-control mascara-numero" required >
                         </div>
                     </div><!--Fim Quantidade-->
                 </div><!--Fim da linha 2-->
@@ -130,7 +130,7 @@
                     <div class="col-sm-12" >
                         <div class="form-group">
                             <label for="descricao">Descrição</label>
-                            <textarea id="descricao" name="descricao" type="text" class="form-control" required></textarea>
+                            <textarea id="descricao" name="descricao" maxlength="900" type="text" rows="9" class="form-control"></textarea>
                         </div>
                     </div><!--Fim Desricao-->
                 </div><!--Fim da linha 3-->
@@ -156,7 +156,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <!--3-Bootstrap.js-->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <!--4-Específica da página-->
+        <!--5-Mask Money Plugin-->
+        <script src="https://cdn.rawgit.com/plentz/jquery-maskmoney/master/dist/jquery.maskMoney.min.js"></script>
+        <!--6-Mask Plugin-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
+        <!--7-Específica da página-->
         <script type="text/javascript" src="js/start.js"></script>
+        <script type="text/javascript" src="js/cadastros.js"></script>
     </body>
 </html>

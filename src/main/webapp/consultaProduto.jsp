@@ -72,7 +72,7 @@
         <!--CONTEUDO DA PAGINA-->
         <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
-            <h1>Gerenciamento de Produto</h1>
+            <h1>Consulta de Produtos</h1>
             <!--Formulário-->
             <form clas="formulario">    
                 <!--Linha 1-->
