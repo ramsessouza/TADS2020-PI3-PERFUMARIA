@@ -1,10 +1,11 @@
-/*TABELAS*/
+/*TABELA*/
 table thead{width: calc(100% - 16px)}/*largura total - largura do scroll*/
 table tbody{display: block; overflow: auto;}
 table thead, tbody tr{display: table; width: 100%; table-layout: fixed;}
 table tbody{font-size: 10pt;}
 table .td-id{width: 30px;}/*coloque essa classe na sua <td> = id da tabela-->*/
 table .td-produto{width: 250px;}/*coloque essa classe na sua <td> = produto da tabela-->*/
+table .td-produto2{width: 350px;}/*coloque essa classe na sua <td> = produto da tabela-->*/
 table .td-nome{width: 160px;}/*coloque essa classe na sua <td> = nome da tabela-->*/
 table .td-email{width: 180px;}/*coloque essa classe na sua <td> = email da tabela-->*/
 table .td-telefone{width: 110px;}/*coloque essa classe na sua <td> = telefone da tabela-->*/
@@ -13,6 +14,7 @@ table .td-cidade{width: 130px;}/*coloque essa classe na sua <td> = cidade da tab
 table .td-logradouro{width: 180px;}/*coloque essa classe na sua <td> = logradouro da tabela-->*/
 table .td-qtd{width: 40px; text-align: center}/*coloque essa classe na sua <td> = quantidade da tabela-->*/
 table .td-categoria{width: 200px; text-align: center}/*coloque essa classe na sua <td> = categoria da tabela-->*/
+table .td-categoria2{width: 350px; text-align: center}/*coloque essa classe na sua <td> = categoria da tabela-->*/
 table .td-sexo{width: 60px; text-align: center}/*coloque essa classe na sua <td> = sexo da tabela-->*/
 table .td-valor{width: 100px; text-align: center;}/*coloque essa classe na sua <td> = valor da tabela-->*/
 table .td-editar{text-align: center}/*coloque essa classe na sua <td> = editar da tabela-->*/

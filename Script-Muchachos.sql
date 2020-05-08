@@ -6,7 +6,7 @@ SENHA: MUCHACHOS
 */
 
 --==============================================================================
---TABELA DE PTODUTO
+--TABELA DE PRODUTO
 --==============================================================================
 CREATE TABLE TB_PRODUTO (
 ID INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),

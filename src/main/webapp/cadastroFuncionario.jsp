@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!--Página-->
     <link href="css/start.css" rel="stylesheet">
-    <link href="css/cadastroCliente.css" rel="stylesheet">
+    <link href="css/cadastros.css" rel="stylesheet">
     <!--Titulo e icone-->
     <link rel="shortcut icon" href="img/logo-branco.png"/>
     <title>Perfumaria Muchachos: Início do sistema</title>

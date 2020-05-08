@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <!--Específica da Página-->
         <link href="css/start.css" rel="stylesheet">
-        <link href="css/cadastroCliente.css" rel="stylesheet">
+        <link href="css/cadastros.css" rel="stylesheet">
         <!--Titulo e icone-->
         <link rel="shortcut icon" href="img/logo-branco.png"/>
         <title>Perfumaria Muchachos: Cadastro de Clientes</title>
@@ -124,7 +124,6 @@
                         </div>
                     </div><!--Fim Ativo-->
                 </div><!--Fim Linha 1-->
-
                 <!--Linha 2-->
                 <div class="row">
                     <!--RG-->
@@ -269,6 +268,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
         <!--5-Específica da página-->
         <script type="text/javascript" src="js/start.js"></script>
-        <script type="text/javascript" src="js/cadastroCliente.js"></script>
+        <script type="text/javascript" src="js/cadastros.js"></script>
     </body>
 </html>
