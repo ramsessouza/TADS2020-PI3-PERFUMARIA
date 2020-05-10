@@ -1,0 +1,74 @@
+/*------------- exemplo -------------*/
+
+/*-----------------------------------*/
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css');
+@font-face {font-family: 'FuturaLight';	src: url("../fonts/FuturaPTLight.otf");}
+@font-face {font-family: 'FuturaBold';	src: url("../fonts/FuturaPTBold.otf");}
+
+/*------------- exemplo -------------*/
+/*TUDO - Não altere os valores*/
+*{padding: 0px; margin: 0px; font: 16px "FuturaLight";}
+html, body{height: 100%; overflow: hidden;}
+
+/*CABEÇALHO - Não altere os valores*/
+.cabecalho{align-items: center; background: url("../img/background.jpg"); background-repeat: no-repeat; background-size:100%; background-attachment: fixed; background-size: cover; background-position: top center; border-bottom: 3px solid rgba(0,0,0,0.06); border-top: 3px solid rgba(255,255,255,0.06);}
+.cabecalho button{border: 0;}
+.cabecalho img{width: 70%; height: 70%;}
+.cabecalho h1{font-size: 15pt;}
+
+/*BARRA NAVEGACAO LATERAL - Não altere os valores*/
+.barra-lateral{height: 100vh; width: 220px; position: fixed; transition: all 0.8s; background-color: rgba(0, 0, 0, 0.8);  border-right: 4px solid rgba(255,255,255,0.05);}
+.barra-lateral p{margin: 10px 0 2px 1px; color: #999; font-size: 10pt}
+.barra-lateral ul li{border-bottom: 1px solid rgba(0,0,0,0.05); border-top: 1px solid rgba(255,255,255,0.05);}
+.barra-lateral ul li a{display: block;}
+.barra-lateral a{padding: 8px 5px; text-decoration: none; color: #fff; font-size: 11pt;}
+.barra-lateral a:hover{background-color: rgba(0, 0, 0, 0.4)}
+.barra-lateral span{color: rgb(244 128 41);}
+/*Ativado no javascript para expandir e recolher a barra lateral*/
+#barra-lateral.ativo{margin-left: -220px;}
+
+/*CONTEUDO DA PAGINA - Não altere os valores*/
+/*altura 100% do viewport, largura 100% - 220 pixels da barra lateral, começa 220px da lateral esquerda*/
+.conteudo-pagina{height: 100vh; width: calc(100% - 220px); margin-left: 220px; transition: all 0.8s; overflow: auto;}
+/*ativado no javascript para expandir e recolher o conteudo da pagina*/
+/*assume 100% da largura*/
+#conteudo-pagina.ativo{width: 100%; margin: 0;}
+
+/*RESPONSIVIDADE- Não altere os valores*/
+@media screen and (max-width: 1060px){
+.cabecalho img{width: 100%; height: 100%;}
+}
+
+@media screen and (max-width: 575px){
+.cabecalho img{width: 20%; height: 20%;}
+}
+/*-----------------------------------*/
+
+/*------------- TABELA -------------*/
+table thead{width: calc(100% - 16px)}/*largura total - largura do scroll*/
+table tbody{display: block; overflow: auto;}
+table thead, tbody tr{display: table; width: 100%; table-layout: fixed;}
+table tbody{font-size: 10pt; height: 250px;}
+table .td-id{width: 30px;}/*coloque essa classe na sua <td> = id da tabela-->*/
+table .td-produto{width: 250px;}/*coloque essa classe na sua <td> = produto da tabela-->*/
+table .td-produto2{width: 350px;}/*coloque essa classe na sua <td> = produto da tabela-->*/
+table .td-nome{width: 160px;}/*coloque essa classe na sua <td> = nome da tabela-->*/
+table .td-email{width: 180px;}/*coloque essa classe na sua <td> = email da tabela-->*/
+table .td-telefone{width: 110px;}/*coloque essa classe na sua <td> = telefone da tabela-->*/
+table .td-nascimento{width: 110px;}/*coloque essa classe na sua <td> = nascimento da tabela-->*/
+table .td-cidade{width: 130px;}/*coloque essa classe na sua <td> = cidade da tabela-->*/
+table .td-logradouro{width: 180px;}/*coloque essa classe na sua <td> = logradouro da tabela-->*/
+table .td-qtd{width: 40px; text-align: center}/*coloque essa classe na sua <td> = quantidade da tabela-->*/
+table .td-categoria{width: 200px; text-align: center}/*coloque essa classe na sua <td> = categoria da tabela-->*/
+table .td-categoria2{width: 350px; text-align: center}/*coloque essa classe na sua <td> = categoria da tabela-->*/
+table .td-sexo{width: 60px; text-align: center}/*coloque essa classe na sua <td> = sexo da tabela-->*/
+table .td-valor{width: 100px; text-align: center;}/*coloque essa classe na sua <td> = valor da tabela-->*/
+table .td-editar{text-align: center}/*coloque essa classe na sua <td> = editar da tabela-->*/
+table .td-remover{text-align: center}/*coloque essa classe na sua <td> = remover da tabela-->*/
+/*-----------------------------------*/
+
+/*------------- exemplo -------------*/
+.espacamento{padding: 15px;}
+/*-----------------------------------*/
