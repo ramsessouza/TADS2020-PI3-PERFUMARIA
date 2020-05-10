@@ -113,217 +113,28 @@
                     </thead>
                     <tbody>
 
+                    <c:forEach var="f" items="${listaFuncionarios}">
                         <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
+                            <td class="td-id">${f.id}</td>
+                            <td class="td-produto2">${f.produto}</td>
+                            <td></td>
+                            <td class="td-categoria2">${f.categoria}</td>
+                            <td></td>
+                            <td class="td-editar"><a href=produtoServlet?acao=Editar&id=${f.id}>Editar</td>
+                            <td class="td-remover"><a href=produtoServlet?acao=Excluirr&id=${f.id}>Excluir</td>
                         </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-produto2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-categoria2">sdasdsa</td>
-                            <td>sdasdsa</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
-                    </tbody>
-            </div><!--Fim da Tabela--> 
+                        </tbody>
+                        </div><!--Fim da Tabela--> 
 
 
 
-            <!--1-jQuery.js-->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-            <!--2-Popper.js-->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-            <!--3-Bootstrap.js-->
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-            <!--4-Específica da página-->
-            <script type="text/javascript" src="js/start.js"></script>
-    </body>
-</html>
+                        <!--1-jQuery.js-->
+                        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                        <!--2-Popper.js-->
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+                        <!--3-Bootstrap.js-->
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+                        <!--4-Específica da página-->
+                        <script type="text/javascript" src="js/start.js"></script>
+                        </body>
+                        </html>
