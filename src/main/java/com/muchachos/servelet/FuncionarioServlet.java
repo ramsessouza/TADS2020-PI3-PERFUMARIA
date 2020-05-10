@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 public class FuncionarioServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
-	private  FuncionarioDao funcionarioDao = new FuncionarioDao(); 
+	private final  FuncionarioDao funcionarioDao = new FuncionarioDao(); 
 	      
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
