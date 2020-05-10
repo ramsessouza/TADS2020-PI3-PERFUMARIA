@@ -26,11 +26,7 @@ public class FuncionarioServlet extends HttpServlet {
 		String acao = request.getParameter("acao");
 		String id = request.getParameter("id");
 		try {
-                  if(acao != null && acao.equals("Excluir")) {
-                    Integer cod = Integer.parseInt(id);
-	            funcionarioDao.excluir(cod);
-	            request.setAttribute("mensagem", "Funcionario Excluido com sucesso!!");
-                }else if(acao != null && acao.equals("Editar")) {
+                  if(acao != null && acao.equals("Editar")) {
 		    Integer cod = Integer.parseInt(id); 
                     Funcionario funcionario = funcionarioDao.getFuncionarioId(cod);
                     request.setAttribute("funcionario", funcionario);

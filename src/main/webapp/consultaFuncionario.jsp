@@ -22,9 +22,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <!--Específica da Página-->
   <link href="css/start.css" rel="stylesheet">
- 
+ <!--
   <link href="css/componentes.css" rel="stylesheet">
-  
+  -->
   
   <link href="css/consultaProduto.css" rel="stylesheet">
   <!--Titulo e icone-->
@@ -65,10 +65,10 @@
           <li><a class="item-linha" href="#"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
           <li><a class="item-linha" href="#"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
           <p>Tecnologia da Informação</p>
-          <li><a class="item-linha" href="#"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
-          <li><a class="item-linha" href="#"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+          <li><a class="item-linha" href="funcionarioServlet"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
+          <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
           <p>Recursos Humanos</p>
-          <li><a class="item-linha" href="#"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+          <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
           <p>Gerência</p>
           <li><a class="item-linha" href="#"><span class="fas fa-chart-line mr-3"></span> Relatório Filial</a></li>
           <p>Diretoria</p>
@@ -81,7 +81,7 @@
         <h1>Gerenciamento de Colcaboradores</h1>
         <!--Formulário-->
         <form clas="formulario" action="consultaFuncionarioServlet"  method="get">  
-            <h1 class="titulo-formulario">${mensagem}</h1>
+             <h1 class="titulo-formulario">${mensagem}</h1>
           <!--Linha 1-->
           <div class="row">
             <div class="col-sm-5">
@@ -120,19 +120,19 @@
                 <th>REMOVER</th>
               </tr>
             </thead        
-	     <c:forEach var="f" items="${listaFuncionario}">
+	     <c:forEach var="f" items="${funcionarios}">
                
 	      <tr>
-	       <td> value="${f.getId()}" </td>
-	       <td>${f.nome}</td>
-	       <td>${f.cpf}</td>
-               <td>${f.email}</td>
-               <td>${f.cargo}</td>
-	       <td>${f.filial}</td>
-               <td>${f.departamento}</td>
-	       <td>${f.status}</td>
-	       <td><a href=funcionarioServlet?acao=Editar&id=${f.id}>Editar</a></td>
-	        <td><a href=funcionarioServlet?acao=Excluir&id=${f.id}>Excluir</a></td>
+                <td>${f.id}</td>
+		 <td>${f.nome}</td>
+		 <td>${f.cpf}</td>
+        	 <td>${f.email}</td>
+		 <td>${f.cargo}</td>
+		 <td>${f.filial}</td>
+                 <td>${f.departamento}</td>
+		<td>${f.status}</td>
+		<td><a href=funcionarioServlet?acao=Editar&id=${f.id}>Editar</a></td>
+		<td><a href=consultaFuncionarioServlet?acao=Excluir&id=${f.id}>Excluir</a></td>
 	      </tr>
               
 	     </c:forEach>

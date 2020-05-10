@@ -8,7 +8,10 @@ package com.muchachos.servelet;
 import com.muchachos.dao.FuncionarioDao;
 import com.muchachos.model.Funcionario;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,20 +25,32 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "consultaFuncionarioServlet", urlPatterns = {"/consultaFuncionarioServlet"})
 public class consultaFuncionarioServlet extends HttpServlet {
-     private  FuncionarioDao funcionarioDao = new FuncionarioDao();
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-         try {
-	 List<Funcionario> listaFuncionario = FuncionarioDao.buscar(request.getParameter("Busca"));
-	request.setAttribute("listaFuncionario", listaFuncionario);	
+    	private FuncionarioDao funcionarioDao = new FuncionarioDao(); 
+	private static final long serialVersionUID = 1L;
+       
+    
+  
+        @Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String acao = request.getParameter("acao"); 
+		String id = request.getParameter("id");
+		try {
+                     if(acao != null && acao.equals("Excluir")) {
+                    Integer cod = Integer.parseInt(id);
+	            funcionarioDao.excluir(cod);
+                    request.setAttribute("mensagem", "Funcionario Excluido com sucesso!!");
+                     }
+			request.setAttribute("funcionarios", funcionarioDao.getFuncionario1());
 			
-	} catch (Exception e) {
-            request.setAttribute("mensagem", "Erro de banco de dados: " + e.getMessage());
+		} catch (SQLException e) {
+			request.setAttribute("mensagem","Erro de banco de dados");
 			
-	   }
-	 RequestDispatcher dispatcher = request.getRequestDispatcher("/consultaFuncionario.jsp");
-       	 dispatcher.forward(request, response);
-	}  
-	 
+		} catch (ClassNotFoundException e) {
+			
+			request.setAttribute("mensagem", "Erro de driver");
+		}
+	
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/consultaFuncionario.jsp");
+	    dispatcher.forward(request, response);
+	}
     }
