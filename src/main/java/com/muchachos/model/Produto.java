@@ -5,7 +5,6 @@ package com.muchachos.model;
  * @author Diego Souza
  */
 public class Produto {
-    private Integer id;
     private String nome;        
     private float preco;        
     private int quantidade;
@@ -13,17 +12,14 @@ public class Produto {
     private String categoria;
     private boolean status;
 
-    public Produto() {
+    public Produto(String nome, String preco, String quantidade, String descricao, String categoria, String status) {
+        this.setNome(nome);
+        this.setPreco (Float.parseFloat(preco));
+        this.setQuantidade(Integer.parseInt(quantidade));
+        this.setDescricao(descricao);
+        this.setCategoria (categoria);
+        this.setStatus (Boolean.getBoolean(status));
     }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getNome() {
         return nome;
     }
