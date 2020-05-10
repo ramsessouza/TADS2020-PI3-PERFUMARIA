@@ -40,8 +40,8 @@ public class FuncionarioDao {
 	public void salvar(Funcionario funcionario) throws ClassNotFoundException, SQLException {
 		Connection conexao = ConexaoDatabase.getConexao();
 		PreparedStatement statement = conexao.prepareStatement(
-		" insert into TB_COLABORADOR(NOME,SEXO, NASCIMENTO, ESTADO_CIVIL, STATUS, RG,CPF, TELEFONE, EMAIL, SENHA ,"
-		+ " FILIAL,DEPARTAMENTO,CARGO,ESTADO,CIDADE, BAIRRO,LOGRADOURO, NUMERO,COMPLEMENTO)"
+		" insert into TB_COLABORADOR(nome,sexo, nascimento, estado_civil, status, rg,cpf , telefone, email, senha ,"
+		+ " filial,departamento,cargo,estado,cidade, bairro, logradouro,numero,complemento)"
 	        + " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
 		statement.setString(1, funcionario.getNome());  
@@ -91,8 +91,8 @@ public class FuncionarioDao {
 	public Funcionario getFuncionarioId(Integer cod) throws SQLException, ClassNotFoundException  {
 		Connection conexao = ConexaoDatabase.getConexao();
 		PreparedStatement ps = conexao.prepareStatement("SELECT id, nome, Cpf, Rg, Sexo,"
-		+ "ESTADO_CIVIL, NASCIMENTO, Estado, Cidade, bairro, Logradouro, Numero,complemento, Telefone,"
-		+ "Email,STATUS, Senha, Cargo, Filial, Departamento FROM TB_COLABORADOR WHERE id=?");
+		+ " estado_civil , nascimento, Estado, Cidade, bairro, Logradouro, Numero,complemento, Telefone,"
+		+ "Email,status , Senha, Cargo, Filial, Departamento FROM TB_COLABORADOR WHERE id=?");
                 ps.setInt(1, cod);
 		ResultSet rs =  ps.executeQuery();
 		
@@ -107,8 +107,8 @@ public class FuncionarioDao {
 	public void atualizar(Funcionario funcionario) throws ClassNotFoundException, SQLException  {
 		Connection conexao = ConexaoDatabase.getConexao();
 		PreparedStatement statement = conexao.prepareStatement(
-		" UPDATE TB_COLABORADOR SET nome=?, cpf=?, rg=?, sexo=?, ESTADO_CIVIL=?, NASCIMENTO=?, estado=?, cidade=?, bairro=?,  logradouro=?,"
-		+ " numero=?,complemento=?, telefone=?,email=?,STATUS=?, senha=?, cargo=?, filial=?, departamento=? WHERE id=?");
+		" UPDATE TB_COLABORADOR SET nome=?, cpf=?, rg=?, sexo=?, estado_civil=?, nascimento=?, estado=?, cidade=?, bairro=?,  logradouro=?,"
+		+ " numero=?,complemento=?, telefone=?,email=?,status=?, senha=?, cargo=?, filial=?, departamento=? WHERE id=?");
 
 		statement.setString(1, funcionario.getNome());
 		statement.setString(2, funcionario.getCpf());
@@ -135,9 +135,8 @@ public class FuncionarioDao {
 	}	
   
 	public static List<Funcionario> buscar(String busca)throws SQLException, Exception {
-	  String sql = "SELECT * FROM TB_COLABORADOR WHERE ID like ? or NOME like ? or CPF like ? \n"
-		  		+ " or EMAIL like ? or STATUS like ? or CARGO like ? or FILIAL like ? or DEPARTAMENTO like ? ";
-		  busca = busca + '%';
+		  String sql = "SELECT * FROM cadastroFuncionario WHERE id like ? or nome like ? or cpf like ?";
+		  busca = busca+ '%';
 		  
 		  List <Funcionario> listaFuncionario = null;
 		  
@@ -147,19 +146,13 @@ public class FuncionarioDao {
 		  
 		  ResultSet rs = null;
 		  
-                  try {
-                     conexao = ConexaoDatabase.getConexao();
-                     ps = conexao.prepareStatement(sql);
-                     
-                     ps.setString(1, busca);
-                     ps.setString(2, busca);
-                     ps.setString(3, busca);
-                     ps.setString(4, busca);
-                     ps.setString(5, busca);
-                     ps.setString(6, busca);
-                     ps.setString(7, busca);
-                     ps.setString(8, busca);
-                     
+		  try {
+			conexao = ConexaoDatabase.getConexao();
+			ps = conexao.prepareStatement(sql);
+			ps.setString(1, busca);
+			ps.setString(2, busca);
+			ps.setString(3, busca);
+			
                      rs = ps.executeQuery();
                      
                      while(rs.next()){

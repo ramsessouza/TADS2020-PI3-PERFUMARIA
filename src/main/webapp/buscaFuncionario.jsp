@@ -78,10 +78,10 @@
       <!--CONTEUDO DA PAGINA-->
       <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
       <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
-        <h1 class="titulo-formulario">${mensagem}</h1>
         <h1>Gerenciamento de Colcaboradores</h1>
         <!--Formulário-->
         <form clas="formulario" action="buscarFuncionarioServlet"  method="get">  
+             <h1 class="titulo-formulario">${mensagem}</h1>
           <!--Linha 1-->
           <div class="row">
             <div class="col-sm-5">
@@ -96,9 +96,8 @@
               </div><!--Fim do campo de Pesquisa de produto-->
             </div>
             <div class="col-sm-2">
-                <button class="btn btn-dark btn-block" type="submit" value= "Busca" >Pesquisar
+                <input class="btn btn-dark btn-block" type="submit" value= "Busca" >Pesquisar
                 <span class="ml-1 fas fa-search"></span>
-              </button>
             </div>
           </div><!--Fim da linha 1--> 
         </form><!--Fim do formulario--> 
@@ -120,7 +119,7 @@
                 <th>REMOVER</th>
               </tr>
             </thead        
-	     <c:forEach var="f" items="${funcionarios}">
+	     <c:forEach var="f" items="${listaFuncionario}">
                
 	      <tr>
                 <td>${f.id}</td>
