@@ -135,7 +135,7 @@ public class FuncionarioDao {
 	}	
   
 	 public static List<Funcionario> buscar(String busca)throws SQLException, Exception {
-		   String sql = " SELECT * FROM cadastroFuncionario WHERE id like ? or nome like ? or cpf like ? ";
+		   String sql = "SELECT * FROM TB_COLABORADOR WHERE id like ? or nome like ? or cpf like ?";
 		  busca = busca+ '%';
 		  
 		  List <Funcionario> listaFuncionario = null;
@@ -171,7 +171,7 @@ public class FuncionarioDao {
 				listaFuncionario.add(F);
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.getMessage();
 			System.out.println(e);
 		}finally {
