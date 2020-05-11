@@ -40,7 +40,7 @@ public class FuncionarioDao {
 	public void salvar(Funcionario funcionario) throws ClassNotFoundException, SQLException {
 		Connection conexao = ConexaoDatabase.getConexao();
 		PreparedStatement statement = conexao.prepareStatement(
-		" insert into TB_COLABORADOR(nome,sexo, nascimento, estado_civil, status, rg,cpf , telefone, email, senha ,"
+		" insert into TB_COLABORADOR(nome,sexo, nascimento, estado_civil, status, rg,cpf , telefone, email, senha, "
 		+ " filial,departamento,cargo,estado,cidade, bairro, logradouro,numero,complemento)"
 	        + " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
@@ -134,8 +134,8 @@ public class FuncionarioDao {
 		
 	}	
   
-	public static List<Funcionario> buscar(String busca)throws SQLException, Exception {
-		  String sql = "SELECT * FROM cadastroFuncionario WHERE id like ? or nome like ? or cpf like ?";
+	 public static List<Funcionario> buscar(String busca)throws SQLException, Exception {
+		   String sql = " SELECT * FROM cadastroFuncionario WHERE id like ? or nome like ? or cpf like ? ";
 		  busca = busca+ '%';
 		  
 		  List <Funcionario> listaFuncionario = null;
@@ -153,26 +153,25 @@ public class FuncionarioDao {
 			ps.setString(2, busca);
 			ps.setString(3, busca);
 			
-                     rs = ps.executeQuery();
-                     
-                     while(rs.next()){
-                         if(listaFuncionario == null){
-                            listaFuncionario = new ArrayList<>();
-                         }
-                        String cargo = rs.getString("cargo");
-                        String filial = rs.getString("filial");
-                        String departamento = rs.getString("departamento");
-                        int id = rs.getInt("id");
-                        String nome = rs.getString("nome");
-                        String cpf = rs.getString("cpf");
-                        String email = rs.getString("email");
-                        String status = rs.getString("status");
-                        
-                        Funcionario F = new Funcionario(cargo, filial, departamento, id, nome, cpf, email, status);
-                        listaFuncionario.add(F);
-                     }
-                     
-            } catch (SQLException e) {
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				if(listaFuncionario == null) {
+				listaFuncionario = new ArrayList<>();
+				}
+				int id = rs.getInt("id");
+				String nome = rs.getString("nome");
+				String cpf = rs.getString("cpf");
+				String email = rs.getString("email");
+				String cargo = rs.getString("cargo");
+				String filial = rs.getString("filial");
+				String departamento = rs.getString("departamento");
+				String status = rs.getString("status");
+				Funcionario F = new Funcionario(cargo, filial, departamento, id, nome, cpf, email, status);
+				listaFuncionario.add(F);
+			}
+			
+		} catch (SQLException e) {
 			e.getMessage();
 			System.out.println(e);
 		}finally {

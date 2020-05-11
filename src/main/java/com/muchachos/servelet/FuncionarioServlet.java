@@ -21,6 +21,8 @@ public class FuncionarioServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 	private final  FuncionarioDao funcionarioDao = new FuncionarioDao(); 
 	      
+  
+  
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String acao = request.getParameter("acao");
@@ -43,6 +45,7 @@ public class FuncionarioServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/editarFuncionario.jsp");
 		dispatcher.forward(request, response);
 	}
+  
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

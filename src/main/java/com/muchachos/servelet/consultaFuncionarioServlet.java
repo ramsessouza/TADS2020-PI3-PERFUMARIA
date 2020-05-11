@@ -23,11 +23,9 @@ import javax.servlet.http.HttpServletResponse;
 public class consultaFuncionarioServlet extends HttpServlet {
     	private final FuncionarioDao funcionarioDao = new FuncionarioDao(); 
 	private static final long serialVersionUID = 1L;
-       
-    
-  
-        @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      
+            @Override
+            protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String acao = request.getParameter("acao"); 
 		String id = request.getParameter("id");
 		try {

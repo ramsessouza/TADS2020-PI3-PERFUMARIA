@@ -1,9 +1,3 @@
-<%-- 
-    Document   : cadastroProduto
-    Created on : 05/05/2020, 22:42:36
-    Author     : valter lafuente junior
---%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -19,12 +13,13 @@
   <!--Fonts Awesome-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
   <!--Bootstrap-->
+ 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <!--Específica da Página-->
+   <!--Específica da Página-->
   <link href="css/start.css" rel="stylesheet">
- <!--
+ 
   <link href="css/componentes.css" rel="stylesheet">
-  -->
+  
   
   <link href="css/consultaProduto.css" rel="stylesheet">
   <!--Titulo e icone-->
@@ -43,7 +38,7 @@
         <img id="logocab" src="img/grupo-2.png" alt="Logo Muchachos Perfumaria">
       </div>
       <div class="col-lg-3 col-sm-3"><!--HORA E DATA-->
-        <h1 id="calendario"></h><!--Data e calendario feito em jquery - usa-se o id #calendario-->
+        <h1 id="calendario"></h1><!--Data e calendario feito em jquery - usa-se o id #calendario-->
         </div>
         <div class="col-lg-2 col-sm-2"><!--USUÁRIO-->
           <h1><span class="fas fa-user"></span> Ramses Souza</h>
@@ -80,8 +75,8 @@
       <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
         <h1>Gerenciamento de Colcaboradores</h1>
         <!--Formulário-->
-        <form clas="formulario" action="buscarFuncionarioServlet"  method="get">  
-             <h1 class="titulo-formulario">${mensagem}</h1>
+        
+          <form clas="formulario" action="buscarFuncionarioServlet"  method="get">  
           <!--Linha 1-->
           <div class="row">
             <div class="col-sm-5">
@@ -96,11 +91,12 @@
               </div><!--Fim do campo de Pesquisa de produto-->
             </div>
             <div class="col-sm-2">
-                <input class="btn btn-dark btn-block" type="submit" value= "Busca" >Pesquisar
+                <button class="btn btn-dark btn-block" type="submit" value= "Busca" >Pesquisar
                 <span class="ml-1 fas fa-search"></span>
+              </button>
             </div>
           </div><!--Fim da linha 1--> 
-        </form><!--Fim do formulario--> 
+        </form><!--Fim do formulario-->  
 
         <!--Tabela--> 
         <div class="tabela">
@@ -118,11 +114,11 @@
                 <th>EDITAR</th>
                 <th>REMOVER</th>
               </tr>
-            </thead        
+            </thead>        
 	     <c:forEach var="f" items="${listaFuncionario}">
                
 	      <tr>
-                <td>${f.id}</td>
+                <td> value="${f.id}"</td>
 		 <td>${f.nome}</td>
 		 <td>${f.cpf}</td>
         	 <td>${f.email}</td>
