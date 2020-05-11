@@ -20,17 +20,29 @@
     </head>
     <body>
         <!--import do cabeçalho e barra lateral-->
-        <%@ include file="main.jsp" %>
+        <%@ include file="main.jsp" %>  
         <!--CONTEUDO DA PAGINA-->
-        <div id="conteudo-pagina" class="container-fluid conteudo-pagina" style="text-align: center">
+        <div id="conteudo-pagina" class="container-fluid conteudo-pagina" style="text-align: center; overflow: no-display">
             <h1 class="espacamento">Relatório de Vendas</h1>
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-10" style="margin: auto">
                     <label id="textoPadrao">De:</label>
-                    <input type="date" class="input">
+                    <input type="date" class="input">&nbsp;&nbsp;&nbsp; 
                     <label id="textoPadrao">Até:</label>
-                    <input type="date" class="input">
+                    <input type="date" class="input">&nbsp;&nbsp;&nbsp; 
                     <label id="textoPadrao">Filial:</label>
+                    <select class="input">        <option>Selecione</option>
+                        <option value="0">Guarulhos</option>
+                        <option value="1">São Paulo</option>
+                        <option value="2">Tabão da Serra</option>
+                    </select>&nbsp;&nbsp;&nbsp; 
+                    <label id="textoPadrao">Categoria:</label>
+                    <select class="input">        <option>Selecione</option>
+                        <option value="0">Guarulhos</option>
+                        <option value="1">São Paulo</option>
+                        <option value="2">Tabão da Serra</option>
+                    </select>&nbsp;&nbsp;&nbsp; 
+                    <label id="textoPadrao">Cliente:</label>
                     <select class="input">        <option>Selecione</option>
                         <option value="0">Guarulhos</option>
                         <option value="1">São Paulo</option>
@@ -38,7 +50,7 @@
                     </select>&nbsp;&nbsp;&nbsp;
                     <input class="btn btn-dark" type="submit" value="Pesquisar">
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-2">
                     <label id="textoPadrao">Total:  R$</label>
                     <label id="textoPadrao">9999.99</label>
                 </div>
@@ -138,6 +150,7 @@
                 </tbody>
             </table>
             <hr>
+            <h1>&nbsp;</h1>
         </div>
     </body>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -145,5 +158,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <!--3-Bootstrap.js-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/start.js"></script>
 </html>

@@ -82,6 +82,6 @@
         <!--3-Bootstrap.js-->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <!--4-Específica da página-->
-        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/start.js"></script>
     </body>
 </html>

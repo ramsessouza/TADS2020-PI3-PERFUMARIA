@@ -71,4 +71,8 @@ table .td-remover{text-align: center}/*coloque essa classe na sua <td> = remover
 
 /*------------- exemplo -------------*/
 .espacamento{padding: 15px;}
+
+.clear {
+  clear: both;
+}
 /*-----------------------------------*/
