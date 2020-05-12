@@ -1,3 +1,8 @@
+<%-- 
+    Document   : cadastroProduto
+    Created on : 05/05/2020, 22:42:36
+    Author     : valter lafuente junior
+--%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -119,7 +124,7 @@
 	     <c:forEach var="f" items="${listaFuncionario}">
                
 	      <tr>
-                <td> value="${f.id}"</td>
+                <td> ${f.id}"</td>
 		 <td>${f.nome}</td>
 		 <td>${f.cpf}</td>
         	 <td>${f.email}</td>

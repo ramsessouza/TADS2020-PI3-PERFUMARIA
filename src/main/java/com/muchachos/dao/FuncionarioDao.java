@@ -135,7 +135,7 @@ public class FuncionarioDao {
 	}	
   
 	 public static List<Funcionario> buscar(String busca)throws SQLException, Exception {
-		   String sql = "SELECT * FROM TB_COLABORADOR WHERE id like ? or nome like ? or cpf like ?";
+		   String sql = "SELECT * FROM TB_COLABORADOR WHERE  nome like ? or cpf like ?";
 		  busca = busca+ '%';
 		  
 		  List <Funcionario> listaFuncionario = null;
@@ -151,7 +151,7 @@ public class FuncionarioDao {
 			ps = conexao.prepareStatement(sql);
 			ps.setString(1, busca);
 			ps.setString(2, busca);
-			ps.setString(3, busca);
+		
 			
 			rs = ps.executeQuery();
 			
