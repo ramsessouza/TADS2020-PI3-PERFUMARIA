@@ -18,8 +18,9 @@
    <!--Específica da Página-->
   <link href="css/start.css" rel="stylesheet">
  
+ <!-- 
   <link href="css/componentes.css" rel="stylesheet">
-  
+  -->
   
   <link href="css/consultaProduto.css" rel="stylesheet">
   <!--Titulo e icone-->
