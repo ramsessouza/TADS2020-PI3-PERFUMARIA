@@ -1,7 +1,7 @@
 <%-- 
-    Document   : cadastroProduto
-    Created on : 01/05/2020, 19:29:31
-    Author     :  Diego Souza
+    Document   : editarProduto
+    Created on : 12/05/2020, 15:33:57
+    Author     : Diego Souza de Queirozs
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -73,36 +73,41 @@
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
             <!--Formulário Geral-->
             <form class="formulario" action="CadastroProdutoServlet" method="POST">
-                <h1 class="titulo-formulario">${mensagem}</h1>
-                <h1 class="titulo-formulario">Cadastro de Produto</h1> 
+                <h1 class="titulo-formulario">Edição de Produto</h1> 
                 <!--Linha 1-->
                 <div class="row linha-do-nome">
+
+                    <div class="col-md-11 col-sm-11">
+                        <input type="hidden" name="id" value="${produto.id}">
+                    </div>
+
                     <!--Nome do Produto-->
                     <div class="col-sm-10 col-md-10">
                         <div class="form-group">
                             <label for="nome">Nome do Produto</label>
-                            <input id="nome" name="nome" maxlength="40" type="text" class="form-control" required >
+                            <input id="nome" name="nome" value="${produto.nome}" maxlength="40" type="text" class="form-control" required >
                         </div>
                     </div><!--Fim do Nome do Produto-->
                     <!--Ativo-->
                     <div class="col-md-2 col-sm-2">
                         <div class="form-group">
                             <label>Status</label>
-                            <select id="status" name="status" class="form-control">
+                            <select id="status" class="form-control">
+                                <option value="${produto.status}">${produto.status}</option> 
                                 <option value="ativo">Ativo</option>
                                 <option value="inativo">Inativo</option>
                             </select>
                         </div>
                     </div><!--Fim Ativo-->
                 </div><!--Fim da linha 1-->
-                <!--Linha 2-->	
+                <!--Linha 2-->  
                 <div class="row">
                     <!--Categoria-->
                     <div class="dropdown col-sm-6">
                         <div class="form-group">
                             <label for="categoria">Categoria</label>
                             <select id="categoria" name="categoria" class="form-control" required>
-                                <option>Selecione</option>
+                                <option value="${produto.categoria}">${produto.categoria}</option>
                                 <option value="beleza">Beleza</option>
                                 <option value="cosmeticos">Cosmeticos</option>
                                 <option value="perfumes">Perfumes</option>
@@ -114,14 +119,14 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="preco">Preço</label>
-                            <input id="preco" name="preco" type="text" class="form-control mascara-decimais" required >
+                            <input id="preco" name="Preco" value="${produto.preco}" class="form-control mascara-decimais" required >
                         </div>
                     </div><!--Fim do preco-->
                     <!--Quantidade-->
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label for="quantidade">Quantidade</label>
-                            <input id="quantidade" name="quantidade" type="number" class="form-control mascara-numero" required>
+                            <input id="quantidade" name="Quantidade" value="${produto.quantidade} "type="number" class="form-control mascara-numero" required >
                         </div>
                     </div><!--Fim Quantidade-->
                 </div><!--Fim da linha 2-->
@@ -131,19 +136,15 @@
                     <div class="col-sm-12" >
                         <div class="form-group">
                             <label for="descricao">Descrição</label>
-                            <textarea id="descricao" name="descricao" maxlength="900" type="text" rows="9" class="form-control"></textarea>
+                            <textarea id="descricao" name="descricao" value="${produto.descricao}" maxlength="900" type="text" rows="9" class="form-control"></textarea>
                         </div>
                     </div><!--Fim Desricao-->
                 </div><!--Fim da linha 3-->
                 <!--Linha 4-->
                 <div class="botoes">
                     <div class="row">
-                        <!--Botão Limpar-->
-                        <div class=" offset-md-8 col-sm-2">
-                            <input type="reset" value="Limpar" class="btn btn btn-danger btn-block">						
-                        </div><!--Fim Botão Limpar-->
                         <!--Botão Salvar-->
-                        <div class="col-sm-2">
+                        <div class="offset-md-10 col-sm-2">
                             <input type="submit" value="Salvar" class="btn btn-success btn-block">
                         </div><!--Fim Botão Salvar-->
                     </div><!--Fim da linha 4-->

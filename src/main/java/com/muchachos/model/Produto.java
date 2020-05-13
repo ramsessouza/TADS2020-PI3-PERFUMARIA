@@ -5,21 +5,57 @@ package com.muchachos.model;
  * @author Diego Souza
  */
 public class Produto {
-    private String nome;        
-    private float preco;        
-    private int quantidade;
+
+    private Integer id;
+    private String nome;
+    protected Float preco;
+    private Integer quantidade;
     private String descricao;
     private String categoria;
-    private boolean status;
+    private String status;
+    protected Integer qtdItem;
 
-    public Produto(String nome, String preco, String quantidade, String descricao, String categoria, String status) {
-        this.setNome(nome);
-        this.setPreco (Float.parseFloat(preco));
-        this.setQuantidade(Integer.parseInt(quantidade));
-        this.setDescricao(descricao);
-        this.setCategoria (categoria);
-        this.setStatus (Boolean.getBoolean(status));
+    public Produto() {
+
     }
+
+    public Produto(Integer id) {
+        this.id = id;
+    }
+
+    public Produto(Integer id, String nome, Float preco, Integer quantidade, String descricao, String categoria, String status) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.descricao = descricao;
+        this.categoria = categoria;
+        this.status = status;
+    }
+
+    public Produto(Integer id, String nome, Float preco, Integer quantidade, String categoria) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.categoria = categoria;
+    }
+
+    public Produto(Integer id, String nome, Float preco, Integer quantidade) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -28,19 +64,19 @@ public class Produto {
         this.nome = nome;
     }
 
-    public float getPreco() {
+    public Float getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(Float preco) {
         this.preco = preco;
     }
 
-    public int getQuantidade() {
+    public Integer getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
 
@@ -60,12 +96,20 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    public boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
+    public Integer getQtdItem() {
+        return qtdItem;
+    }
+
+    public void setQtdItem(Integer qtdItem) {
+        this.qtdItem = qtdItem;
+    }
+    
 }

@@ -8,32 +8,145 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 /**
  *
  * @author Diego Souza de Queiroz
  */
 public class ProdutoDao {
 
-    public static boolean cadastrarProduto(Produto produto) {
-        boolean ok = false;
-        Connection con;
-        try {
-            con = ConexaoDatabase.getConexao();
-            String sql = "insert into TB_PRODUTO values (default,?,?,?,?,?,?)";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, produto.getNome());
-            ps.setString(2, produto.getCategoria());
-            ps.setInt(3, produto.getQuantidade());
-            ps.setFloat(4, produto.getPreco());
-            ps.setBoolean(5, produto.getStatus());
-            ps.setString(6, produto.getDescricao());
-            ps.execute();
-            ok = true;
-        } catch (SQLException ex) {
-            Logger.getLogger(ProdutoDao.class.getName()).log(Level.SEVERE, null, ex);
+    public List<Produto> getProduto() throws SQLException, ClassNotFoundException {
+        Connection conexao = ConexaoDatabase.getConexao();
+        PreparedStatement ps = conexao.prepareStatement("SELECT id, nome, quantidade, descricao, categoria, status From tb_produto");
+
+        ResultSet rs = ps.executeQuery();
+        List<Produto> produtos = new ArrayList();
+
+        while (rs.next()) {
+            produtos.add(new Produto(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4), rs.getString(6), rs.getString(6), rs.getString(7)));
         }
-        return ok;
+        return produtos;
     }
+
+    public void salvar(Produto produto) throws ClassNotFoundException, SQLException {
+        Connection conexao = ConexaoDatabase.getConexao();
+        PreparedStatement statement = conexao.prepareStatement("insert into tb_produto (nome, preco, quantidade, descricao, categoria, status)" + "values(?,?,?,?,?,?)");
+
+        statement.setString(1, produto.getNome());
+        statement.setFloat(2, produto.getPreco());
+        statement.setInt(3, produto.getQuantidade());
+        statement.setString(4, produto.getDescricao());
+        statement.setString(5, produto.getCategoria());
+        statement.setString(6, produto.getStatus());
+        statement.execute();
+    }
+
+    public List<Produto> getProduto1() throws SQLException, ClassNotFoundException {
+        Connection conexao = ConexaoDatabase.getConexao();
+        PreparedStatement ps = conexao.prepareStatement("SELECT id, nome, preco, quantidade, categoria, from tb_produto");
+
+        ResultSet rs = ps.executeQuery();
+        List<Produto> produtos = new ArrayList();
+
+        while (rs.next()) {
+            while (rs.next()) {
+                produtos.add(new Produto(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4), rs.getString(5)));
+            }
+            return produtos;
+
+        }
+        return produtos;
+    }
+
+    public void excluir(Integer cod) throws ClassNotFoundException, SQLException {
+        Connection conexao = ConexaoDatabase.getConexao();
+        PreparedStatement statement = conexao.prepareStatement("DELETE FROM tb_produto WHERE id = ?");
+
+        statement.setInt(1, cod);
+        statement.execute();
+    }
+
+    public Produto getProdutoId(Integer cod) throws SQLException, ClassNotFoundException {
+        Connection conexao = ConexaoDatabase.getConexao();
+        PreparedStatement ps = conexao.prepareStatement("SELECT id, nome, preco,quantidade,descricao,categoria,status FROM tb_produto WHERE idProduto=?");
+        ps.setInt(1, cod);
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            return new Produto(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4),
+                    rs.getString(5), rs.getString(6), rs.getString(7));
+        }
+
+        throw new SQLException("Codigo não encontrado: " + cod);
+    }
+
+    public void atualizar(Produto produto) throws ClassNotFoundException, SQLException {
+        Connection conexao = ConexaoDatabase.getConexao();
+        PreparedStatement statement = conexao.prepareStatement(
+                " UPDATE cadastroProduto SET nome=?, preco=?, quantidade=?, descricao=?, categoria=?, status=? WHERE id=?");
+
+        statement.setString(1, produto.getNome());
+        statement.setFloat(2, produto.getPreco());
+        statement.setInt(3, produto.getQuantidade());
+        statement.setString(4, produto.getDescricao());
+        statement.setString(5, produto.getCategoria());
+        statement.setString(6, produto.getStatus());
+        statement.setInt(7, produto.getId());
+        statement.execute();
+    }
+
+    public static List<Produto> buscar(String busca) throws SQLException, Exception {
+        String sql = "SELECT * FROM tb_produto WHERE id like ? or nome like ? or preco like ? or quantidade like ?  or categoria like ?";
+        busca = busca + '%';
+
+        List<Produto> listaProduto = null;
+
+        Connection conexao = null;
+
+        PreparedStatement ps = null;
+
+        ResultSet rs = null;
+
+        try {
+            conexao = ConexaoDatabase.getConexao();
+            ps = conexao.prepareStatement(sql);
+            ps.setString(1, busca);
+            ps.setString(2, busca);
+            ps.setString(3, busca);
+            ps.setString(4, busca);
+            ps.setString(5, busca);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                if (listaProduto == null) {
+                    listaProduto = new ArrayList<Produto>();
+                }
+                int id = rs.getInt("id");
+                String nome = rs.getString("nome");
+                float preco = rs.getFloat("preco");
+                int quantidade = rs.getInt("quantidade");
+                String categoria = rs.getString("categoria");
+
+                Produto P = new Produto(id, nome, preco, quantidade, categoria);
+                listaProduto.add(P);
+            }
+
+        } catch (Exception e) {
+            e.getMessage();
+            System.out.println(e);
+        } finally {
+            if (rs != null && !rs.isClosed()) {
+                rs.close();
+            }
+            if (ps != null && !ps.isClosed()) {
+                ps.close();
+            }
+            if (conexao != null && !conexao.isClosed()) {
+                conexao.close();
+            }
+        }
+        return listaProduto;
+    }
+
 }
