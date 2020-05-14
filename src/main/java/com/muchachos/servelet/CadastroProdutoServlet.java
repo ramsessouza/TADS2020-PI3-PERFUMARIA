@@ -74,18 +74,6 @@ public class CadastroProdutoServlet extends HttpServlet {
             request.setAttribute("mensagem", "Erro de Driver: " + e.getMessage());
             request.setAttribute("produto", produto);
         }
-        try {
-            request.setAttribute("produto", produtoDao.getProduto());
-        } catch (SQLException e) {
-
-            request.setAttribute("mensagem", "Erro de banco de dados: " + e.getMessage());
-            request.setAttribute("produto", produto);
-
-        } catch (ClassNotFoundException e) {
-
-            request.setAttribute("mensagem", "Erro de Driver: " + e.getMessage());
-            request.setAttribute("produto", produto);
-        }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastroProduto.jsp");
         dispatcher.forward(request, response);
 
