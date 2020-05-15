@@ -46,7 +46,7 @@
         <h1 id="calendario"></h><!--Data e calendario feito em jquery - usa-se o id #calendario-->
         </div>
         <div class="col-lg-2 col-sm-2"><!--USUÁRIO-->
-          <h1><span class="fas fa-user"></span> Ramses Souza</h>
+          <h1><span class="fas fa-user"></span>Valter Lafuente Jnuior</h>
           </div>
           <div class="col-lg-1 col-sm-1"><!--SAIR DO SISTEMA-->
             <button type="button" class="btn btn-outline-dark" >Sair <span class="fas fa-sign-out-alt"></span></button>
