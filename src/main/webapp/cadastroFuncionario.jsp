@@ -110,13 +110,13 @@
               <div class="col-md-3 col-sm-3">
                 <div class="form-group">
                   <label>RG</label>
-                  <input name="rg" id="rg" type="number" class="form-control" placeholder="##.###.###-#">
+                  <input name="rg" id="rg" type="text" class="form-control" placeholder="##.###.###-#">
                 </div>
               </div>
               <div class="col-md-3 col-sm-3">
                 <div class="form-group">
                   <label>CPF</label>
-                  <input name="cpf" id="cpf" type="number" class="form-control" required placeholder="###.###.###-##">
+                  <input name="cpf" id="cpf" type="text" class="form-control" required placeholder="###.###.###-##">
                 </div>
               </div>
               <div class="dropdown col-md-3 col-sm-3">
@@ -188,7 +188,7 @@
            <div class="col-md-3 col-sm-2">
                         <div class="form-group">
                             <label>Estado</label>
-                            <select id="estado" class="form-control">
+                            <select id="estado" name="estado" class="form-control">
                                 <option value="Selecione">Selecione</option>
                                 <option value="acre">Acre</option>
                                 <option value="alagoas">Alagoas</option>
