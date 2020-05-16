@@ -76,7 +76,7 @@
       <!--Formulário Geral-->
       <form action="funcionarioServlet" method="post">
           <h1 class="titulo-formulario">${mensagem}</h1>
-          <h1 class="titulo-formulario">Cadastro de Produto</h1> 
+          <h1 class="titulo-formulario">Gerenciamento de Colaborador</h1> 
         <!--Linha 1-->
         <div class="row linha-do-nome">
             

@@ -75,14 +75,20 @@
             <!--Formulário Geral-->
             <form  action="produtoServlet" method="post">
               
-                <h1 class="titulo-formulario">Cadastro de Produto</h1> 
+                <h1 class="titulo-formulario">Gerenciamento de Produto</h1> 
                 <!--Linha 1-->
                 <div class="row linha-do-nome">
 
                     <div class="col-md-11 col-sm-11">
                         <input type="hidden" name="id" value="${produto.id}">
                     </div>
-
+                       <!--ID do Produto-->
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <label for="id">ID</label>
+                            <input id="id" name="id" disabled type="text" class="form-control" value="${produto.id}" required>
+                        </div>
+                    </div><!--Fim do ID do Produto-->
                     <!--Nome do Produto-->
                     <div class="col-sm-10 col-md-10">
                         <div class="form-group">
@@ -126,9 +132,9 @@
                     </div><!--Fim do preco-->
                     <!--Quantidade-->
                     <div class="col-sm-2">
-                        <div class="form-group">
-                            <label for="quantidade">Quantidade</label>
-                            <input id="quantidade" name="quantidade" value="${produto.quantidade} "type="number" class="form-control mascara-numero" required >
+                        <div class="form-group">  
+                            <label for="quantidade">Quantidade</label> 
+                            <input id="quantidade" name="quantidade" type="text" class="form-control mascara-numero" value="${produto.quantidade}" required>
                         </div>
                     </div><!--Fim Quantidade-->
                 </div><!--Fim da linha 2-->
@@ -137,8 +143,8 @@
                     <!--Descricao-->
                     <div class="col-sm-12" >
                         <div class="form-group">
-                            <label for="descricao">Descrição</label>
-                            <textarea id="descricao" name="descricao"  maxlength="900" type="text" rows="9" class="form-control"></textarea>
+                           <label for="quantidade">Descrição</label> 
+			   <input id="descricao" name="descricao" type="text" class="form-control" value="${produto.descricao}" required>
                         </div>
                     </div><!--Fim Desricao-->
                 </div><!--Fim da linha 3-->

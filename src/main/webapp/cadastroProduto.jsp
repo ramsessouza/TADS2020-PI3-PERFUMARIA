@@ -74,8 +74,15 @@
             <!--Formulário Geral-->
             <form  action="produtoServlet" method="post">
                 <h1 class="titulo-formulario">${mensagem}</h1>
-                <h1>Cadastro de Produto</h1> 
-                <!--Linha 1-->
+                <h1>Gerenciamento de Produto</h1> 
+                  <!--ID do Produto-->
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <label for="id">ID</label>
+                            <input id="id" name="id" disabled type="text" class="form-control" value="${produto.id}" required>
+                        </div>
+                </div><!--Fim do ID do Produto-->
+                 <!--Linha 1-->
                 <div class="row linha-do-nome">
                     <!--Nome do Produto-->
                     <div class="col-sm-10 col-md-10">
@@ -127,11 +134,11 @@
                 </div><!--Fim da linha 2-->
                 <!--Linha 3-->
                 <div class="row">
-                    <!--Descricao-->
+                  <!--Descricao-->
                     <div class="col-sm-12" >
                         <div class="form-group">
-                            <label for="descricao">Descrição</label>
-                            <textarea id="descricao" name="descricao" maxlength="900" type="text" rows="9" class="form-control"></textarea>
+                           <label for="quantidade">Descrição</label> 
+			   <input id="descricao" name="descricao" type="text" class="form-control"  required>
                         </div>
                     </div><!--Fim Desricao-->
                 </div><!--Fim da linha 3-->
