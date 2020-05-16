@@ -22,7 +22,7 @@
         <link href="css/cadastros.css" rel="stylesheet">
         <!--Titulo e icone-->
         <link rel="shortcut icon" href="img/logo-branco.png"/>
-        <title>Perfumaria Muchachos: Cadastro Produto</title>
+        <title>Perfumaria Muchachos: Editar Produto</title>
     </head>
     <body>
         <!--CABEÇALHO-->

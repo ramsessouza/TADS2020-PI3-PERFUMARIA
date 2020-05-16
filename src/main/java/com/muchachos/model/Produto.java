@@ -2,7 +2,7 @@ package com.muchachos.model;
 
 /**
  *
- * @author Diego Souza
+ * @author Diego Souza de Queiroz
  */
 public class Produto {
 

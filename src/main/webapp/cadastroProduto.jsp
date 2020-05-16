@@ -1,7 +1,7 @@
 <%-- 
     Document   : cadastroProduto
     Created on : 01/05/2020, 19:29:31
-    Author     :  Diego Souza
+    Author     :  Diego Souza de Queiroz
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -73,7 +73,7 @@
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
             
             <h1 class="titulo-formulario">${mensagem}</h1>
-            <h1>Gerenciamento de Produto</h1> 
+            <h1>Cadastro de Produto</h1> 
             <!--Formulário Geral-->
             <form  action="produtoServlet" method="post">
                   <!--ID do Produto-->

@@ -1,7 +1,7 @@
 <%-- 
     Document   : cadastroProduto
     Created on : 01/05/2020, 18:42:36
-    Author     : Diego Souza
+    Author     : Diego Souza de Queiroz
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -24,7 +24,7 @@
         <link href="css/consultas.css" rel="stylesheet">
         <!--Titulo e icone-->
         <link rel="shortcut icon" href="img/logo-branco.png"/>
-        <title>Perfumaria Muchachos: Início do sistema</title>
+        <title>Perfumaria Muchachos: Consulta Produto</title>
     </head>
     <body>
         <!--CABE�ALHO-->
@@ -125,7 +125,7 @@
                                 <td><a href=produtoServlet?acao=Editar&id=${p.id}>Editar</td>
                                 <td><a href=consultaProdutoServlet?acao=Excluir&id=${p.id}>Excluir</td>
                             </tr>
-                        </c:forEach>>
+                        </c:forEach>
                 </table>
               </div>
             </div><!--Fim da Tabela--> 
