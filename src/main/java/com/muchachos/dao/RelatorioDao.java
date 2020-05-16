@@ -18,7 +18,7 @@ public class RelatorioDao {
 
     public List<Relatorio> getVendas() throws SQLException, ClassNotFoundException {
         Connection conexao = ConexaoDatabase.getConexao();
-        PreparedStatement ps = conexao.prepareStatement("select v.id,c.NOME,v.data,v.qtd_itens,v.val_total,f.NOME from TB_VENDA as v"
+        PreparedStatement ps = conexao.prepareStatement("select v.id,c.nome,v.data,v.qtd_itens,v.val_total,f.NOME from TB_VENDA as v"
                 + "join cliente as c on v.id_cliente=c.id"
                 + "join funcionario as f on v.vend_resp=f.id"
                 + "where data between ? and ? and filial = ?");
