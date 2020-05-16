@@ -71,17 +71,18 @@
         <!--CONTEUDO DA PAGINA-->
         <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
+            
+            <h1 class="titulo-formulario">${mensagem}</h1>
+            <h1>Gerenciamento de Produto</h1> 
             <!--Formulário Geral-->
             <form  action="produtoServlet" method="post">
-                <h1 class="titulo-formulario">${mensagem}</h1>
-                <h1>Gerenciamento de Produto</h1> 
                   <!--ID do Produto-->
                     <div class="col-sm-12 col-md-12">
                         <div class="form-group">
                             <label for="id">ID</label>
-                            <input id="id" name="id" disabled type="text" class="form-control" value="${produto.id}" required>
+                            <input id="id" name="id" disabled type="text" class="form-control" value="${produto.id}">
                         </div>
-                </div><!--Fim do ID do Produto-->
+                   </div><!--Fim do ID do Produto-->
                  <!--Linha 1-->
                 <div class="row linha-do-nome">
                     <!--Nome do Produto-->

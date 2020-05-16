@@ -149,14 +149,19 @@
                     </div><!--Fim Desricao-->
                 </div><!--Fim da linha 3-->
                 <!--Linha 4-->
+                 <!--Linha 6-->
                 <div class="botoes">
-                    <div class="row">
-                        <!--Botão Salvar-->
-                        <div class="offset-md-10 col-sm-2">
-                            <input type="submit" value="Salvar" class="btn btn-success btn-block">
-                        </div><!--Fim Botão Salvar-->
-                    </div><!--Fim da linha 4-->
-                </div><!--Fim classe botoes-->
+	          <div class="row">
+                    <div class=" offset-md-8 col-sm-2">
+                  <!--Botão Limpar-->
+	               <input type="reset" value="Limpar" class="btn btn btn-danger btn-block">						
+	            </div>
+	           <div class="col-sm-2">
+	          <!--Botão Salvar-->
+	        <input type="submit" value="Salvar" class="btn btn-success btn-block">
+  	     </div>
+	   </div><!--Fim da linha 4-->
+         </div><!--Fim classe botoes-->
             </form><!--Fim do formulário-->
         </div><!--Fim do conteudo da pagina-->
 
