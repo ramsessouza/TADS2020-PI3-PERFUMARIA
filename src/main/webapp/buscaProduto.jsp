@@ -1,14 +1,15 @@
 <%-- 
-    Document   : cadastroProduto
-    Created on : 01/05/2020, 18:42:36
-    Author     : Diego Souza
+    Document   : buscaProduto
+    Created on : 14/05/2020, 21:24:27
+    Author     : Diego Souza de Queiroz
 --%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="pt-br">
+
     <head>
         <!-- Meta tags Obrigatórias -->
         <meta charset="UTF-8">
@@ -18,11 +19,16 @@
         <!--Fonts Awesome-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <!--Bootstrap-->
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <!--Específica da Página-->
         <link href="css/start.css" rel="stylesheet">
-        <!--  <link href="css/componentes.css" rel="stylesheet"> -->
-        <link href="css/consultas.css" rel="stylesheet">
+
+        <!-- 
+         <link href="css/componentes.css" rel="stylesheet">
+        -->
+
+        <link href="css/consultaProduto.css" rel="stylesheet">
         <!--Titulo e icone-->
         <link rel="shortcut icon" href="img/logo-branco.png"/>
         <title>Perfumaria Muchachos: Início do sistema</title>
@@ -39,7 +45,7 @@
                     <img id="logocab" src="img/grupo-2.png" alt="Logo Muchachos Perfumaria">
                 </div>
                 <div class="col-lg-3 col-sm-3"><!--HORA E DATA-->
-                    <h1 id="calendario"></h><!--Data e calendario feito em jquery - usa-se o id #calendario-->
+                    <h1 id="calendario"></h1><!--Data e calendario feito em jquery - usa-se o id #calendario-->
                 </div>
                 <div class="col-lg-2 col-sm-2"><!--USUÁRIO-->
                     <h1><span class="fas fa-user"></span> Ramses Souza</h>
@@ -61,10 +67,10 @@
                 <li><a class="item-linha" href="#"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
                 <li><a class="item-linha" href="#"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
                 <p>Tecnologia da Informação</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
-                <li><a class="item-linha" href="#"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+                <li><a class="item-linha" href="funcionarioServlet"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
+                <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
                 <p>Recursos Humanos</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+                <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
                 <p>Gerência</p>
                 <li><a class="item-linha" href="#"><span class="fas fa-chart-line mr-3"></span> Relatório Filial</a></li>
                 <p>Diretoria</p>
@@ -74,30 +80,29 @@
         <!--CONTEUDO DA PAGINA-->
         <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
-            <h1>Consulta de Produtos</h1>
+            <h1>Gerenciamento de Produto</h1>
             <!--Formulário-->
-            <form clas="formulario" action="buscaProdutoServlet" method="get">    
+            <form clas="formulario" action="buscaProdutoServlet"  method="get">  
                 <!--Linha 1-->
                 <div class="row">
-                    <!--Pesquisa de produto-->
                     <div class="col-sm-5">
+                        <!--Campo de Pesquisa de produto-->
                         <div class="input-group mb-2 mr-sm-2">
                             <div class="input-group-prepend ">
                                 <div class="input-group-text">
                                     <span class="fas fa-pump-soap mr-1"></span>
                                 </div>
                             </div>
-                            <input class="form-control" placeholder="Pesquisar Produto por nome" maxlength="40" type="text" required>
-                        </div>
-                    </div><!--Fim Pesquisa de produto-->
-                    <!--Botão pesquisar-->
+                            <input class="form-control" placeholder="Digite o Nome ou codigo aqui" type="text"  required name="Busca" >
+                        </div><!--Fim do campo de Pesquisa de produto-->
+                    </div>
                     <div class="col-sm-2">
-                        <button class="btn btn-dark btn-block" type="submit">Pesquisar
+                        <button class="btn btn-dark btn-block" type="submit" value= "Busca" >Pesquisar
                             <span class="ml-1 fas fa-search"></span>
                         </button>
-                    </div><!--Fim Botão pesquisar-->
+                    </div>
                 </div><!--Fim da linha 1--> 
-            </form><!--Fim do formulario--> 
+            </form><!--Fim do formulario-->  
 
             <!--Tabela--> 
             <div class="tabela">
@@ -114,24 +119,21 @@
                             <th>REMOVER</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <c:forEach var="p" items="${listaProduto}">
+                        <tr>
+                            <td>${p.id}</td>
+                            <td>${p.nome}</td>
+                            <td>${p.quantidade}</td>
+                            <td>${p.categoria}</td>
+                            <td>${p.preco}</td>                                                                                
+                            <td>${p.status}</td>
+                            <td class="td-editar"><a href=cadastroProdutoServlet?acao=Editar&id=${p.id}>Editar</a></td>
+                            <td class="td-remover"><a href=consultaProdutoServlet?acao=Excluir&id=${p.id}>Excluir</a></td>
+                        </tr>
+                    </c:forEach>        
+                </table>
 
-                        <c:forEach var="p" items="${produtos}">
-                            <tr>
-                                <td>${p.id}</td>
-                                <td>${p.nome}</td>
-                                <td>${p.quantidade}</td>
-                                <td>${p.categoria}</td>
-                                <td>${p.preco}</td>
-                                <td>${p.status}</td>
-                                <td class="td-editar"><a href=cadastroProdutoServlet?acao=Editar&id=${f.id}>Editar</td>
-                                <td class="td-remover"><a href=consultaProdutoServlet?acao=Excluir&id=${f.id}>Excluir</td>
-                            </tr>
-                        </c:forEach>>
-                    </tbody>
             </div><!--Fim da Tabela--> 
-
-
 
             <!--1-jQuery.js-->
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

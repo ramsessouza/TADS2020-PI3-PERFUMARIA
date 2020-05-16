@@ -72,7 +72,7 @@
         <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
             <!--Formulário Geral-->
-            <form class="formulario" action="CadastroProdutoServlet" method="POST">
+            <form class="formulario" action="cadastroProdutoServlet" method="POST">
                 <h1 class="titulo-formulario">${mensagem}</h1>
                 <h1 class="titulo-formulario">Cadastro de Produto</h1> 
                 <!--Linha 1-->

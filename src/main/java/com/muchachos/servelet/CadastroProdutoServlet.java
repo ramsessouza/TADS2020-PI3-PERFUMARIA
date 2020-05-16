@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Diego Souza de Queiroz
  */
-@WebServlet(name = "CadastroProdutoServlet", urlPatterns = {"/CadastroProdutoServlet"})
+@WebServlet(name = "cadastroProdutoServlet", urlPatterns = {"/cadastroProdutoServlet"})
 public class CadastroProdutoServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -78,10 +78,5 @@ public class CadastroProdutoServlet extends HttpServlet {
         dispatcher.forward(request, response);
 
     }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

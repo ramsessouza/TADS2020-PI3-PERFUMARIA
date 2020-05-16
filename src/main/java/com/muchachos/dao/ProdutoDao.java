@@ -23,7 +23,7 @@ public class ProdutoDao {
         List<Produto> produtos = new ArrayList();
 
         while (rs.next()) {
-            produtos.add(new Produto(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4), rs.getString(6), rs.getString(6), rs.getString(7)));
+            produtos.add(new Produto(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7)));
         }
         return produtos;
     }
@@ -43,14 +43,14 @@ public class ProdutoDao {
 
     public List<Produto> getProduto1() throws SQLException, ClassNotFoundException {
         Connection conexao = ConexaoDatabase.getConexao();
-        PreparedStatement ps = conexao.prepareStatement("SELECT id, nome, preco, quantidade, categoria, from tb_produto");
+        PreparedStatement ps = conexao.prepareStatement("SELECT id, nome, preco, quantidade, categoria, status from tb_produto");
 
         ResultSet rs = ps.executeQuery();
         List<Produto> produtos = new ArrayList();
 
         while (rs.next()) {
             while (rs.next()) {
-                produtos.add(new Produto(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4), rs.getString(5)));
+                produtos.add(new Produto(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4), rs.getString(5), rs.getString(6)));
             }
             return produtos;
 
@@ -68,7 +68,7 @@ public class ProdutoDao {
 
     public Produto getProdutoId(Integer cod) throws SQLException, ClassNotFoundException {
         Connection conexao = ConexaoDatabase.getConexao();
-        PreparedStatement ps = conexao.prepareStatement("SELECT id, nome, preco,quantidade,descricao,categoria,status FROM tb_produto WHERE idProduto=?");
+        PreparedStatement ps = conexao.prepareStatement("SELECT id, nome, preco,quantidade,descricao,categoria,status FROM tb_produto WHERE id=?");
         ps.setInt(1, cod);
         ResultSet rs = ps.executeQuery();
 
@@ -96,7 +96,7 @@ public class ProdutoDao {
     }
 
     public static List<Produto> buscar(String busca) throws SQLException, Exception {
-        String sql = "SELECT * FROM tb_produto WHERE id like ? or nome like ? or preco like ? or quantidade like ?  or categoria like ?";
+        String sql = "SELECT * FROM tb_produto WHERE nome like ? or categoria like ?";
         busca = busca + '%';
 
         List<Produto> listaProduto = null;
@@ -112,9 +112,6 @@ public class ProdutoDao {
             ps = conexao.prepareStatement(sql);
             ps.setString(1, busca);
             ps.setString(2, busca);
-            ps.setString(3, busca);
-            ps.setString(4, busca);
-            ps.setString(5, busca);
 
             rs = ps.executeQuery();
 
@@ -127,8 +124,9 @@ public class ProdutoDao {
                 float preco = rs.getFloat("preco");
                 int quantidade = rs.getInt("quantidade");
                 String categoria = rs.getString("categoria");
+                String status = rs.getString("status");
 
-                Produto P = new Produto(id, nome, preco, quantidade, categoria);
+                Produto P = new Produto(id, nome, preco, quantidade, categoria, status);
                 listaProduto.add(P);
             }
 

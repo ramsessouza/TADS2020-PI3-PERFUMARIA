@@ -73,6 +73,7 @@
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
             <!--Formulário Geral-->
             <form class="formulario" action="CadastroProdutoServlet" method="POST">
+             <h1 class="titulo-formulario">${mensagem}</h1>
                 <h1 class="titulo-formulario">Edição de Produto</h1> 
                 <!--Linha 1-->
                 <div class="row linha-do-nome">
@@ -92,7 +93,7 @@
                     <div class="col-md-2 col-sm-2">
                         <div class="form-group">
                             <label>Status</label>
-                            <select id="status" class="form-control">
+                            <select id="status" name='status' class="form-control">
                                 <option value="${produto.status}">${produto.status}</option> 
                                 <option value="ativo">Ativo</option>
                                 <option value="inativo">Inativo</option>
@@ -119,14 +120,14 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="preco">Preço</label>
-                            <input id="preco" name="Preco" value="${produto.preco}" class="form-control mascara-decimais" required >
+                            <input id="preco" name="preco" value="${produto.preco}" class="form-control mascara-decimais" required >
                         </div>
                     </div><!--Fim do preco-->
                     <!--Quantidade-->
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label for="quantidade">Quantidade</label>
-                            <input id="quantidade" name="Quantidade" value="${produto.quantidade} "type="number" class="form-control mascara-numero" required >
+                            <input id="quantidade" name="quantidade" value="${produto.quantidade} "type="number" class="form-control mascara-numero" required >
                         </div>
                     </div><!--Fim Quantidade-->
                 </div><!--Fim da linha 2-->

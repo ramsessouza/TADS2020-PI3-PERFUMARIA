@@ -33,12 +33,13 @@ public class Produto {
         this.status = status;
     }
 
-    public Produto(Integer id, String nome, Float preco, Integer quantidade, String categoria) {
+    public Produto(Integer id, String nome, Float preco, Integer quantidade, String categoria, String status) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
         this.categoria = categoria;
+        this.status = status;
     }
 
     public Produto(Integer id, String nome, Float preco, Integer quantidade) {
