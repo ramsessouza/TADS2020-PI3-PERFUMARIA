@@ -1,10 +1,8 @@
 package com.muchachos.servelet;
 
 import com.muchachos.dao.ProdutoDao;
-import com.muchachos.model.Produto;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,14 +17,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "consultaProdutoServlet", urlPatterns = {"/consultaProdutoServlet"})
 public class ConsultaProdutoServlet extends HttpServlet {
 
-    public class consultaProdutoServlet extends HttpServlet {
-
         private final ProdutoDao produtoDao = new ProdutoDao();
         private static final long serialVersionUID = 1L;
 
+       
         @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
-                throws ServletException, IOException {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             String acao = request.getParameter("acao");
             String id = request.getParameter("id");
             try {
@@ -49,4 +45,4 @@ public class ConsultaProdutoServlet extends HttpServlet {
             dispatcher.forward(request, response);
         }
     }
-}
+

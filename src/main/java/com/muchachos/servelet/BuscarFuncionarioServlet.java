@@ -15,21 +15,20 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/buscarFuncionarioServlet")
 public class BuscarFuncionarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-  
 	
+        @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		try {
-			List<Funcionario> listaFuncionario = FuncionarioDao.buscar(request.getParameter("Busca"));
-			request.setAttribute("listaFuncionario", listaFuncionario);	
+	try {
+            List<Funcionario> listaFuncionario = FuncionarioDao.buscar(request.getParameter("Busca"));
+            request.setAttribute("listaFuncionario", listaFuncionario);	
 			
-		} catch (Exception e) {
-			request.setAttribute("mensagem", "Erro de banco de dados: " + e.getMessage());
+	} catch (Exception e) {
+            request.setAttribute("mensagem", "Erro de banco de dados: " + e.getMessage());
 			
 	   }
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/buscaFuncionario.jsp");
-		dispatcher.forward(request, response);
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/buscaFuncionario.jsp");
+            dispatcher.forward(request, response);
 	}  
 	 
  

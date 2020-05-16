@@ -83,7 +83,7 @@ public class ProdutoDao {
     public void atualizar(Produto produto) throws ClassNotFoundException, SQLException {
         Connection conexao = ConexaoDatabase.getConexao();
         PreparedStatement statement = conexao.prepareStatement(
-                " UPDATE cadastroProduto SET nome=?, preco=?, quantidade=?, descricao=?, categoria=?, status=? WHERE id=?");
+                " UPDATE tb_produto  SET nome=?, preco=?, quantidade=?, descricao=?, categoria=?, status=? WHERE id=?");
 
         statement.setString(1, produto.getNome());
         statement.setFloat(2, produto.getPreco());
@@ -117,7 +117,7 @@ public class ProdutoDao {
 
             while (rs.next()) {
                 if (listaProduto == null) {
-                    listaProduto = new ArrayList<Produto>();
+                    listaProduto = new ArrayList<>();
                 }
                 int id = rs.getInt("id");
                 String nome = rs.getString("nome");
@@ -130,7 +130,7 @@ public class ProdutoDao {
                 listaProduto.add(P);
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.getMessage();
             System.out.println(e);
         } finally {

@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 public class FuncionarioServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
-	private final  FuncionarioDao funcionarioDao = new FuncionarioDao(); 
+  private final  FuncionarioDao funcionarioDao = new FuncionarioDao(); 
 	      
   
   
