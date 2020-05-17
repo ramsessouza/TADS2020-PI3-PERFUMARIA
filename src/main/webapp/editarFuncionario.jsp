@@ -116,13 +116,13 @@
               <div class="col-md-3 col-sm-3">
                 <div class="form-group">
                   <label>RG</label>
-                  <input name="rg" id="rg" type="text" class="form-control" value="${funcionario.rg}" >
+                  <input name="rg" id="rg" type="text" class="form-control" value="${funcionario.rg}" placeholder="##.###.###-#" >
                 </div>
               </div>
               <div class="col-md-3 col-sm-3">
                 <div class="form-group">
                   <label>CPF</label>
-                  <input name="cpf" id="cpf" type="text" class="form-control" value="${funcionario.cpf}" required>
+                  <input name="cpf" id="cpf" type="text" class="form-control" value="${funcionario.cpf}" required  placeholder="###.###.###-##">
                 </div>
               </div>
               <div class="dropdown col-md-3 col-sm-3">
@@ -191,19 +191,48 @@
           
         <!--Linha 5-->
         <div class="row">
-          <div class="col-md-3 col-sm-3">
+          <div class="col-md-3 col-sm-2">
             <div class="form-group">
               <label>Estado</label>
-              <input name="estado" id="estado" type="text" class="form-control"value="${funcionario.estado}" required>
-            </div>
-          </div>
+               <select id="estado" name="estado" class="form-control">
+                 <option value="${funcionario.estado}">${funcionario.estado}</option>   
+                 <option value="Selecione">Selecione</option>
+                 <option value="acre">Acre</option>
+                 <option value="alagoas">Alagoas</option>
+                 <option value="amapá">Amapá</option>
+                 <option value="bahia">Bahia</option>
+                 <option value="ceará">Ceará</option>
+                 <option value="distrito federal">Distrito Federal</option>
+                 <option value="espírito santo">Espírito Santo</option>
+                 <option value="goiás">Goiás</option>
+                 <option value="maranhão">Maranhão</option>
+                 <option value="mato grosso">Mato Grosso</option>
+                 <option value="mato grosso do sul">Mato Grosso do Sul</option>
+                 <option value="minas gerais">Minas Gerais</option>
+                 <option value="pará">Pará</option>
+                 <option value="paraíba">Paraíba</option>
+                 <option value="paraná">Paraná</option>
+                 <option value="pernambuco">Pernambuco</option>
+                 <option value="piauí">Piauí</option>
+                 <option value="rio de janeiro">Rio de Janeiro</option>
+                 <option value="rio grande do norte">Rio Grande do Norte</option>
+                 <option value="rio grande do sul">Rio Grande do Sul</option>
+                 <option value="rondônia">Rondônia</option>
+                 <option value="roraima">Roraima</option>
+                 <option value="santa catarina">Santa Catarina</option>
+                 <option value="são paulo">São Paulo</option>
+                 <option value="sergipe">Sergipe</option>
+                 <option value="tocantins">Tocantins</option>
+                </select>
+               </div>
+          </div><!--Fim Estado-->
           <div class="col-md-9 col-sm-9">
             <!--Linha 5.1-->
             <div class="row">
               <div class="col-md-6 col-sm-4">
                 <div class="form-group">
                   <label>Telefone</label>
-                  <input name="telefone" id="telefone" type="text" class="form-control" value="${funcionario.telefone}" required >
+                  <input name="telefone" id="telefone" type="text" class="form-control" value="${funcionario.telefone}" required placeholder="(**)*****-****" >
                 </div>
               </div> 
               <div class="col-md-6 col-sm-4">
@@ -221,7 +250,7 @@
             <div class="form-group">
                   <label>Departamento</label>
                   <select name="departamento" id="departamento" class="form-control">
-                     <option value="${funcionario.departamento}">${funcionario.departamento}</option>     
+                    <option value="${funcionario.departamento}">${funcionario.departamento}</option>     
                     <option value="Venda">Venda</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Publicidade">Publicidade</option>
@@ -249,9 +278,34 @@
                   <label>Filial</label>
                   <select name="filial" id="filial" class="form-control">
                     <option value="${funcionario.filial}">${funcionario.filial}</option>     
-                    <option value="Bahia">Bahia</option>
-                    <option value="São Paulo">São Paulo</option>
-                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                   <option value="${funcionario.estado}">${funcionario.estado}</option>   
+                 <option value="Selecione">Selecione</option>
+                 <option value="acre">Acre</option>
+                 <option value="alagoas">Alagoas</option>
+                 <option value="amapá">Amapá</option>
+                 <option value="bahia">Bahia</option>
+                 <option value="ceará">Ceará</option>
+                 <option value="distrito federal">Distrito Federal</option>
+                 <option value="espírito santo">Espírito Santo</option>
+                 <option value="goiás">Goiás</option>
+                 <option value="maranhão">Maranhão</option>
+                 <option value="mato grosso">Mato Grosso</option>
+                 <option value="mato grosso do sul">Mato Grosso do Sul</option>
+                 <option value="minas gerais">Minas Gerais</option>
+                 <option value="pará">Pará</option>
+                 <option value="paraíba">Paraíba</option>
+                 <option value="paraná">Paraná</option>
+                 <option value="pernambuco">Pernambuco</option>
+                 <option value="piauí">Piauí</option>
+                 <option value="rio de janeiro">Rio de Janeiro</option>
+                 <option value="rio grande do norte">Rio Grande do Norte</option>
+                 <option value="rio grande do sul">Rio Grande do Sul</option>
+                 <option value="rondônia">Rondônia</option>
+                 <option value="roraima">Roraima</option>
+                 <option value="santa catarina">Santa Catarina</option>
+                 <option value="são paulo">São Paulo</option>
+                 <option value="sergipe">Sergipe</option>
+                 <option value="tocantins">Tocantins</option>
                   </select>
                 </div>
               </div>
