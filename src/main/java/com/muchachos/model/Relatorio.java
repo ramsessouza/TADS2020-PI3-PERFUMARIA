@@ -1,7 +1,9 @@
 
 package com.muchachos.model;
 
-import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * 11/05/2020 16:00
@@ -11,8 +13,8 @@ import java.sql.Date;
 public class Relatorio {
 
     private int id;
-    private int id_cliente;
-    private Date data;
+    private String cliente;
+    private String data;
     private int qtd_itens;
     private float total;
     private float dinheiro;
@@ -22,6 +24,15 @@ public class Relatorio {
     private float desconto;
     private float troco;
     private String vend_resp;
+    private String filial;
+
+    public String getFilial() {
+        return filial;
+    }
+
+    public void setFilial(String filial) {
+        this.filial = filial;
+    }
 
     public int getId() {
         return id;
@@ -31,19 +42,19 @@ public class Relatorio {
         this.id = id;
     }
 
-    public int getId_cliente() {
-        return id_cliente;
+    public String getCliente() {
+        return cliente;
     }
 
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
@@ -119,13 +130,17 @@ public class Relatorio {
         this.vend_resp = vend_resp;
     }
 
-    public Relatorio(int id, int id_cliente, Date data, int qtd_itens, float total, String vend_resp) {
+    public Relatorio(int id, String cliente, Date date, int qtd_itens, float total, String vend_resp, String filial) {
+        DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String c = sdf.format(date);
+        
         this.id = id;
-        this.id_cliente = id_cliente;
-        this.data = data;
+        this.cliente = cliente;
+        this.data = c;
         this.qtd_itens = qtd_itens;
         this.total = total;
         this.vend_resp = vend_resp;
+        this.filial = filial;
     }
 }
 
