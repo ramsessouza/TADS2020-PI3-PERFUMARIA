@@ -2,6 +2,7 @@ package com.muchachos.dao;
 
 import com.muchachos.db.ConexaoDatabase;
 import com.muchachos.model.Cliente;
+import com.muchachos.normalize.Normalize;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +14,7 @@ import java.util.List;
  * 12/05/2020
  * @author Otavio Barros
  */
-public class ClienteDao{
+public class ClienteDao extends ConexaoDatabase{
 
     public void salvar(Cliente cliente) throws ClassNotFoundException, SQLException {
         String sql = "INSERT INTO TB_CLIENTE(nome, sexo, "
@@ -24,27 +25,28 @@ public class ClienteDao{
         
         Connection connection = null;
         PreparedStatement preparedStatement = null;
+        Normalize normal = new Normalize();
         
         try{
-            connection = ConexaoDatabase.getConexao();
+            connection = getConexao();
             preparedStatement = connection.prepareStatement(sql);
             
-            preparedStatement.setString(1, cliente.getNome());
+            preparedStatement.setString(1, normal.removeAcento(cliente.getNome()));
             preparedStatement.setString(2, cliente.getSexo());
             preparedStatement.setString(3, cliente.getDataNascimento());
-            preparedStatement.setString(4, cliente.getEstadoCivil());
+            preparedStatement.setString(4, normal.removeAcento(cliente.getEstadoCivil()));
             preparedStatement.setString(5, cliente.getStatus());
             preparedStatement.setString(6, cliente.getRg());
             preparedStatement.setString(7, cliente.getCpf());
-            preparedStatement.setString(8, cliente.getEmail());
+            preparedStatement.setString(8, normal.removeAcento(cliente.getEmail()));
             preparedStatement.setString(9, cliente.getTelefone());
-            preparedStatement.setString(10, cliente.getEstado());
-            preparedStatement.setString(11, cliente.getCidade());
-            preparedStatement.setString(12, cliente.getBairro());
+            preparedStatement.setString(10, normal.removeAcento(cliente.getEstado()));
+            preparedStatement.setString(11, normal.removeAcento(cliente.getCidade()));
+            preparedStatement.setString(12, normal.removeAcento(cliente.getBairro()));
             preparedStatement.setString(13, cliente.getCep());
-            preparedStatement.setString(14, cliente.getLogradouro());
+            preparedStatement.setString(14, normal.removeAcento(cliente.getLogradouro()));
             preparedStatement.setInt(15, cliente.getNumero());
-            preparedStatement.setString(16, cliente.getComplemento());
+            preparedStatement.setString(16, normal.removeAcento(cliente.getComplemento()));
             preparedStatement.execute();
         
         } finally {
@@ -56,7 +58,6 @@ public class ClienteDao{
             }
         }
     }
-
     
     public List<Cliente> listar() throws ClassNotFoundException, SQLException {
         String sql = "SELECT id, nome, sexo, nascimento, estado_civil, status, rg, "
@@ -70,7 +71,7 @@ public class ClienteDao{
         ResultSet result = null;
         
         try{
-            connection = ConexaoDatabase.getConexao();
+            connection = getConexao();
             preparedStatement = connection.prepareStatement(sql);
 
             result = preparedStatement.executeQuery();
@@ -113,7 +114,6 @@ public class ClienteDao{
         }
         return listaClientes;
     }
-
     
     public List<Cliente> procurar(String nome) throws ClassNotFoundException, SQLException {
         String sql = "SELECT id, nome, sexo, nascimento, estado_civil, status, rg, "
@@ -125,7 +125,7 @@ public class ClienteDao{
         ResultSet result = null;        
         
         try{
-            connection = ConexaoDatabase.getConexao();
+            connection = getConexao();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, "%" + nome.toUpperCase() + "%");
             
@@ -169,7 +169,6 @@ public class ClienteDao{
         }
         return listaClientes;
     }
-
     
     public Cliente obter(Integer id) throws ClassNotFoundException, SQLException {
         String sql = "SELECT * FROM TB_CLIENTE WHERE id =?";
@@ -179,7 +178,7 @@ public class ClienteDao{
         ResultSet result = null;
         
         try {
-            connection = ConexaoDatabase.getConexao();
+            connection = getConexao();
             preparedStatement = connection.prepareStatement(sql);
             
             preparedStatement.setInt(1, id);
@@ -220,7 +219,6 @@ public class ClienteDao{
         }
         return null;
     }
-
     
     public void atualizar(Cliente clienteAtualizado) throws ClassNotFoundException, SQLException {
         String sql = "UPDATE TB_CLIENTE SET nome = ?, sexo = ?, "
@@ -231,28 +229,29 @@ public class ClienteDao{
         
         Connection connection = null;
         PreparedStatement preparedStatement = null;
+        Normalize normal = new Normalize();
         
         try {
             
-            connection = ConexaoDatabase.getConexao();
+            connection = getConexao();
             preparedStatement = connection.prepareStatement(sql);
             
-            preparedStatement.setString(1, clienteAtualizado.getNome());
+            preparedStatement.setString(1, normal.removeAcento(clienteAtualizado.getNome()));
             preparedStatement.setString(2, clienteAtualizado.getSexo());
             preparedStatement.setString(3, clienteAtualizado.getDataNascimento());
-            preparedStatement.setString(4, clienteAtualizado.getEstadoCivil());
+            preparedStatement.setString(4, normal.removeAcento(clienteAtualizado.getEstadoCivil()));
             preparedStatement.setString(5, clienteAtualizado.getStatus());
             preparedStatement.setString(6, clienteAtualizado.getRg());
             preparedStatement.setString(7, clienteAtualizado.getCpf());
-            preparedStatement.setString(8, clienteAtualizado.getEmail());
+            preparedStatement.setString(8, normal.removeAcento(clienteAtualizado.getEmail()));
             preparedStatement.setString(9, clienteAtualizado.getTelefone());
-            preparedStatement.setString(10, clienteAtualizado.getEstado());
-            preparedStatement.setString(11, clienteAtualizado.getCidade());
-            preparedStatement.setString(12, clienteAtualizado.getBairro());
+            preparedStatement.setString(10, normal.removeAcento(clienteAtualizado.getEstado()));
+            preparedStatement.setString(11, normal.removeAcento(clienteAtualizado.getCidade()));
+            preparedStatement.setString(12, normal.removeAcento(clienteAtualizado.getBairro()));
             preparedStatement.setString(13, clienteAtualizado.getCep());
-            preparedStatement.setString(14, clienteAtualizado.getLogradouro());
+            preparedStatement.setString(14, normal.removeAcento(clienteAtualizado.getLogradouro()));
             preparedStatement.setInt(15, clienteAtualizado.getNumero());
-            preparedStatement.setString(16, clienteAtualizado.getComplemento());
+            preparedStatement.setString(16, normal.removeAcento(clienteAtualizado.getComplemento()));
             preparedStatement.setInt(17, clienteAtualizado.getId());
 
             //Executa o comando no banco de dados
@@ -268,7 +267,6 @@ public class ClienteDao{
             }
         }
     }
-
     
     public void excluir(Integer id) throws ClassNotFoundException, SQLException {
         String sql = "UPDATE TB_CLIENTE SET STATUS = 'Inativo' WHERE id = ?";         
@@ -277,7 +275,7 @@ public class ClienteDao{
         PreparedStatement preparedStatement = null;
         
         try {
-            connection = ConexaoDatabase.getConexao();
+            connection = getConexao();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
 
@@ -294,6 +292,4 @@ public class ClienteDao{
             }
         }
     }
-
-    
 }
