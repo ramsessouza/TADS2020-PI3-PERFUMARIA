@@ -4,6 +4,7 @@
     Author     : Otávio Barros
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -75,24 +76,24 @@
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
             <h1>Consulta de Clientes</h1>
             <!--Formulário-->
-            <form class="formulario"> 
+            <form class="formulario" action="ConsultarClienteServlet" method="POST"> 
                 <!--Linha 1-->
                 <div class="row">
                     <!--Coluna 1-->
                     <div class="col-sm-5">
-                        <!--Campo de Pesquisa de produto-->
+                        <!--Campo de Pesquisa de cliente-->
                         <div class="input-group mb-2 mr-sm-2">
                             <div class="input-group-prepend ">
                                 <div class="input-group-text">
                                     <span class="fas fa-users mr-1"></span>
                                 </div>
                             </div>
-                            <input class="form-control" maxlength="40" placeholder="Pesquisar Cliente por Nome" type="text" required>
-                        </div><!--Fim do campo de Pesquisa de produto-->
+                            <input name="pesquisaCliente" class="form-control" maxlength="40" placeholder="Pesquisar Cliente por Nome" type="text">
+                        </div><!--Fim do campo de Pesquisa de cliente-->
                     </div><!--Fim da Coluna 1-->
                     <!--Coluna 2-->
                     <div class="col-sm-2">
-                        <!--Botão de Pesquisa de produto-->
+                        <!--Botão de Pesquisa de cliente-->
                         <button class="btn btn-dark btn-block" type="submit">Pesquisar
                             <span class="ml-1 fas fa-search"></span>
                         </button>
@@ -118,19 +119,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="td-id">1</td>
-                            <td class="td-nome">Ramses Souza</td>
-                            <td class="td-email">ramses@hotmail.com</td>
-                            <td class="td-telefone">1199199878</td>
-                            <td class="td-nascimento">26/05/1987</td>
-                            <td class="td-sexo">M</td>
-                            <td>São Paulo</td>
-                            <td class="td-logradouro">Av São Luis</td>
-                            <td>1.689</td>
-                            <td class="td-editar"><a href="#"><span class="fas fa-times"></span></a></td>
-                            <td class="td-remover"><a href="#"><span class="fas fa-edit"></span></a></td>
-                        </tr>
+                        <c:forEach var="listaClientes" items="${clientes}">
+                            <tr>
+                                <td class="td-id">${listaClientes.id}</td>
+                                <td class="td-nome">${listaClientes.nome}</td>
+                                <td class="td-email">${listaClientes.email}</td>
+                                <td class="td-telefone">${listaClientes.telefone}</td>
+                                <td class="td-nascimento">${listaClientes.dataNascimento}</td>
+                                <td class="td-sexo">${listaClientes.sexo}</td>
+                                <td>${listaClientes.estado}</td>
+                                <td class="td-logradouro">${listaClientes.logradouro}</td>
+                                <td>${listaClientes.numero}</td>
+                                <td class="td-remover"><a href="EditarClienteServlet?&id=${listaClientes.id}"><span class="fas fa-edit"></span></a></td>
+                                <td class="td-editar"><a href="ExcluirClienteServlet?&id=${listaClientes.id}"><span class="fas fa-times"></span></a></td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div><!--Fim da Tabela--> 
