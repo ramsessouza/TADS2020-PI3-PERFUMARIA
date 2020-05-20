@@ -17,12 +17,6 @@ public class Relatorio {
     private String data;
     private int qtd_itens;
     private float total;
-    private float dinheiro;
-    private float debito;
-    private float credito;
-    private String parcelas;
-    private float desconto;
-    private float troco;
     private String vend_resp;
     private String filial;
 
@@ -72,54 +66,6 @@ public class Relatorio {
 
     public void setTotal(float total) {
         this.total = total;
-    }
-
-    public float getDinheiro() {
-        return dinheiro;
-    }
-
-    public void setDinheiro(float dinheiro) {
-        this.dinheiro = dinheiro;
-    }
-
-    public float getDebito() {
-        return debito;
-    }
-
-    public void setDebito(float debito) {
-        this.debito = debito;
-    }
-
-    public float getCredito() {
-        return credito;
-    }
-
-    public void setCredito(float credito) {
-        this.credito = credito;
-    }
-
-    public String getParcelas() {
-        return parcelas;
-    }
-
-    public void setParcelas(String parcelas) {
-        this.parcelas = parcelas;
-    }
-
-    public float getDesconto() {
-        return desconto;
-    }
-
-    public void setDesconto(float desconto) {
-        this.desconto = desconto;
-    }
-
-    public float getTroco() {
-        return troco;
-    }
-
-    public void setTroco(float troco) {
-        this.troco = troco;
     }
 
     public String getVend_resp() {

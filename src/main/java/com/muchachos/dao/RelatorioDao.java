@@ -1,7 +1,7 @@
 package com.muchachos.dao;
 
 import com.muchachos.db.ConexaoDatabase;
-import com.muchachos.model.Produto;
+import com.muchachos.model.Detalhes;
 import com.muchachos.model.Relatorio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +18,7 @@ import java.util.List;
  */
 public class RelatorioDao {
 
+    //RELATORIO DE VENDAS
     public List<Relatorio> getVendas(Timestamp dataDe, Timestamp dataPara, String filial, String cliente) throws SQLException, ClassNotFoundException {
         List<Relatorio> relatorio = null;
         try {
@@ -26,7 +27,7 @@ public class RelatorioDao {
             PreparedStatement ps = conexao.prepareStatement("select v.id,c.nome as nome,v.dat,v.qtd_itens,v.val_total,f.nome as colaborador,f.filial as filial from tb_venda as v"
                     + " inner join tb_cliente as c on v.id_cliente = c.id "
                     + "inner join tb_colaborador as f on v.id_funcionario = f.id "
-                    + "where (c.nome like ? or f.filial = ?) and (v.dat >= ? and v.dat<= ?)");
+                    + "where (c.nome like ?) and (f.filial like ?) and (v.dat >= ? and v.dat<= ?)");
 
             ps.setString(1, cliente);
             ps.setString(2, filial);
@@ -50,25 +51,29 @@ public class RelatorioDao {
         return relatorio;
     }
 
-    public List<Produto> getDetalhes(String id) throws SQLException, ClassNotFoundException {
-        List<Produto> iv = new ArrayList<>();
+    //DETALHE DE CADA VENDA
+    public List<Detalhes> getDetalhes(int id, String categoria) throws SQLException, ClassNotFoundException {
+        List<Detalhes> iv = new ArrayList<>();
 
         try {
             Connection conexao = ConexaoDatabase.getConexao();
 
-            PreparedStatement ps = conexao.prepareStatement("select Id_Produto, Nome_Produto, qtd_itens, Categoria, val_Unitário, val_total from tb_itensVenda where id_venda = ?");
+            PreparedStatement ps = conexao.prepareStatement("select iv.Id_Produto, iv.Nome_Produto, iv.qtd_itens, p.Categoria, iv.val_Unitario, iv.val_total from tb_itensVenda as iv"
+                    + " inner join tb_produto as p on iv.ID_PRODUTO = p.ID"
+                    + " where iv.id_venda = ? and p.categoria like ?");
 
-            ps.setString(1, id);
+            ps.setInt(1, id);
+            ps.setString(2, categoria);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-            //iv.add(new ItensVenda(rs.getInt(0),rs.getString(1), rs.getInt(2), rs.getString(3),rs.getFloat(4),rs.getFloat(5)));
+                iv.add(new Detalhes(rs.getInt("id_produto"), rs.getString("nome_produto"), rs.getInt("qtd_itens"), rs.getString("categoria"), rs.getFloat("val_unitario"), rs.getFloat("val_total")));
             }
-            }catch (SQLException sQLException) {
+        } catch (SQLException sQLException) {
             System.out.println(sQLException.toString());
-        }catch (Exception sQLException) {
+        } catch (Exception sQLException) {
             System.out.println(sQLException.toString());
         }
-            return iv;
-        }
-
+        return iv;
     }
+
+}

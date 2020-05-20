@@ -1,12 +1,17 @@
 package com.muchachos.servelet;
 
+import com.google.gson.Gson;
+import com.muchachos.dao.RelatorioDao;
+import com.muchachos.model.Detalhes;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import static javax.ws.rs.client.Entity.json;
 
 /**
  *
@@ -27,13 +32,30 @@ public class DetalhesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //ItensVendaDao itens = new ItensVendasDao();
-        //List<ItensVenda> products = itens.getItens(Strind id);
-        //String json = new Gson().toJson(products);
+        RelatorioDao detalhes = new RelatorioDao();
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        String categoria = request.getParameter("categoria");
+
+        if (categoria.equals("todas")) {
+            categoria = "%";
+        }
+
+        String json = null;
+        try {
+            List<Detalhes> products = detalhes.getDetalhes(id, categoria);
+            json = new Gson().toJson(products);
+
+        } catch (SQLException e) {
+            request.setAttribute("mensagem", "Erro de banco de dados: " + e.getMessage());
+
+        } catch (ClassNotFoundException e) {
+            request.setAttribute("mensagem", "Erro de Driver: " + e.getMessage());
+        }
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        //response.getWriter().write(json);
+        response.getWriter().write(json);
     }
 
     /**

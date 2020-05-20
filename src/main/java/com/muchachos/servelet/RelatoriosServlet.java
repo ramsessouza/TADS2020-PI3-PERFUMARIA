@@ -1,6 +1,8 @@
 package com.muchachos.servelet;
 
+import com.google.gson.Gson;
 import com.muchachos.dao.RelatorioDao;
+import com.muchachos.model.Detalhes;
 import com.muchachos.model.Relatorio;
 import java.io.IOException;
 import java.util.Date;
@@ -39,42 +41,37 @@ public class RelatoriosServlet extends HttpServlet {
         String cliente = request.getParameter("cliente");
 
         String diaIni = request.getParameter("dataDe");
-        String diaFim = request.getParameter("dataPara"); // verificar todos os parametros caso null e mandar pro db
+        String diaFim = request.getParameter("dataPara");
 
         String filial = request.getParameter("filial");
-        //String categoria = request.getParameter("categoria");
-
-        String acao = request.getParameter("acao");
-        String id = request.getParameter("id");
 
         Timestamp de = null;
         Timestamp para = null;
 
-        cliente += "%";
         DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
+        if(cliente == null || cliente.equals("")){
+        cliente = "%";
+        }
+        
         try {
-            if (diaIni.equals("")) {
+            if (diaIni == null || diaIni.equals("")) {
                 Date c = sdf.parse("2020-01-01");
                 long l = c.getTime();
                 de = new Timestamp(l);
             }
         } catch (Exception e) {
+            System.out.println("" + e.toString());
         }
 
-        if (diaFim.equals("")) {
+        if (diaFim == null || diaFim.equals("")){
             para = new Timestamp(System.currentTimeMillis());
         }
-        if (filial.equals("Todas")) {
-            filial = "filial";
+        if (filial == null || filial.equals("todas")) {
+            filial = "%";
         }
 
         try {
-            if (acao != null && acao.equals("detalhes")) {
-                Integer cod = Integer.parseInt(id);
-                //ItensVenda produto = ItensVenda.getProdutoId(cod);
-                //request.setAttribute("produto", produto);
-            }
             List<Relatorio> r = relDao.getVendas(de, para, filial, cliente);
             request.setAttribute("vendas", r);
 
