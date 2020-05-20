@@ -158,6 +158,8 @@ $(function () {
 //PESQUISA PRODUTOS 
 //==================================================================
     $('#pesquisa-produto').on('click', function(){
+        //limpa a tabela
+        $("#tb-produtos tbody").empty();
         //função em ajax para mandar o post para o servelet
         $.ajax({
             method: 'POST',//metodo post
@@ -165,10 +167,18 @@ $(function () {
             data: {
                 nomeProduto : $('#nome-produto').val()
             }//dados a serem enviados
-        }).done(function(response) {
-            alert("Success!");
-        }).fail(function(response) {
-            alert("Error!");
+        }).always(function(responseJson) {
+            $.each(responseJson, function (index, produto) {
+                $('#tb-produtos')
+                .find('tbody:last')
+                .append(
+		'<tr><td class="td-id">' + produto.id + 
+		'</td><td class="td-produto">' + produto.nome + 
+		'</td><td>' + produto.categoria + 
+		'</td><td>' + produto.quantidade + 
+		'</td><td>R$ ' + produto.preco + 
+		'</td></tr>');
+            });
         });
     });
 //==================================================================	
@@ -183,10 +193,24 @@ $(function () {
                 cpf : $('#cpf-cliente').val(),
                 acao : "pesquisacpf"
             }//dados a serem enviados
-        }).done(function(response) {
-            alert(response);
-        }).fail(function() {
-            alert("Deu ruim!");
+        }).always(function(responseJson) {
+            console.log(responseJson);
+            if(responseJson.responseText !== "Não encontrado!"){//se encontrar preenche com os dados
+                $('#cli-id').val(responseJson.id);
+                $('#cli-nome').text(responseJson.nome);
+                $('#cli-cpf').text(responseJson.cpf);
+            }else{//se não encontrar mostra modal
+                $('#mensagem').text("Não existe cliente cadastrado com o CPF: "+$('#cpf-cliente').val()+".");//coloca o texto de retorno na modal
+                $('#modalMensagem').modal('show');//mostra modal
+            }
         });
     });
+//==================================================================	
+//QUANDO FECHAR A MODAL
+//==================================================================    
+    $('.fechar-modal').on("click",function(){
+        //fecha modal e atualiza formulario
+        $('#modalMensagem').modal('hide');
+        $('#formulario').trigger("reset");
+    });    
 });

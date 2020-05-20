@@ -85,7 +85,7 @@
                         <legend>Produtos</legend>
                         <!--1.Pesquisa de Produtos-->
                         <div class="form-inline pesquisar-produto">
-                            <input id="nome-produto" class="form-control" type="text" maxlength="30" placeholder="Pesquise pelo nome">
+                            <input id="nome-produto" class="form-control" type="text" maxlength="30" placeholder="Pesquise por nome ou categoria">
                             <button id="pesquisa-produto" class="btn btn-dark" type="">Pesquisar 
                                 <span class="fas fa-search ml-1"></span>
                             </button>
@@ -108,16 +108,7 @@
                                     <th id="valor">VALOR</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <c:forEach var="listaProdutos" items="${produtos}">
-                                <tr>
-                                    <td class="td-id">${listaProdutos.id}</td>
-                                    <td class="td-produto">${listaProdutos.nome}</td>
-                                    <td >${listaProdutos.categoria}</td>
-                                    <td >${listaProdutos.quantidade}</td>
-                                    <td >R$${listaProdutos.preco}</td>
-                                </tr>
-                                </c:forEach>
+                            <tbody><!--as linhas sao inseridas via Jquery-->
                             </tbody>
                         </table>
                     </fieldset><!--Fim do Fieldset Produtos-->
@@ -157,13 +148,14 @@
                         </div>
                         <!--2.Dados do cliente-->
                         <div class="dados-cliente">
+                            <input id="cli-id" hidden></input>
                             <div class="form-inline">
                                 <p class="legenda mr-1">Nome:</p>
-                                <p>JOSÉ MAURÍCIO DE SOUZA</p>
+                                <p id="cli-nome"></p>
                             </div>
                             <div class="form-inline">
                                 <p class="legenda mr-1">CPF:</p>
-                                <p>110.558.998.40</p>
+                                <p id="cli-cpf"></p>
                             </div>
                         </div>
                     </fieldset><!--Fim do Fieldset Cliente-->
@@ -243,7 +235,30 @@
                 </div><!--Fim coluna2-->
             </div><!--Fim da Linha Geral-->
         </div><!--Fim do conteudo da pagina-->
-
+        
+        <!--MODAL-->
+        <div class="modal fade modal" id="modalMensagem" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Mensagem</h5>
+                        <button type="button" class="close fechar-modal"><!--data-dismiss="modal"-->
+                            <span class="fas fa-times"></span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="mensagem"></p>
+                        <p id="registre-cliente">Faça o registro agora clicando<a href="cadastroCliente.jsp"> aqui</a>.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-sm fechar-modal"><!--data-dismiss="modal"-->
+                            <span class="fas fa-times mr-2"></span>Fechar
+                        <button
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!--SCRIPTS-->
         <!--1-jQuery.js-->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

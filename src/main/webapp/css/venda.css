@@ -36,6 +36,9 @@
 .grade-geral .coluna2 .finalizar-compra .finalizar-container{position: absolute; bottom: 15px; width: 95%;}
 .grade-geral .coluna2 .finalizar-compra .finalizar-container .place-branco ::placeholder{color: white;}
 
+/*modal*/
+.modal h5{font-family: FuturaBold;}
+
 /*====================================================================*/
 /*RESPONSIVIDADE- Não altere os valores*/
 /*====================================================================*/

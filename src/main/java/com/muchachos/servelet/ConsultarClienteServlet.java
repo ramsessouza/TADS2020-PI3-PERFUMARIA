@@ -1,5 +1,6 @@
 package com.muchachos.servelet;
 
+import com.google.gson.Gson;
 import com.muchachos.dao.ClienteDao;
 import com.muchachos.model.Cliente;
 import java.io.IOException;
@@ -48,6 +49,7 @@ public class ConsultarClienteServlet extends HttpServlet {
         String campoPesquisa = request.getParameter("pesquisaCliente");
         String cpf = request.getParameter("cpf");
         String acao = request.getParameter("acao");
+        String json = null;
         ClienteDao clienteDao = new ClienteDao();
         Cliente cliente = new Cliente();
         
@@ -55,9 +57,19 @@ public class ConsultarClienteServlet extends HttpServlet {
         if (acao != null){
             try{
                 cliente = clienteDao.obter2(cpf);
-                response.getWriter().write(cliente.getNome());
+                json = new Gson().toJson(cliente);
+                if(cliente==null){//se nao encontrar o CPF
+                    response.setContentType("application/json");
+                    response.setCharacterEncoding("UTF-8");
+                    response.getWriter().write("Não encontrado!");
+                }else{//se encontrar o cpf
+                    response.setContentType("application/json");
+                    response.setCharacterEncoding("UTF-8");
+                    response.getWriter().write(json);
+                    //response.getWriter().write(cliente.getNome());
+                }
             }catch (SQLException e){
-                response.getWriter().write(cliente.getNome());
+                response.getWriter().write("Erro de banco de dados: " + e.getMessage());
             }catch (ClassNotFoundException e) {
                 response.getWriter().write("Erro de Driver: " + e.getMessage());
             }

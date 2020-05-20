@@ -88,7 +88,7 @@
                                     <span class="fas fa-users mr-1"></span>
                                 </div>
                             </div>
-                            <input name="pesquisaCliente" class="form-control" maxlength="40" placeholder="Pesquisar Cliente por Nome" type="text">
+                            <input name="pesquisaCliente" class="form-control" maxlength="40" placeholder="Pesquisar Cliente por Nome ou CPF" type="text">
                         </div><!--Fim do campo de Pesquisa de cliente-->
                     </div><!--Fim da Coluna 1-->
                     <!--Coluna 2-->

@@ -145,5 +145,56 @@ public class ProdutoDao {
         }
         return listaProduto;
     }
+    
+    public static List<Produto> buscarDireito(String busca) throws SQLException, Exception {
+        String sql = "SELECT * FROM tb_produto WHERE upper(nome) like ? or upper(categoria) like ?";
+        busca = '%' + busca + '%';
+
+        List<Produto> listaProduto = null;
+        Connection conexao = null;
+        PreparedStatement ps = null;
+
+        ResultSet rs = null;
+        
+
+        try {
+            conexao = ConexaoDatabase.getConexao();
+            ps = conexao.prepareStatement(sql);
+            ps.setString(1, busca.toUpperCase());
+            ps.setString(2, busca.toUpperCase());
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                if (listaProduto == null) {
+                    listaProduto = new ArrayList<>();
+                }
+                int id = rs.getInt("id");
+                String nome = rs.getString("nome");
+                float preco = rs.getFloat("preco");
+                int quantidade = rs.getInt("quantidade");
+                String categoria = rs.getString("categoria");
+                String status = rs.getString("status");
+
+                Produto P = new Produto(id, nome, preco, quantidade, categoria, status);
+                listaProduto.add(P);
+            }
+
+        } catch (SQLException e) {
+            e.getMessage();
+            System.out.println(e);
+        } finally {
+            if (rs != null && !rs.isClosed()) {
+                rs.close();
+            }
+            if (ps != null && !ps.isClosed()) {
+                ps.close();
+            }
+            if (conexao != null && !conexao.isClosed()) {
+                conexao.close();
+            }
+        }
+        return listaProduto;
+    }
 
 }

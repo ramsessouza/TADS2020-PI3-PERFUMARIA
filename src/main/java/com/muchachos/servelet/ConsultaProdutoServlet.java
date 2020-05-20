@@ -1,5 +1,6 @@
 package com.muchachos.servelet;
 
+import com.google.gson.Gson;
 import com.muchachos.dao.ProdutoDao;
 import com.muchachos.model.Produto;
 import java.io.IOException;
@@ -51,19 +52,18 @@ public class ConsultaProdutoServlet extends HttpServlet {
 
         String nomeProduto = request.getParameter("nomeProduto");
         ProdutoDao produtoDao = new ProdutoDao();
+        String json = null;
         try {
-            List<Produto> produtos = produtoDao.buscar(nomeProduto);
-            request.setAttribute("produtos", produtos);
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/venda.jsp");
-            dispatcher.forward(request, response);
-        } catch (SQLException e) {
-            request.setAttribute("mensagemErro","Erro de banco de dados: " + e.getMessage());
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
-            dispatcher.forward(request,response);
-        } catch (Exception e) {
-            request.setAttribute("mensagemErro","Erro de Código: " + e.getMessage());
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
-            dispatcher.forward(request,response);
+            List<Produto> produtos = produtoDao.buscarDireito(nomeProduto);
+            json = new Gson().toJson(produtos);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+        }catch (SQLException e){
+           response.getWriter().write("Erro de banco de dados: " + e.getMessage());
+            
+        }catch (Exception e) {
+            response.getWriter().write("Erro de Código: " + e.getMessage());
         }
     }
 }
