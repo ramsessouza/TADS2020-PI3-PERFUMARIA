@@ -76,20 +76,13 @@
             <h1>Cadastro de Produto</h1> 
             <!--Formulário Geral-->
             <form  action="produtoServlet" method="post">
-                  <!--ID do Produto-->
-                    <div class="col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <label for="id">ID</label>
-                            <input id="id" name="id" disabled type="text" class="form-control" value="${produto.id}">
-                        </div>
-                   </div><!--Fim do ID do Produto-->
                  <!--Linha 1-->
                 <div class="row linha-do-nome">
                     <!--Nome do Produto-->
                     <div class="col-sm-10 col-md-10">
                         <div class="form-group">
                             <label for="nome">Nome do Produto</label>
-                            <input id="nome" name="nome" maxlength="40" type="text" class="form-control" required >
+                            <input id="nome" name="nome" maxlength="40" type="text" pattern="^[a-zA-Z][a-zA-Z-_\.]{1,20}$" class="form-control" required >
                         </div>
                     </div><!--Fim do Nome do Produto-->
                     <!--Ativo-->
@@ -171,6 +164,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
         <!--7-Específica da página-->
         <script type="text/javascript" src="js/start.js"></script>
-        <script type="text/javascript" src="js/cadastros.js"></script>
+        <script type="text/javascript" src="js/validacao.js"></script>
     </body>
 </html>

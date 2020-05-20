@@ -135,7 +135,7 @@ public class FuncionarioDao {
 	}	
   
 	 public static List<Funcionario> buscar(String busca)throws SQLException, Exception {
-		   String sql = "SELECT * FROM TB_COLABORADOR WHERE  nome like ? or cpf like ?";
+		   String sql = "SELECT * FROM TB_COLABORADOR WHERE  upper(nome) like ? or upper(cpf) like ?";
 		  busca = busca+ '%';
 		  
 		  List <Funcionario> listaFuncionario = null;
@@ -149,8 +149,8 @@ public class FuncionarioDao {
 		  try {
 			conexao = ConexaoDatabase.getConexao();
 			ps = conexao.prepareStatement(sql);
-			ps.setString(1, busca);
-			ps.setString(2, busca);
+			ps.setString(1, busca.toUpperCase());
+			ps.setString(2, busca.toUpperCase());
 		
 			
 			rs = ps.executeQuery();

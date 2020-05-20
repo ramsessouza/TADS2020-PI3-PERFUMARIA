@@ -45,7 +45,7 @@ public class ProdutoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nome = request.getParameter("nome");
+        String nome = (request.getParameter("nome"));
         float preco = Float.parseFloat(request.getParameter("preco"));
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         String descricao = request.getParameter("descricao");
@@ -59,7 +59,7 @@ public class ProdutoServlet extends HttpServlet {
         }
         try {
             if (produto.getId() != null) {
-
+                
                 produtoDao.atualizar(produto);
                 request.setAttribute("mensagem", "Produto atualizado com sucesso!!!");
             } else {
@@ -76,7 +76,5 @@ public class ProdutoServlet extends HttpServlet {
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastroProduto.jsp");
         dispatcher.forward(request, response);
-
     }
-
 }

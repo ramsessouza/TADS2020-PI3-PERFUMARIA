@@ -1,4 +1,4 @@
-wq<%-- 
+<%-- 
     Document   : buscaProduto
     Created on : 14/05/2020, 21:24:27
     Author     : Diego Souza de Queiroz
@@ -65,15 +65,15 @@ wq<%--
                 <li><a class="item-linha" href="produtoServlet"><span class="fas fa-pump-soap mr-4"></span> Cadastro de Produto</a></li>
                 <li><a class="item-linha" href="consultaProdutoServlet"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
                 <li><a class="item-linha" href="#"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
-                <p>Tecnologia da InformaÃ§Ã£o</p>
+                <p>Tecnologia da Informação</p>
                 <li><a class="item-linha" href="funcionarioServlet"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
                 <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
                 <p>Recursos Humanos</p>
                 <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
                 <p>GerÃªncia</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-chart-line mr-3"></span> RelatÃ³rio Filial</a></li>
+                <li><a class="item-linha" href="#"><span class="fas fa-chart-line mr-3"></span> Relatório Filial</a></li>
                 <p>Diretoria</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-chart-bar mr-3"></span> RelatÃ³rio Geral</a></li>
+                <li><a class="item-linha" href="#"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
             </ul>
         </div>
         <!--CONTEUDO DA PAGINA-->
@@ -125,8 +125,8 @@ wq<%--
                             <td>${p.categoria}</td>
                             <td>${p.preco}</td>                                                                                
                             <td>${p.status}</td>
-                            <td><a href=produtoServlet?acao=Editar&id=${p.id}>Editar</a></td>
-                            <td><a href=consultaProdutoServlet?acao=Excluir&id=${p.id}>Excluir</a></td>
+                            <td><a href=produtoServlet?acao=Editar&id=${p.id}><span class="fas fa-edit"</span></a></td>
+                            <td><a href=consultaProdutoServlet?acao=Excluir&id=${p.id}><span class="fas fa-times"></span></a></td>
                         </tr>
                     </c:forEach>        
                 </table>

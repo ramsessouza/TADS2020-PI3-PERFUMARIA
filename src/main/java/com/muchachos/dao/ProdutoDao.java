@@ -96,22 +96,21 @@ public class ProdutoDao {
     }
 
     public static List<Produto> buscar(String busca) throws SQLException, Exception {
-        String sql = "SELECT * FROM tb_produto WHERE nome like ? or categoria like ?";
+        String sql = "SELECT * FROM tb_produto WHERE upper(nome) like ? or upper(categoria) like ?";
         busca = busca + '%';
 
         List<Produto> listaProduto = null;
-
         Connection conexao = null;
-
         PreparedStatement ps = null;
 
         ResultSet rs = null;
+        
 
         try {
             conexao = ConexaoDatabase.getConexao();
             ps = conexao.prepareStatement(sql);
-            ps.setString(1, busca);
-            ps.setString(2, busca);
+            ps.setString(1, busca.toUpperCase());
+            ps.setString(2, busca.toUpperCase());
 
             rs = ps.executeQuery();
 

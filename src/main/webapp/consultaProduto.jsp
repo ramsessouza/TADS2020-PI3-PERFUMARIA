@@ -122,8 +122,8 @@
                                 <td>${p.categoria}</td>
                                 <td>${p.preco}</td>
                                 <td>${p.status}</td>
-                                <td><a href=produtoServlet?acao=Editar&id=${p.id}>Editar</td>
-                                <td><a href=consultaProdutoServlet?acao=Excluir&id=${p.id}>Excluir</td>
+                                <td><a href=produtoServlet?acao=Editar&id=${p.id}><span class="fas fa-edit"></span></td>
+                                <td><a href=consultaProdutoServlet?acao=Excluir&id=${p.id}><span class="fas fa-times"></span></td>
                             </tr>
                         </c:forEach>
                 </table>
