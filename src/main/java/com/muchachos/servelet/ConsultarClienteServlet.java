@@ -46,31 +46,46 @@ public class ConsultarClienteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String campoPesquisa = request.getParameter("pesquisaCliente");
+        String cpf = request.getParameter("cpf");
+        String acao = request.getParameter("acao");
         ClienteDao clienteDao = new ClienteDao();
         Cliente cliente = new Cliente();
-        try{
-            if (campoPesquisa == null || "".equals(campoPesquisa) ){//se tiver vazio lista tudo    
-                List<Cliente> clientes = clienteDao.listar();
-                request.setAttribute("clientes", clientes);
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/consultaCliente.jsp");
+        
+        //Pesquisa por CPF (usado na Venda)
+        if (acao != null){
+            try{
+                cliente = clienteDao.obter2(cpf);
+                response.getWriter().write(cliente.getNome());
+            }catch (SQLException e){
+                response.getWriter().write(cliente.getNome());
+            }catch (ClassNotFoundException e) {
+                response.getWriter().write("Erro de Driver: " + e.getMessage());
+            }
+        //Pesquisa por nome (usado na consulta Cliente)
+        }else{
+            try{
+                if (campoPesquisa == null || "".equals(campoPesquisa) ){//se tiver vazio lista tudo    
+                    List<Cliente> clientes = clienteDao.listar();
+                    request.setAttribute("clientes", clientes);
+                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/consultaCliente.jsp");
+                    dispatcher.forward(request,response);
+
+                }else{//pesquisa por parametro
+                    List<Cliente> clientes = clienteDao.procurar(campoPesquisa);
+                    request.setAttribute("clientes", clientes);
+                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/consultaCliente.jsp");
+                    dispatcher.forward(request,response);  
+                }
+            }catch (SQLException e){
+                request.setAttribute("mensagemErro","Erro de banco de dados: " + e.getMessage());
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
                 dispatcher.forward(request,response);
 
-            }else{//pesquisa por parametro
-                List<Cliente> clientes = clienteDao.procurar(campoPesquisa);
-                request.setAttribute("clientes", clientes);
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/consultaCliente.jsp");
-                dispatcher.forward(request,response);  
+            }catch (ClassNotFoundException e) {
+                request.setAttribute("mensagemErro","Erro de Driver: " + e.getMessage());
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+                dispatcher.forward(request,response);
             }
-        }catch (SQLException e){
-            request.setAttribute("mensagemErro","Erro de banco de dados: " + e.getMessage());
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
-            dispatcher.forward(request,response);
-
-        }catch (ClassNotFoundException e) {
-            request.setAttribute("mensagemErro","Erro de Driver: " + e.getMessage());
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
-            dispatcher.forward(request,response);
         }
-        
     }
 }

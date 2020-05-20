@@ -118,7 +118,7 @@ public class ClienteDao extends ConexaoDatabase{
     public List<Cliente> procurar(String nome) throws ClassNotFoundException, SQLException {
         String sql = "SELECT id, nome, sexo, nascimento, estado_civil, status, rg, "
                 + "cpf, email, telefone, estado, cidade, bairro, cep, logradouro, "
-                + "numero, complemento FROM TB_CLIENTE WHERE STATUS <> 'Inativo' and upper(nome) LIKE (?)";
+                + "numero, complemento FROM TB_CLIENTE WHERE STATUS <> 'Inativo' and upper(nome) LIKE (?) OR CPF LIKE (?)";
         List<Cliente> listaClientes = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -128,6 +128,7 @@ public class ClienteDao extends ConexaoDatabase{
             connection = getConexao();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, "%" + nome.toUpperCase() + "%");
+            preparedStatement.setString(2, "%" + nome.toUpperCase() + "%");
             
             result = preparedStatement.executeQuery();
             
@@ -182,6 +183,56 @@ public class ClienteDao extends ConexaoDatabase{
             preparedStatement = connection.prepareStatement(sql);
             
             preparedStatement.setInt(1, id);
+            result = preparedStatement.executeQuery();
+            
+            if(result.next()){
+                Cliente cliente = new Cliente();
+                cliente.setId(result.getInt("id"));
+                cliente.setNome(result.getString("nome"));
+                cliente.setSexo(result.getString("sexo"));
+                cliente.setDataNascimento(result.getString("Nascimento"));
+                cliente.setEstadoCivil(result.getString("estado_civil"));
+                cliente.setStatus(result.getString("status"));
+                cliente.setRg(result.getString("rg"));
+                cliente.setCpf(result.getString("cpf"));
+                cliente.setEmail(result.getString("email"));
+                cliente.setTelefone(result.getString("telefone"));
+                cliente.setEstado(result.getString("estado"));
+                cliente.setCidade(result.getString("cidade"));
+                cliente.setBairro(result.getString("bairro"));
+                cliente.setCep(result.getString("cep"));
+                cliente.setLogradouro(result.getString("logradouro"));
+                cliente.setNumero(result.getInt("numero"));
+                cliente.setComplemento(result.getString("complemento"));
+                
+                return cliente;
+            }
+        }finally{
+            if(result != null && !result.isClosed()){
+                result.close();
+            }
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+        return null;
+    }
+    
+    public Cliente obter2(String cpf) throws ClassNotFoundException, SQLException {
+        String sql = "SELECT * FROM TB_CLIENTE WHERE CPF =? AND STATUS <> 'Inativo'";
+        
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet result = null;
+        
+        try {
+            connection = getConexao();
+            preparedStatement = connection.prepareStatement(sql);
+            
+            preparedStatement.setString(1, cpf);
             result = preparedStatement.executeQuery();
             
             if(result.next()){

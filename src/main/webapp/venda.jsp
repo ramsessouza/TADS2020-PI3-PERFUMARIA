@@ -4,6 +4,7 @@
     Author     : Ramses
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -55,7 +56,7 @@
             <ul><!--Colorir botões ao apertar, feito em jabascript - usa a classe .item-linha-->
                 <p>Vendas</p>
                 <li><a class="item-linha" href="#"><span class="fas fa-shopping-cart mr-4"></span> Venda</a></li>
-                <li><a class="item-linha" href="#"><span class="fas fa-user-plus mr-4"></span>Cadastro de Cliente</a></li>
+                <li><a class="item-linha" href="cadastroCliente.jsp"><span class="fas fa-user-plus mr-4"></span>Cadastro de Cliente</a></li>
                 <li><a class="item-linha" href="#"><span class="fas fa-users mr-4"></span>Consulta de Cliente</a></li>
                 <p>Marketing</p>
                 <li><a class="item-linha" href="#"><span class="fas fa-pump-soap mr-4"></span> Cadastro de Produto</a></li>
@@ -84,16 +85,16 @@
                         <legend>Produtos</legend>
                         <!--1.Pesquisa de Produtos-->
                         <div class="form-inline pesquisar-produto">
-                            <input class="form-control" type="text" maxlength="30" placeholder="Pesquise pelo nome">
-                            <button class="btn btn-dark" type="submit">Pesquisar 
-                                <span class="fas fa-search"></span>
+                            <input id="nome-produto" class="form-control" type="text" maxlength="30" placeholder="Pesquise pelo nome">
+                            <button id="pesquisa-produto" class="btn btn-dark" type="">Pesquisar 
+                                <span class="fas fa-search ml-1"></span>
                             </button>
                         </div>
                         <!--Quantidade e Inserir Produto-->
                         <div class="form-inline inserir-produto">
                             <input id="qtd" class="limite-2 form-control" type="number" min="1" max="99" placeholder="0">
                             <button id="btn-inserir" class="btn btn-dark" type="submit">Inserir 
-                                <span class="fas fa-shopping-cart"></span>
+                                <span class="fas fa-shopping-cart ml-1"></span>
                             </button>
                         </div>
                         <!--2.Tabela de Produtos-->
@@ -108,55 +109,15 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <c:forEach var="listaProdutos" items="${produtos}">
                                 <tr>
-                                    <td class="td-id">1</td>
-                                    <td class="td-produto">Shampoo Elseve</td>
-                                    <td >Para o cabelo</td>
-                                    <td >200</td>
-                                    <td >R$3.50</td>
+                                    <td class="td-id">${listaProdutos.id}</td>
+                                    <td class="td-produto">${listaProdutos.nome}</td>
+                                    <td >${listaProdutos.categoria}</td>
+                                    <td >${listaProdutos.quantidade}</td>
+                                    <td >R$${listaProdutos.preco}</td>
                                 </tr>
-                                <tr>
-                                    <td class="td-id">4</td>
-                                    <td class="td-produto">Condicionador Elseve</td>
-                                    <td >Para o cabelo</td>
-                                    <td >100</td>
-                                    <td >R$20.60</td>
-                                </tr>
-                                <tr>
-                                    <td class="td-id">3</td>
-                                    <td class="td-produto">Shampoo Loreal</td>
-                                    <td >Para o cabelo</td>
-                                    <td >33</td>
-                                    <td >R$7.80</td>
-                                </tr>
-                                <tr>
-                                    <td class="td-id">5</td>
-                                    <td class="td-produto">Condicionador Loreal</td>
-                                    <td >Para o cabelo</td>
-                                    <td >33</td>
-                                    <td >R$7.80</td>
-                                </tr>
-                                <tr>
-                                    <td class="td-id">6</td>
-                                    <td class="td-produto">Perfum 212 Carolina Herrera</td>
-                                    <td >Perfumes</td>
-                                    <td >33</td>
-                                    <td >R$7.80</td>
-                                </tr>
-                                <tr>
-                                    <td class="td-id">7</td>
-                                    <td class="td-produto">Sabonete Norma Derm</td>
-                                    <td >Coesméticos</td>
-                                    <td >33</td>
-                                    <td >R$7.80</td>
-                                </tr>
-                                <tr>
-                                    <td class="td-id">8</td>
-                                    <td class="td-produto">Sabonete Norma Derm</td>
-                                    <td >Coesméticos</td>
-                                    <td >33</td>
-                                    <td >R$7.80</td>
-                                </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                     </fieldset><!--Fim do Fieldset Produtos-->
@@ -189,8 +150,8 @@
                         <legend>Cliente</legend>
                         <!--1.Pesquisar Cliente-->
                         <div class="form-inline pesquisa-cliente">
-                            <input class="form-control cpf" type="text" patern="\d{3}.\d{3}.\d{3}-\d{2}" placeholder="Ex.: 000.000.000-00">
-                            <button class="btn btn-dark" type="submit">Pesquisar
+                            <input id="cpf-cliente" class="form-control mascara-cpf" placeholder="Ex.: 000.000.000-00">
+                            <button id="pesquisar-cliente" class="btn btn-dark">Pesquisar
                                 <span class="fas fa-search"></span>
                             </button> 
                         </div>
@@ -213,7 +174,7 @@
                         <div class="finalizar-container">
                             <!--1.Total da compra-->
                             <div>
-                                <h3>Total da Compra</h3>
+                                <h1>Total da Compra</h1>
                                 <h2 id="total-compra">R$ 0,00</h2>
                             </div>
                             <!--2.Inputs valores-->
@@ -223,14 +184,14 @@
                                     <div class="input-group-prepend ">
                                         <div class="input-group-text"><span>R$</span></div>
                                     </div>
-                                    <input id="pag-deb" class="moeda form-control mr-0" placeholder="PAGAMENTO EM DÉBITO">
+                                    <input id="pag-deb" class="mascara-decimais form-control mr-0" placeholder="PAGAMENTO EM DÉBITO">
                                 </div>
                                 <!--Pagamento dinheiro-->
                                 <div class="input-group mb-2 mr-sm-2">
                                     <div class="input-group-prepend ">
                                         <div class="input-group-text"><span>R$</span></div>
                                     </div>
-                                    <input id="pag-din"  class="moeda form-control mr-0" placeholder="PAGAMENTO EM DINHEIRO">
+                                    <input id="pag-din"  class="mascara-decimais form-control mr-0" placeholder="PAGAMENTO EM DINHEIRO">
                                 </div>
                                 <!--Pagamento crédito-->
                                 <div class="form-row">
@@ -239,7 +200,7 @@
                                             <div class="input-group-prepend ">
                                                 <div class="input-group-text"><span>R$</span></div>
                                             </div>
-                                            <input id="pag-cred" class="moeda form-control mr-0" placeholder="PAGAMENTO EM CRÉDITO">
+                                            <input id="pag-cred" class="mascara-decimais form-control mr-0" placeholder="PAGAMENTO EM CRÉDITO">
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-sm-3">
@@ -257,7 +218,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><span>R$</span></div>
                                     </div>
-                                    <input id="val-desc" class="moeda form-control bg-primary mr-0 text-white" placeholder="VALOR DE DESCONTO">
+                                    <input id="val-desc" class="mascara-decimais form-control bg-primary mr-0 text-white" placeholder="VALOR DE DESCONTO">
                                 </div>
                                 <!--Total troco-->
                                 <div class="input-group mb-2 mr-sm-2 place-branco">
@@ -285,7 +246,7 @@
 
         <!--SCRIPTS-->
         <!--1-jQuery.js-->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <!--2-Popper.js-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <!--3-Bootstrap.js-->
@@ -297,6 +258,7 @@
         <!--6-Específica da página-->
         <script type="text/javascript" src="js/start.js"></script>
         <script type="text/javascript" src="js/venda.js"></script>
+        <script type="text/javascript" src="js/validacao.js"></script>
 
     </body>
 </html>

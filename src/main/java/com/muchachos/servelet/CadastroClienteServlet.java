@@ -4,7 +4,6 @@ import com.muchachos.dao.ClienteDao;
 import com.muchachos.model.Cliente;
 import java.io.IOException;
 import java.sql.SQLException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

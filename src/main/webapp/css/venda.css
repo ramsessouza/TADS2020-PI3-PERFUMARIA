@@ -17,6 +17,7 @@
 .grade-geral .coluna1 .produtos .inserir-produto input{width: 70px;}
 .grade-geral .coluna1 .produtos table tbody{height: 120px;}
 .grade-geral .coluna1 .produtos .linha-selecionada{background-color: #343a40; color: white;}/*Uso no javascript*/
+
 /*itens venda*/
 .grade-geral .coluna1 .itens-venda{overflow: auto; height: calc(100vh - 340px)}/*Cabecalho 42 + Fieldset_Produtos 283 + Margem_Embaixo 15 = 340*/
 .grade-geral .coluna1 .itens-venda table tbody{height: calc(100vh - 456px);}/*Cabecalho 42 + Fieldset_Produtos 267 + Itens_Venda 48 + Margem_Embaixo_Legenda_Field_Set 8 + Margem_Embaixo 63 = 422*/
@@ -27,6 +28,7 @@
 .grade-geral .coluna2 .cliente .dados-cliente{margin: 10px 0 0 0}
 .grade-geral .coluna2 .cliente .dados-cliente .legenda{font-family: "FuturaBold"}
 .grade-geral .coluna2 .cliente p{font-size: 10pt; margin-bottom: 0}
+
 /*finalizar compra*/
 /*Cabecalho 42 + Cliente 149 + Margem_embaixo 15 = 201*/
 .grade-geral .coluna2 .finalizar-compra{overflow: auto; height: calc(100vh - 206px); position: relative;}
