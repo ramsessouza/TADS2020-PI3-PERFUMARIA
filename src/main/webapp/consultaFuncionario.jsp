@@ -123,16 +123,16 @@
 	     <c:forEach var="f" items="${funcionarios}">
                
 	      <tr>
-                <td>${f.id}</td>
+                 <td>${f.id}</td>
 		 <td>${f.nome}</td>
 		 <td>${f.cpf}</td>
         	 <td>${f.email}</td>
 		 <td>${f.cargo}</td>
 		 <td>${f.filial}</td>
                  <td>${f.departamento}</td>
-		<td>${f.status}</td>
-		<td><a href=funcionarioServlet?acao=Editar&id=${f.id}>Editar</a></td>
-		<td><a href=consultaFuncionarioServlet?acao=Excluir&id=${f.id}>Excluir</a></td>
+		 <td>${f.status}</td>
+		 <td><a href=funcionarioServlet?acao=Editar&id=${f.id}><span class="fas fa-edit"</span></a></td>
+                 <td><a href=consultaFuncionarioServlet?acao=Excluir&id=${f.id}><span class="fas fa-times"></span></a></td>
 	      </tr>
               
 	     </c:forEach>
