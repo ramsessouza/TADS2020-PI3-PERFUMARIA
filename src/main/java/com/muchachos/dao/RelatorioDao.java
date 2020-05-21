@@ -58,7 +58,7 @@ public class RelatorioDao {
         try {
             Connection conexao = ConexaoDatabase.getConexao();
 
-            PreparedStatement ps = conexao.prepareStatement("select iv.Id_Produto, iv.Nome_Produto, iv.qtd_itens, p.Categoria, iv.val_Unitario, iv.val_total from tb_itensVenda as iv"
+            PreparedStatement ps = conexao.prepareStatement("select iv.Id_Produto, p.Nome, iv.qtd_itens, p.Categoria, iv.val_Unitario, iv.val_total from tb_itensVenda as iv"
                     + " inner join tb_produto as p on iv.ID_PRODUTO = p.ID"
                     + " where iv.id_venda = ? and p.categoria like ?");
 

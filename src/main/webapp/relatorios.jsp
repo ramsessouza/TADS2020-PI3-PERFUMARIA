@@ -152,7 +152,7 @@
                         </select>
                     </div>
                 </div>
-                <table class="table" id="detalheTabela">
+                <table class="table table-sm table-secondary table-hover table-striped" id="detalheTabela">
                     <thead class="thead-dark">
                     <th>Id do Produto</th>
                     <th>Nome do Produto</th>

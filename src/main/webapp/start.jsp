@@ -1,7 +1,7 @@
 <%-- 
     Document   : start
     Created on : 30/04/2020, 21:49:56
-    Author     : Ramses
+    Author     : Ramses e Fabio
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -70,13 +70,11 @@
         <!--CONTEUDO DA PAGINA-->
         <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
-            <p>
-                Conteudo da pagina
-            </p>
+            <img id="img" src="img/perf1.jpg" height="600" width="600" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
         </div>
 
         <!--1-jQuery.js-->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <!--2-Popper.js-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <!--3-Bootstrap.js-->
@@ -84,4 +82,24 @@
         <!--4-Específica da página-->
         <script type="text/javascript" src="js/start.js"></script>
     </body>
+    <script>
+        var images = [];
+        images[0] = "img/perf1.jpg";
+        images[1] = "img/perf2.jpg";
+        images[2] = "img/perf3.jpg";
+        images[3] = "img/perf4.jpg";
+        images[4] = "img/perf5.jpg";
+
+        var i = 0;
+        setInterval(fadeDivs, 2000);
+
+        function fadeDivs() {
+            i = i < images.length-1 ? i : 0;
+            console.log(i);
+            $('#img').fadeOut(500, function () {
+                $(this).attr('src', images[i]).fadeIn(500);
+            })
+            i++;
+        }
+    </script>
 </html>

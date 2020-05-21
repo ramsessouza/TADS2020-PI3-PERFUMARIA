@@ -33,15 +33,23 @@ public class DetalhesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RelatorioDao detalhes = new RelatorioDao();
-        int id = Integer.parseInt(request.getParameter("id"));
+        String i = request.getParameter("id");
 
         String categoria = request.getParameter("categoria");
+        int id = 0;
+        if (i == null) {
+            id = 0;
+        } else {
+            id = id = Integer.parseInt(i);
+        }
 
-        if (categoria.equals("todas")) {
+        if (categoria.equals(
+                "todas")) {
             categoria = "%";
         }
 
         String json = null;
+
         try {
             List<Detalhes> products = detalhes.getDetalhes(id, categoria);
             json = new Gson().toJson(products);
@@ -53,9 +61,12 @@ public class DetalhesServlet extends HttpServlet {
             request.setAttribute("mensagem", "Erro de Driver: " + e.getMessage());
         }
 
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
+        response.setContentType(
+                "application/json");
+        response.setCharacterEncoding(
+                "UTF-8");
+        response.getWriter()
+                .write(json);
     }
 
     /**

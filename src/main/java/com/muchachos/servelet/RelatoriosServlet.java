@@ -50,10 +50,8 @@ public class RelatoriosServlet extends HttpServlet {
 
         DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        if(cliente == null || cliente.equals("")){
-        cliente = "%";
-        }
-        
+        cliente = "%" + cliente + "%";
+
         try {
             if (diaIni == null || diaIni.equals("")) {
                 Date c = sdf.parse("2020-01-01");
@@ -64,7 +62,7 @@ public class RelatoriosServlet extends HttpServlet {
             System.out.println("" + e.toString());
         }
 
-        if (diaFim == null || diaFim.equals("")){
+        if (diaFim == null || diaFim.equals("")) {
             para = new Timestamp(System.currentTimeMillis());
         }
         if (filial == null || filial.equals("todas")) {
