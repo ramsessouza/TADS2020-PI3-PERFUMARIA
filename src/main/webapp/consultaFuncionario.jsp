@@ -81,7 +81,7 @@
         <h1 class="titulo-formulario">${mensagem}</h1>
         <h1>Gerenciamento de Colaboradores</h1>
         <!--Formulário-->
-        <form clas="formulario" action="buscarFuncionarioServlet"  method="get">  
+        <form id="formulario" class="formulario" action="buscarFuncionarioServlet"  method="get">  
           <!--Linha 1-->
           <div class="row">
             <div class="col-sm-5">

@@ -74,7 +74,7 @@
     <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
     <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
       <!--Formulário Geral-->
-      <form action="funcionarioServlet" method="post">
+      <form action="funcionarioServlet" method="post" id="formulario" class="formulario">
           <h1 class="titulo-formulario">${mensagem}</h1>
            <h1 class="titulo-formulario">Cadastro de Colaborador</h1> 
         <!--Linha 1-->
