@@ -84,13 +84,13 @@
              <input type="hidden" name="id"  value="${funcionario.id}">
           </div>
           
-          <div class="col-md-11 col-sm-11">
+          <div class="col-md-9 col-sm-9">
             <div class="form-group">
               <label>Nome</label>
               <input type="text" class="form-control" name="nome" value="${funcionario.nome}" id="nome" required >
             </div>
           </div>
-          <div class="col-md-1 col-sm-1">
+          <div class="col-md-3 col-sm-3">
             <div class="form-group">
                   <label>Status</label>
                   <select name="status" id="status" class="form-control">
@@ -328,7 +328,7 @@
 	     </div>
 	    <div class="col-sm-2">
 	 <!--Botão Salvar-->
-	    <input type="submit" value="Salvar" class="btn btn-success btn-block">
+	    <input type="submit" value="Atualizar" class="btn btn-success btn-block">
   	   </div>
 	 </div><!--Fim da linha 4-->
        </div><!--Fim classe botoes-->

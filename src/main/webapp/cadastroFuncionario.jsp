@@ -79,13 +79,13 @@
            <h1 class="titulo-formulario">Cadastro de Colaborador</h1> 
         <!--Linha 1-->
         <div class="row linha-do-nome">
-          <div class="col-md-10 col-sm-10">
+          <div class="col-md-9 col-sm-9">
             <div class="form-group">
               <label>Nome</label>
               <input type="text" class="form-control" name="nome" id="nome" required >
             </div>
           </div>
-          <div class="col-md-2 col-sm-2">
+          <div class="col-md-3 col-sm-3">
             <div class="form-group">
                   <label>Status</label>
                   <select name="status" id="status" class="form-control">
