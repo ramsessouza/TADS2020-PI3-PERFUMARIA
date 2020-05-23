@@ -5,5 +5,8 @@ package com.muchachos.model;
  * @author Otavio Barros
  */
 public class Cliente extends Pessoa{
+
+    public Cliente() {
+    }
     
 }

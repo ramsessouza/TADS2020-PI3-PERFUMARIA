@@ -47,24 +47,24 @@
         </div>
         <!--BARRA NAVEGACAO LATERAL-->
         <div id="barra-lateral" class="barra-lateral"><!--expandir/recolher, feito em jquery - usa o id #barra-lateral-->
-            <ul><!--Colorir botões ao apertar, feito em jquery - usa a classe .item-linha-->
+            <ul><!--Colorir botões ao apertar, feito em jabascript - usa a classe .item-linha-->
                 <p>Vendas</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-shopping-cart mr-4"></span> Venda</a></li>
-                <li><a class="item-linha" href="#"><span class="fas fa-user-plus mr-4"></span>Cadastro de Cliente</a></li>
-                <li><a class="item-linha" href="#"><span class="fas fa-users mr-4"></span>Consulta de Cliente</a></li>
+                <li><a class="item-linha" href="venda.jsp"><span class="fas fa-shopping-cart mr-4"></span> Venda</a></li>
+                <li><a class="item-linha" href="cadastroCliente.jsp"><span class="fas fa-user-plus mr-4"></span>Cadastro de Cliente</a></li>
+                <li><a class="item-linha" href="consultaCliente.jsp"><span class="fas fa-users mr-4"></span>Consulta de Cliente</a></li>
                 <p>Marketing</p>
                 <li><a class="item-linha" href="cadastroProduto.jsp"><span class="fas fa-pump-soap mr-4"></span> Cadastro de Produto</a></li>
-                <li><a class="item-linha" href="consultaProdutoServlet"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
-                <li><a class="item-linha" href="#"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
+                <li><a class="item-linha" href="consultaProduto.jsp"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
+                <li><a class="item-linha" href="consultaCliente.jsp"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
                 <p>Tecnologia da Informação</p>
                 <li><a class="item-linha" href="cadastroFuncionario.jsp"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
-                <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+                <li><a class="item-linha" href="consultaFuncionario.jsp"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
                 <p>Recursos Humanos</p>
-                <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+                <li><a class="item-linha" href="consultaFuncionario.jsp"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
                 <p>Gerência</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-chart-line mr-3"></span> Relatório Filial</a></li>
+                <li><a class="item-linha" href="relatorios.jsp"><span class="fas fa-chart-line mr-3"></span> Relatório Filial</a></li>
                 <p>Diretoria</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
+                <li><a class="item-linha" href="relatorios.jsp"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
             </ul>
         </div>
         <!--CONTEUDO DA PAGINA-->
@@ -89,7 +89,7 @@
         images[2] = "img/perf3.jpg";
         images[3] = "img/perf4.jpg";
         images[4] = "img/perf5.jpg";
-
+        
         var i = 0;
         setInterval(fadeDivs, 2000);
 

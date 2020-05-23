@@ -25,7 +25,8 @@ $(function () {
         var cpf = $(this).val().replace("-", "").replace(/\./g, '');
         if (!TestaCPF(cpf)) {//se retornar cpf false
             //então
-            alert("O CPF " + cpf + " não é válido!")
+            $('#mensagem').text("O CPF " + cpf + " não é válido!");//coloca o texto na modal
+            $('#modalMensagem').modal('show');//mostra modal
             $('.mascara-cpf').val("");
         }
     });

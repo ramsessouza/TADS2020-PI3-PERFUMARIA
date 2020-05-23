@@ -35,9 +35,15 @@
 .grade-geral .coluna2 .finalizar-compra h2{font-family:FuturaBold;}
 .grade-geral .coluna2 .finalizar-compra .finalizar-container{position: absolute; bottom: 15px; width: 95%;}
 .grade-geral .coluna2 .finalizar-compra .finalizar-container .place-branco ::placeholder{color: white;}
+.grade-geral .coluna2 .finalizar-compra .finalizar-container .place-preto ::placeholder{color: black;}
 
 /*modal*/
 .modal h5{font-family: FuturaBold;}
+.modal .esconder-div{display:none;}
+.modal .bold{font-family: FuturaBold;}
+.modal #div-total-compra{background: #343a40; color: white; border-radius: 5px;}
+.modal .label-white{color: white; border-radius: 5px;}
+.modal .label-black{color: black; border-radius: 5px;}
 
 /*====================================================================*/
 /*RESPONSIVIDADE- Não altere os valores*/

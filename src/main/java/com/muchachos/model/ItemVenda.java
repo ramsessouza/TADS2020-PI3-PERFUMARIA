@@ -12,13 +12,17 @@ public class ItemVenda extends Produto{
     private Integer qtdItens;
     private Float valorTotal;
 
-    public ItemVenda(Integer id, Integer idVenda, Integer qtdItens, Float valorTotal) {
+    public ItemVenda() {
+        
+    }
+    
+    public ItemVenda(Integer id, Integer idProduto, Integer idVenda, Integer qtdItens, Float valorTotal) {
         this.id = id;
         this.idVenda = idVenda;
         this.qtdItens = qtdItens;
         this.valorTotal = valorTotal;
     }
-    
+
     public Integer getId() {
         return id;
     }
@@ -50,6 +54,5 @@ public class ItemVenda extends Produto{
     public void setValorTotal(Float valorTotal) {
         this.valorTotal = valorTotal;
     }
-    
     
 }

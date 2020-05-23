@@ -12,22 +12,34 @@ import java.util.Date;
 public class Venda{
     private Integer id;
     private Date data;
+    private Integer qtdItens;
     private ArrayList<ItemVenda> itensVenda = new ArrayList<ItemVenda>();
     private Float pagDinheiro;
     private Float pagDebito;
     private Float pagCredito;
     private Integer parcelamento;
+    private Float desconto;
     private Float subtotal;
+    private Float troco;
     private Cliente cliente;
     private Funcionario funcionario;
-
-    public Venda(Integer id, Date data, Float pagDinheiro, Float pagDebito, Float pagCredito, Integer parcelamento, Float subtotal, Cliente cliente, Funcionario funcionario) {
+    
+    public Venda(){
+        funcionario = new Funcionario();
+        cliente = new Cliente();
+        itensVenda = new ArrayList<ItemVenda>();
+    };
+    
+    public Venda(Integer id, Date data, Integer qtdItens, Float pagDinheiro, Float pagDebito, Float pagCredito, Integer parcelamento, Float desconto, Float troco, Float subtotal, Cliente cliente, Funcionario funcionario) {
         this.id = id;
         this.data = data;
+        this.qtdItens = qtdItens;
         this.pagDinheiro = pagDinheiro;
         this.pagDebito = pagDebito;
         this.pagCredito = pagCredito;
         this.parcelamento = parcelamento;
+        this.desconto = desconto;
+        this.troco = troco;
         this.subtotal = subtotal;
         this.cliente = cliente;
         this.funcionario = funcionario;
@@ -49,6 +61,14 @@ public class Venda{
         this.data = data;
     }
 
+    public Integer getQtdItens() {
+        return qtdItens;
+    }
+
+    public void setQtdItens(Integer qtdItens) {
+        this.qtdItens = qtdItens;
+    }
+    
     public ArrayList<ItemVenda> getItensVenda() {
         return itensVenda;
     }
@@ -89,6 +109,22 @@ public class Venda{
         this.parcelamento = parcelamento;
     }
 
+    public Float getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(Float desconto) {
+        this.desconto = desconto;
+    }
+
+    public Float getTroco() {
+        return troco;
+    }
+
+    public void setTroco(Float troco) {
+        this.troco = troco;
+    }
+    
     public Float getSubtotal() {
         return subtotal;
     }

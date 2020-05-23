@@ -44,7 +44,7 @@
                     <h1 id="calendario"></h1><!--Data e calendario feito em jquery - usa-se o id #calendario-->
                 </div>
                 <div class="col-lg-2 col-sm-2"><!--USUÁRIO-->
-                    <h1><span class="fas fa-user"></span> Ramses Souza</h>
+                    <h1 id="funcionario"><span class="fas fa-user"></span>Ramses Souza</h>
                 </div>
                 <div class="col-lg-1 col-sm-1"><!--SAIR DO SISTEMA-->
                     <button type="button" class="btn btn-outline-dark" >Sair <span class="fas fa-sign-out-alt"></span></button>
@@ -55,22 +55,22 @@
         <div id="barra-lateral" class="barra-lateral"><!--expandir/recolher, feito em jquery - usa o id #barra-lateral-->
             <ul><!--Colorir botões ao apertar, feito em jabascript - usa a classe .item-linha-->
                 <p>Vendas</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-shopping-cart mr-4"></span> Venda</a></li>
+                <li><a class="item-linha" href="venda.jsp"><span class="fas fa-shopping-cart mr-4"></span> Venda</a></li>
                 <li><a class="item-linha" href="cadastroCliente.jsp"><span class="fas fa-user-plus mr-4"></span>Cadastro de Cliente</a></li>
-                <li><a class="item-linha" href="#"><span class="fas fa-users mr-4"></span>Consulta de Cliente</a></li>
+                <li><a class="item-linha" href="consultaCliente.jsp"><span class="fas fa-users mr-4"></span>Consulta de Cliente</a></li>
                 <p>Marketing</p>
                 <li><a class="item-linha" href="cadastroProduto.jsp"><span class="fas fa-pump-soap mr-4"></span> Cadastro de Produto</a></li>
-                <li><a class="item-linha" href="consultaProdutoServlet"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
-                <li><a class="item-linha" href="#"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
+                <li><a class="item-linha" href="consultaProduto.jsp"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
+                <li><a class="item-linha" href="consultaCliente.jsp"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
                 <p>Tecnologia da Informação</p>
                 <li><a class="item-linha" href="cadastroFuncionario.jsp"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
-                <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+                <li><a class="item-linha" href="consultaFuncionario.jsp"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
                 <p>Recursos Humanos</p>
-                <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+                <li><a class="item-linha" href="consultaFuncionario.jsp"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
                 <p>Gerência</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-chart-line mr-3"></span> Relatório Filial</a></li>
+                <li><a class="item-linha" href="relatorios.jsp"><span class="fas fa-chart-line mr-3"></span> Relatório Filial</a></li>
                 <p>Diretoria</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
+                <li><a class="item-linha" href="relatorios.jsp"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
             </ul>
         </div>
         <!--CONTEUDO DA PAGINA-->
@@ -166,24 +166,24 @@
                         <div class="finalizar-container">
                             <!--1.Total da compra-->
                             <div>
-                                <h1>Total da Compra</h1>
+                                <h2>Total da Compra</h2>
                                 <h2 id="total-compra">R$ 0,00</h2>
                             </div>
                             <!--2.Inputs valores-->
                             <div>
-                                <!--Pagamento débito-->
-                                <div class="input-group mb-2 mr-sm-2">
-                                    <div class="input-group-prepend ">
-                                        <div class="input-group-text"><span>R$</span></div>
-                                    </div>
-                                    <input id="pag-deb" class="mascara-decimais form-control mr-0" placeholder="PAGAMENTO EM DÉBITO">
-                                </div>
                                 <!--Pagamento dinheiro-->
                                 <div class="input-group mb-2 mr-sm-2">
                                     <div class="input-group-prepend ">
                                         <div class="input-group-text"><span>R$</span></div>
                                     </div>
                                     <input id="pag-din"  class="mascara-decimais form-control mr-0" placeholder="PAGAMENTO EM DINHEIRO">
+                                </div>
+                                <!--Pagamento débito-->
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend ">
+                                        <div class="input-group-text"><span>R$</span></div>
+                                    </div>
+                                    <input id="pag-deb" class="mascara-decimais form-control mr-0" placeholder="PAGAMENTO EM DÉBITO">
                                 </div>
                                 <!--Pagamento crédito-->
                                 <div class="form-row">
@@ -195,9 +195,10 @@
                                             <input id="pag-cred" class="mascara-decimais form-control mr-0" placeholder="PAGAMENTO EM CRÉDITO">
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-sm-3">
+                                    <div id="tot-parc" class="col-lg-3 col-sm-3">
                                         <div class="dropdown mb-2 parcela">
                                             <select class="form-control">
+                                                <option value=""></option>
                                                 <option value="1">1X</option>
                                                 <option value="2">2X</option>
                                                 <option value="3">3X</option>
@@ -213,51 +214,153 @@
                                     <input id="val-desc" class="mascara-decimais form-control bg-primary mr-0 text-white" placeholder="VALOR DE DESCONTO">
                                 </div>
                                 <!--Total troco-->
-                                <div class="input-group mb-2 mr-sm-2 place-branco">
+                                <div class="input-group mb-2 mr-sm-2 place-preto">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><span>R$</span></div>
                                     </div>
-                                    <input id="tot-troc" class="form-control bg-warning mr-0 text-white" placeholder="TOTAL TROCO" disabled>
+                                    <input id="tot-troc" class="form-control bg-warning mr-0 text-black" placeholder="TOTAL TROCO" disabled>
                                 </div>
                             </div>
                             <!--3.Botões-->
                             <div>
-                                <button class="btn btn-danger btn-block" type="submit">CANCELAR
+                                <button id="cancelar-venda" class="btn btn-danger btn-block">CANCELAR
                                     <span class="fas fa-times ml-1"></span>
                                 </button>
-                                <button class="btn btn-success btn-block" type="submit">FINALIZAR
-                                    <span class="fas fa-check ml-1"></span>
+                                <button id="venda-proximo" class="btn btn-success btn-block">PRÓXIMO
+                                    <span class="fas fa-arrow-right ml-1"></span>
                                 </button>
                             </div>
                         </div><!--Fim do finalizar Container-->
                     </fieldset><!--Fim do Fieldset Finalizar Venda-->
-
                 </div><!--Fim coluna2-->
             </div><!--Fim da Linha Geral-->
         </div><!--Fim do conteudo da pagina-->
         
         <!--MODAL-->
-        <div class="modal fade modal" id="modalMensagem" tabindex="-1" role="dialog">
+        <div class="modal fade" id="modalMensagem" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
+                    <!--HEADER-->
                     <div class="modal-header">
-                        <h5 class="modal-title">Mensagem</h5>
+                        <!--mensagem-->
+                        <h5 id="h5-padrao" class="modal-title">Mensagem</h5>
+                        <h5 id="h5-finalizar" class="modal-title">Resumo da venda:</h5>
+                        <!--botao-->
                         <button type="button" class="close fechar-modal"><!--data-dismiss="modal"-->
                             <span class="fas fa-times"></span>
                         </button>
-                    </div>
+                    </div><!--FIM HEADER-->
+                    <!--BODY-->
                     <div class="modal-body">
-                        <p id="mensagem"></p>
-                        <p id="registre-cliente">Faça o registro agora clicando<a href="cadastroCliente.jsp"> aqui</a>.</p>
-                    </div>
+                        <!--div padrao-->
+                        <div id="padrao-body">
+                            <p id="mensagem"></p>
+                        <p hidden id="registre-cliente">Faça o registro agora clicando<a href="cadastroCliente.jsp"> aqui</a>.</p>
+                        </div>
+                        <!--div finalizou venda-->
+                        <div id="finalizar-body" class="container-fluid">
+                            <!--funcionario-->
+                            <div class="form-inline">
+                                <label class="form-inline bold mr-1">Funcionario:</label>
+                                <label id="venda-funcionario-nome" class="form-inline mr-1"></label>
+                                <input id="venda-funcionario-id" class="form-inline" size="2"></input>
+                            </div> 
+                            <!--cliente nome-->
+                            <div class="form-inline">
+                                <label class="form-inline bold mr-1">Cliente:</label>
+                                <label id="venda-cliente-nome" class="form-inline"></label>
+                            </div> 
+                            <!--cliente cpf-->
+                            <div class="form-inline mb-2">
+                                <label class="form-inline bold mr-1">CPF do Cliente:</label>
+                                <label id="venda-cliente-cpf" class="form-inline mr-1"></label>
+                                <label id="venda-cliente-id" class="form-inline"></label>
+                            </div> 
+                            <!--data-->
+                            <div class="form-inline">
+                                <label class="form-inline bold mr-1">Data:</label>
+                                <label id="venda-data" class="form-inline"></label>
+                            </div>
+                            <!--quantidade itens-->
+                            <div class="form-inline mb-2">
+                                <label class="form-inline bold mr-1">Total de itens:</label>
+                                <label id="venda-itens" class="form-inline"></label>
+                            </div> 
+                            <!--total da compra-->
+                            <div id="div-total-compra" class="form-inline">
+                                <label class="form-inline bold mr-1">Total da compra: </label>
+                                <label id="venda-total" class="form-inline"></label>
+                            </div> 
+                            <!--pago dinheiro-->
+                            <div class="form-inline">
+                                <label class="form-inline bold mr-1">Pago em dinheiro:</label>
+                                <label id="venda-dinheiro" class="form-inline"></label>
+                            </div>
+                            <!--pago debito-->
+                            <div class="form-inline">
+                                <label class="form-inline bold mr-1">Pago em debito:</label>
+                                <label id="venda-debito" class="form-inline"></label>
+                            </div> 
+                            <!--pago credito-->
+                            <div class="form-inline">
+                                <label class="form-inline bold mr-1">Pago em crédito:</label>
+                                <label id="venda-credito" class="form-inline"></label>
+                            </div> 
+                            <!--parcelas-->
+                            <div class="form-inline">
+                                <label class="form-inline bold mr-1">Parcelas:</label>
+                                <label id="venda-parcelas" class="form-inline"></label>
+                            </div>
+                            <!--valor desconto-->
+                            <div class="form-inline bg-primary label-white">
+                                <label class="form-inline bold mr-1">Desconto:</label>
+                                <label id="venda-desconto" class="form-inline"></label>
+                            </div> 
+                            <!--valor troco-->
+                            <div class="form-inline bg-warning label-black">
+                                <label class="form-inline bold mr-1">Troco:</label>
+                                <label id="venda-troco" class="form-inline"></label>
+                            </div> 
+                        </div><!--fim div finalizou venda-->
+                    </div><!--FIM BODY-->
+                    <!--FOOTER-->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger btn-sm fechar-modal"><!--data-dismiss="modal"-->
-                            <span class="fas fa-times mr-2"></span>Fechar
-                        <button
-                    </div>
+                        <!--footer padrao-->
+                        <div id="padrao-footer">
+                            <button type="button" class="btn btn-danger btn-sm fechar-modal">Okay</button>
+                        </div>
+                        <!--footer excluir-->
+                        <div id="excluir-footer" class="container-fluid">
+                            <input hidden id="idItenExcluir"></input>
+                            <input hidden id="valorItenExluir"></input>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-primary btn-block fechar-modal">Não</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button id="excluir-item" type="button" class="btn btn-danger btn-block">Sim</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--footer finalizar-->
+                        <div id="finalizar-footer" class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn btn-danger btn-block fechar-modal">MODIFICAR
+                                        <span class="fas fa-edit ml-1"></span>
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button id="venda-finalizar" class="btn btn-success btn-block">FINALIZAR
+                                        <span class="fas fa-check ml-1"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--FIM FOOTER-->
                 </div>
             </div>
-        </div>
+        </div><!--FIM FIM MODAL-->
         
         <!--SCRIPTS-->
         <!--1-jQuery.js-->
