@@ -80,7 +80,7 @@
                                         <option value="rondonia">Rondônia</option>
                                         <option value="roraima">Roraima</option>
                                         <option value="santa catarina">Santa Catarina</option>
-                                        <option value="são paulo">São Paulo</option>
+                                        <option value="sao paulo">São Paulo</option>
                                         <option value="sergipe">Sergipe</option>
                                         <option value="tocantins">Tocantins</option>
                                     </select>
@@ -145,7 +145,7 @@
                     <div class="form-group">
                         <select name="categoria" id="categoria" class="form-control">
                             <option value="todas">Todas</option>
-                            <option value="raiz">Beleza</option>
+                            <option value="beleza">Beleza</option>
                             <option value="cosmeticos">Cosmeticos</option>
                             <option value="perfumes">Perfumes</option>
                             <option value="utensilios">Utensilios</option>

@@ -95,7 +95,7 @@
 
         function fadeDivs() {
             i = i < images.length-1 ? i : 0;
-            console.log(i);
+       
             $('#img').fadeOut(500, function () {
                 $(this).attr('src', images[i]).fadeIn(500);
             })
