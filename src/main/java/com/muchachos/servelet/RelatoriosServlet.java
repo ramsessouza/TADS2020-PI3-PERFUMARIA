@@ -50,6 +50,9 @@ public class RelatoriosServlet extends HttpServlet {
 
         DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
+        if(cliente == null){
+        cliente = "";}
+        
         cliente = "%" + cliente + "%";
 
         try {
