@@ -64,10 +64,10 @@
                 <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
                 <p>Recursos Humanos</p>
                 <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
-                <p>Ger�ncia</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-chart-line mr-3"></span> Relat�rio Filial</a></li>
+                <p>Gerência</p>
+                <li><a class="item-linha" href="#"><span class="fas fa-chart-line mr-3"></span> Relatório Filial</a></li>
                 <p>Diretoria</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-chart-bar mr-3"></span> Relat�rio Geral</a></li>
+                <li><a class="item-linha" href="#"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
             </ul>
         </div>
         <!--CONTEUDO DA PAGINA-->
