@@ -18,8 +18,8 @@
                 </div>
                 <div class="col-lg-3 col-sm-3"><!--LOGO CABEÇALHO-->
                     <!--Colorir logo efeito em jquery - usa-se o id #logocab-->
-                     <a  href="start.jsp">
-                    <img id="logocab" src="img/grupo-2.png" alt="Logo Muchachos Perfumaria">
+                    <a  href="start.jsp">
+                        <img id="logocab" src="img/grupo-2.png" alt="Logo Muchachos Perfumaria">
                     </a>
                 </div>
                 <div class="col-lg-3 col-sm-3"><!--HORA E DATA-->

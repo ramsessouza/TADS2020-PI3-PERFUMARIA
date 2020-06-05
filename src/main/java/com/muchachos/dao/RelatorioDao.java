@@ -19,20 +19,23 @@ import java.util.List;
 public class RelatorioDao {
 
     //RELATORIO DE VENDAS
-    public List<Relatorio> getVendas(Timestamp dataDe, Timestamp dataPara, String filial, String cliente) throws SQLException, ClassNotFoundException {
+    public List<Relatorio> getVendas(Timestamp dataDe, Timestamp dataPara, String filial, String cliente, String categoria) throws SQLException, ClassNotFoundException {
         List<Relatorio> relatorio = null;
         try {
             Connection conexao = ConexaoDatabase.getConexao();
 
-            PreparedStatement ps = conexao.prepareStatement("select v.id,c.nome as nome,v.data,v.qtd_itens,v.val_total,f.nome as colaborador,f.filial as filial from tb_venda as v"
+            PreparedStatement ps = conexao.prepareStatement("select v.id,c.nome as nome,v.data,v.qtd_itens,v.val_total,f.nome as colaborador,f.filial as filial from tb_venda as v "
                     + " inner join tb_cliente as c on v.id_cliente = c.id "
-                    + "inner join tb_colaborador as f on v.id_funcionario = f.id "
-                    + "where (c.nome like ?) and (f.filial like ?) and (v.data >= ? and v.data<= ?)");
+                    + " inner join tb_colaborador as f on v.id_funcionario = f.id "
+                    + " inner join tb_itensvenda as iv on v.id = iv.id_venda "
+                    + " inner join tb_produto as p on iv.id_produto = p.id "
+                    + " where (c.nome like ?) and (f.filial like ?) and (p.categoria like ?) and (v.data >= ? and v.data<= ?)");
 
             ps.setString(1, cliente);
             ps.setString(2, filial);
-            ps.setTimestamp(3, dataDe);
-            ps.setTimestamp(4, dataPara);
+            ps.setString(3, categoria);
+            ps.setTimestamp(4, dataDe);
+            ps.setTimestamp(5, dataPara);
 
             ResultSet rs = ps.executeQuery();
             relatorio = new ArrayList<>();

@@ -44,15 +44,17 @@ public class RelatoriosServlet extends HttpServlet {
         String diaFim = request.getParameter("dataPara");
 
         String filial = request.getParameter("filial");
+        String categoria = request.getParameter("categ");
 
         Timestamp de = null;
         Timestamp para = null;
 
         DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        if(cliente == null){
-        cliente = "";}
-        
+        if (cliente == null) {
+            cliente = "";
+        }
+
         cliente = "%" + cliente + "%";
 
         try {
@@ -60,20 +62,32 @@ public class RelatoriosServlet extends HttpServlet {
                 Date c = sdf.parse("2020-01-01");
                 long l = c.getTime();
                 de = new Timestamp(l);
+            } else {
+                Date c = sdf.parse(diaIni);
+                long l = c.getTime();
+                de = new Timestamp(l);
+            }
+
+            if (diaFim == null || diaFim.equals("")) {
+                para = new Timestamp(System.currentTimeMillis());
+            } else {
+                Date c = sdf.parse(diaFim);
+                long l = c.getTime();
+                para = new Timestamp(l);
             }
         } catch (Exception e) {
             System.out.println("" + e.toString());
-        }
-
-        if (diaFim == null || diaFim.equals("")) {
-            para = new Timestamp(System.currentTimeMillis());
         }
         if (filial == null || filial.equals("todas")) {
             filial = "%";
         }
 
+        if (categoria == null || categoria.equals("todas")) {
+            categoria = "%";
+        }
+
         try {
-            List<Relatorio> r = relDao.getVendas(de, para, filial, cliente);
+            List<Relatorio> r = relDao.getVendas(de, para, filial, cliente, categoria);
             request.setAttribute("vendas", r);
 
         } catch (SQLException e) {
