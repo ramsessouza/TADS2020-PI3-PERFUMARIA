@@ -62,7 +62,7 @@ public class ClienteDao extends ConexaoDatabase{
     public List<Cliente> listar() throws ClassNotFoundException, SQLException {
         String sql = "SELECT id, nome, sexo, nascimento, estado_civil, status, rg, "
                 + "cpf, email, telefone, estado, cidade, bairro, cep, logradouro, "
-                + "numero, complemento FROM TB_CLIENTE WHERE STATUS <> 'Inativo'";
+                + "numero, complemento FROM TB_CLIENTE";
         
         List<Cliente> listaClientes = new ArrayList<>();
         
@@ -118,7 +118,7 @@ public class ClienteDao extends ConexaoDatabase{
     public List<Cliente> procurar(String nome) throws ClassNotFoundException, SQLException {
         String sql = "SELECT id, nome, sexo, nascimento, estado_civil, status, rg, "
                 + "cpf, email, telefone, estado, cidade, bairro, cep, logradouro, "
-                + "numero, complemento FROM TB_CLIENTE WHERE STATUS <> 'Inativo' and upper(nome) LIKE (?) OR CPF LIKE (?)";
+                + "numero, complemento FROM TB_CLIENTE WHERE upper(nome) LIKE (?) OR CPF LIKE (?)";
         List<Cliente> listaClientes = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -320,7 +320,7 @@ public class ClienteDao extends ConexaoDatabase{
     }
     
     public void excluir(Integer id) throws ClassNotFoundException, SQLException {
-        String sql = "UPDATE TB_CLIENTE SET STATUS = 'Inativo' WHERE id = ?";         
+        String sql = "DELETE FROM TB_CLIENTE WHERE id = ?";         
              
         Connection connection = null;
         PreparedStatement preparedStatement = null;

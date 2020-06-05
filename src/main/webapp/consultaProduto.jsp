@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <!--Espec�fica da P�gina-->
         <link href="css/start.css" rel="stylesheet">
+        <link href="css/componentes.css" rel="stylesheet">
         <!--  <link href="css/componentes.css" rel="stylesheet"> -->
         <link href="css/consultas.css" rel="stylesheet">
         <!--Titulo e icone-->
@@ -56,11 +57,11 @@
                 <p>Vendas</p>
                 <li><a class="item-linha" href="venda.jsp"><span class="fas fa-shopping-cart mr-4"></span> Venda</a></li>
                 <li><a class="item-linha" href="cadastroCliente.jsp"><span class="fas fa-user-plus mr-4"></span>Cadastro de Cliente</a></li>
-                <li><a class="item-linha" href="consultaCliente.jsp"><span class="fas fa-users mr-4"></span>Consulta de Cliente</a></li>
+                <li><a class="item-linha" href="ConsultarClienteServlet"><span class="fas fa-users mr-4"></span>Consulta de Cliente</a></li>
                 <p>Marketing</p>
                 <li><a class="item-linha" href="cadastroProduto.jsp"><span class="fas fa-pump-soap mr-4"></span> Cadastro de Produto</a></li>
                 <li><a class="item-linha" href="consultaProdutoServlet"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
-                <li><a class="item-linha" href="consultaCliente.jsp"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
+                <li><a class="item-linha" href="ConsultarClienteServlet"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
                 <p>Tecnologia da Informação</p>
                 <li><a class="item-linha" href="cadastroFuncionario.jsp"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
                 <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
