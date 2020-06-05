@@ -52,22 +52,22 @@
         <div id="barra-lateral" class="barra-lateral"><!--expandir/recolher, feito em jquery - usa o id #barra-lateral-->
             <ul><!--Colorir botões ao apertar, feito em jquery - usa a classe .item-linha-->
                 <p>Vendas</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-shopping-cart mr-4"></span> Venda</a></li>
-                <li><a class="item-linha" href="#"><span class="fas fa-user-plus mr-4"></span>Cadastro de Cliente</a></li>
-                <li><a class="item-linha" href="#"><span class="fas fa-users mr-4"></span>Consulta de Cliente</a></li>
+                <li><a class="item-linha" href="venda.jsp"><span class="fas fa-shopping-cart mr-4"></span> Venda</a></li>
+                <li><a class="item-linha" href="cadastroCliente.jsp"><span class="fas fa-user-plus mr-4"></span>Cadastro de Cliente</a></li>
+                <li><a class="item-linha" href="consultaCliente.jsp"><span class="fas fa-users mr-4"></span>Consulta de Cliente</a></li>
                 <p>Marketing</p>
                 <li><a class="item-linha" href="cadastroProduto.jsp"><span class="fas fa-pump-soap mr-4"></span> Cadastro de Produto</a></li>
                 <li><a class="item-linha" href="consultaProdutoServlet"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
-                <li><a class="item-linha" href="#"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
+                <li><a class="item-linha" href="consultaCliente.jsp"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
                 <p>Tecnologia da Informação</p>
                 <li><a class="item-linha" href="cadastroFuncionario.jsp"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
                 <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
                 <p>Recursos Humanos</p>
                 <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
                 <p>Gerência</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-chart-line mr-3"></span> Relatório Filial</a></li>
+                <li><a class="item-linha" href="relatorios.jsp"><span class="fas fa-chart-line mr-3"></span> Relatório Filial</a></li>
                 <p>Diretoria</p>
-                <li><a class="item-linha" href="#"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
+                <li><a class="item-linha" href="relatorios.jsp"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
             </ul>
         </div>
         <!--CONTEUDO DA PAGINA-->
@@ -75,21 +75,19 @@
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
             <!--Formulário Geral-->
             <form action="funcionarioServlet" method="post" id="formulario" class="formulario">
-                <h1 class="titulo-formulario">${mensagem}</h1>
                 <h1 class="titulo-formulario">Cadastro de Colaborador</h1> 
                 <!--Linha 1-->
                 <div class="row linha-do-nome">
                     <div class="col-md-9 col-sm-9">
                         <div class="form-group">
                             <label>Nome</label>
-                            <input type="text" class="form-control" name="nome" id="nome" required >
+                            < <input id="nome" name="nome" type="text" class="form-control" maxlength="30" placeholder="Exemplo.: Zlatan Ibrahimovic" required="">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <div class="form-group">
                             <label>Status</label>
-                            <select name="status" id="status" class="form-control">
-                                <option value="Selecione">Selecione</option>   
+                            <select name="status" id="status" class="form-control">  
                                 <option value="Ativo">Ativo</option>
                                 <option value="Inativo">Inativo</option>
                             </select>
@@ -111,20 +109,19 @@
                             <div class="col-md-3 col-sm-3">
                                 <div class="form-group">
                                     <label>RG</label>
-                                    <input name="rg" id="rg" type="text" class="form-control" placeholder="##.###.###-#">
+                                    <input id="rg" name="rg" type="text" class="form-control mascara-rg" placeholder="Exemplo.: 52.498.635-9">
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-3">
                                 <div class="form-group">
                                     <label>CPF</label>
-                                    <input name="cpf" id="cpf" type="text" class="form-control" required placeholder="###.###.###-##">
+                                    <input id="cpf" name="cpf" class="form-control mascara-cpf" placeholder="Exemplo.: 522.498.635-49" required>
                                 </div>
                             </div>
                             <div class="dropdown col-md-3 col-sm-3">
                                 <div class="form-group">
                                     <label>Estado Civil</label>
-                                    <select name="estadoCivil" id="estadoCivil" class="form-control" required >
-                                        <option value="Selecione">Selecione</option>   
+                                    <select name="estadoCivil" id="estadoCivil" class="form-control" required >                                    
                                         <option value="Casado">Casado</option>
                                         <option value="Solteiro">Solteiro</option>
                                         <option value="Divorciado">Divorciado</option>
@@ -135,8 +132,7 @@
                             <div class="col-md-3 col-sm-3">
                                 <div class="form-group">
                                     <label>Sexo</label>
-                                    <select name="sexo" id="sexo" class="form-control">
-                                        <option value="Selecione">Selecione</option>  
+                                    <select name="sexo" id="sexo" class="form-control">                                  
                                         <option value="Masculino">Masculino</option>
                                         <option value="Feminino">Feminino</option>
                                     </select>
@@ -151,13 +147,13 @@
                     <div class="col-md-8 col-sm-8">
                         <div class="form-group">
                             <label>Endereço</label>
-                            <input name="logradouro" id="logradouro" type="text" class="form-control" required>
+                            <input id="logradouro" name="logradouro" type="text" class="form-control" maxlength="50" placeholder="Exemplo.: Av Rubens de Oliveira" required>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-2">
                         <div class="form-group">
                             <label>Número</label>
-                            <input name="numero" id="numero" type="text" class="form-control" required>
+                            <input id="numero" name="numero" type="number" class="form-control mascara-numero" maxlength="6" placeholder="Exemplo.: 1359" required>
                         </div>
                     </div>  
                 </div><!--Fim Linha 3-->
@@ -167,19 +163,19 @@
                     <div class="col-md-4 col-sm-4">
                         <div class="form-group">
                             <label>Bairro</label>
-                            <input name="bairro" id="bairro" type="text" class="form-control">
+                            <input id="bairro" name="bairro" type="text" class="form-control" maxlength="40" placeholder="Exemplo.: Barueri">
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div class="form-group">
                             <label>Cidade</label>
-                            <input name="cidade" id="cidade" type="text" class="form-control" required>
+                            <input id="cidade" name="cidade" type="text" class="form-control" maxlength="40" placeholder="Exemplo.: Diadema">
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div class="form-group">
                             <label>Complemento</label>
-                            <input name="complemento" id="complemento" type="text" class="form-control">
+                            <input id="complemento" name="complemento" type="text" class="form-control" maxlength="20" placeholder="Exemplo.: Torre 3">
                         </div>
                     </div>
                 </div><!--Fim Linha 4-->
@@ -226,13 +222,13 @@
                             <div class="col-md-6 col-sm-4">
                                 <div class="form-group">
                                     <label>Telefone</label>
-                                    <input name="telefone" id="telefone" type="text" class="form-control" required >
+                                    <input id="telefone" type="text" class="form-control mascara-telefone" placeholder="Exemplo.: 11991887754" required>
                                 </div>
                             </div> 
                             <div class="col-md-6 col-sm-4">
                                 <div class="form-group">
                                     <label>E-mail</label>
-                                    <input name="email" id="email" type="E-mail" class="form-control" required>
+                                    <input name="text" id="email" type="E-mail" class="form-control" placeholder="Exemplo.: muchachos@gmail.com" required>
                                 </div>
                             </div>
                         </div><!--Fim Linha 5.1-->  
@@ -243,8 +239,7 @@
                     <div class="col-md-3 col-sm-3">
                         <div class="form-group">
                             <label>Departamento</label>
-                            <select name="departamento" id="departamento" class="form-control">
-                                <option value="Selecione">Selecione</option>  
+                            <select name="departamento" id="departamento" class="form-control"> 
                                 <option value="Venda">Venda</option>
                                 <option value="Marketing">Marketing</option>
                                 <option value="Publicidade">Publicidade</option>
@@ -258,8 +253,7 @@
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label>Cargo</label>
-                                    <select name="cargo" id="cargo" class="form-control">
-                                        <option value="Selecione">Selecione</option>   
+                                    <select name="cargo" id="cargo" class="form-control">  
                                         <option value="Venda">Venda</option>
                                         <option value="Marketing">Marketing</option>
                                         <option value="Publicidade">Publicidade</option>
@@ -271,7 +265,6 @@
                                 <div class="form-group">
                                     <label>Filial</label>
                                     <select name="filial" id="filial" class="form-control">
-                                        <option value="acre">Selecione</option>
                                         <option value="acre">Acre</option>
                                         <option value="alagoas">Alagoas</option>
                                         <option value="amapá">Amapá</option>
@@ -305,7 +298,7 @@
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label>Senha</label>
-                                    <input name="senha" id="senha" type="password" class="form-control" required>
+                                    <input name="senha" id="senha" type="password" maxlength="8" class="form-control" required>
                                 </div>
                             </div>
                         </div><!--Fim Linha 5.1-->  
