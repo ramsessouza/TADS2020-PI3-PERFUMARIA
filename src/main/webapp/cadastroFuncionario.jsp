@@ -35,7 +35,9 @@
                 </div>
                 <div class="col-lg-3 col-sm-3"><!--LOGO CABEÇALHO-->
                     <!--Colorir logo efeito em jquery - usa-se o id #logocab-->
+                     <a  href="start.jsp">
                     <img id="logocab" src="img/grupo-2.png" alt="Logo Muchachos Perfumaria">
+                    </a>
                 </div>
                 <div class="col-lg-3 col-sm-3"><!--HORA E DATA-->
                     <h1 id="calendario"></h><!--Data e calendario feito em jquery - usa-se o id #calendario-->
@@ -81,7 +83,7 @@
                     <div class="col-md-9 col-sm-9">
                         <div class="form-group">
                             <label>Nome</label>
-                            < <input id="nome" name="nome" type="text" class="form-control" maxlength="30" placeholder="Exemplo.: Zlatan Ibrahimovic" required="">
+                            <input id="nome" name="nome" type="text" class="form-control" maxlength="30" placeholder="Exemplo.: Zlatan Ibrahimovic" required="">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3">
@@ -222,13 +224,13 @@
                             <div class="col-md-6 col-sm-4">
                                 <div class="form-group">
                                     <label>Telefone</label>
-                                    <input id="telefone" type="text" class="form-control mascara-telefone" placeholder="Exemplo.: 11991887754" required>
+                                    <input id="telefone" name="telefone" type="text" class="form-control mascara-telefone" placeholder="Exemplo.: 11991887754" required>
                                 </div>
                             </div> 
                             <div class="col-md-6 col-sm-4">
                                 <div class="form-group">
                                     <label>E-mail</label>
-                                    <input name="text" id="email" type="E-mail" class="form-control" placeholder="Exemplo.: muchachos@gmail.com" required>
+                                    <input name="email" id="email" type="text" class="form-control" placeholder="Exemplo.: muchachos@gmail.com" required>
                                 </div>
                             </div>
                         </div><!--Fim Linha 5.1-->  

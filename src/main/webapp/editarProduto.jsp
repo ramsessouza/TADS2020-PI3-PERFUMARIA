@@ -33,7 +33,9 @@
                 </div>
                 <div class="col-lg-3 col-sm-3"><!--LOGO CABEÇALHO-->
                     <!--Colorir logo efeito em jquery - usa-se o id #logocab-->
+                     <a  href="start.jsp">
                     <img id="logocab" src="img/grupo-2.png" alt="Logo Muchachos Perfumaria">
+                    </a>
                 </div>
                 <div class="col-lg-3 col-sm-3"><!--HORA E DATA-->
                     <h1 id="calendario"></h><!--Data e calendario feito em jquery - usa-se o id #calendario-->
@@ -73,7 +75,8 @@
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
               
             <!--Formulário Geral-->
-            <form  action="produtoServlet" method="post">
+            <form  action="produtoServlet" method="post" id="formulario" class="formulario">
+                <h1 class="titulo-formulario">Editar Produto: ${produto.nome}</h1> 
               
                 <h1 class="titulo-formulario">Gerenciamento de Produto</h1> 
                 <!--Linha 1-->
@@ -147,12 +150,11 @@
                 <div class="botoes">
 	          <div class="row">
                     <div class=" offset-md-8 col-sm-2">
-                  <!--Botão Limpar-->
-	               <input type="reset" value="Limpar" class="btn btn btn-danger btn-block">						
+                					
 	            </div>
 	           <div class="col-sm-2">
 	          <!--Botão Salvar-->
-	        <input type="submit" value="Salvar" class="btn btn-success btn-block">
+	        <input type="submit" value="Atualizar" class="btn btn-success btn-block">
   	     </div>
 	   </div><!--Fim da linha 4-->
          </div><!--Fim classe botoes-->

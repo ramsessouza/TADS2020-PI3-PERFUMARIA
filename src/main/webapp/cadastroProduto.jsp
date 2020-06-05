@@ -33,7 +33,9 @@
                 </div>
                 <div class="col-lg-3 col-sm-3"><!--LOGO CABEÇALHO-->
                     <!--Colorir logo efeito em jquery - usa-se o id #logocab-->
+                    <a  href="start.jsp">
                     <img id="logocab" src="img/grupo-2.png" alt="Logo Muchachos Perfumaria">
+                    </a>
                 </div>
                 <div class="col-lg-3 col-sm-3"><!--HORA E DATA-->
                     <h1 id="calendario"></h><!--Data e calendario feito em jquery - usa-se o id #calendario-->
@@ -73,14 +75,14 @@
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
             <h1>Cadastro de Produto</h1> 
             <!--Formulário Geral-->
-            <form  action="produtoServlet" method="post">
+            <form  action="produtoServlet" method="post" id="formulario" class="formulario">
                  <!--Linha 1-->
                 <div class="row linha-do-nome">
                     <!--Nome do Produto-->
                     <div class="col-sm-10 col-md-10">
                         <div class="form-group">
                             <label for="nome">Nome do Produto</label>
-                            <input id="nome" name="nome" maxlength="40" type="text" pattern="^[a-zA-Z][a-zA-Z-_\.]{1,20}$" class="form-control" required >
+                            <input id="nome" name="nome" type="text" class="form-control" maxlength="20" placeholder="Exemplo.: Ferrari black" required="">
                         </div>
                     </div><!--Fim do Nome do Produto-->
                     <!--Ativo-->
@@ -101,7 +103,6 @@
                         <div class="form-group">
                             <label for="categoria">Categoria</label>
                             <select id="categoria" name="categoria" class="form-control" required>
-                                <option>Selecione</option>
                                 <option value="beleza">Beleza</option>
                                 <option value="cosmeticos">Cosmeticos</option>
                                 <option value="perfumes">Perfumes</option>
@@ -113,14 +114,14 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="preco">Preço</label>
-                            <input id="preco" name="preco" type="text" class="form-control mascara-decimais" required >
+                            <input id="preco" name="preco" type="number" class="form-control mascara-decimais" maxlength="6" placeholder="Exemplo.: 250.00" required >
                         </div>
                     </div><!--Fim do preco-->
                     <!--Quantidade-->
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label for="quantidade">Quantidade</label>
-                            <input id="quantidade" name="quantidade" type="number" class="form-control mascara-numero" required>
+                            <input id="quantidade" name="quantidade" type="number" class="form-control mascara-numero" maxlength="6" placeholder="Exemplo.: 1359" required>
                         </div>
                     </div><!--Fim Quantidade-->
                 </div><!--Fim da linha 2-->
@@ -130,7 +131,7 @@
                     <div class="col-sm-12" >
                         <div class="form-group">
                            <label for="quantidade">Descrição</label> 
-			   <input id="descricao" name="descricao" type="text" class="form-control"  required>
+			   <input id="descricao" name="descricao" type="text" class="form-control" maxlength="200" placeholder="Exemplo.: Produto para tratamento capilar" required>
                         </div>
                     </div><!--Fim Desricao-->
                 </div><!--Fim da linha 3-->

@@ -40,6 +40,6 @@ public class ConsultaFuncionarioServlet extends HttpServlet {
 		}
 	
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/consultaFuncionario.jsp");
-	    dispatcher.forward(request, response);
+	        dispatcher.forward(request, response);
 	}
     }

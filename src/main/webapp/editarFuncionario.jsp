@@ -35,7 +35,9 @@
         </div>
         <div class="col-lg-3 col-sm-3"><!--LOGO CABEÇALHO-->
           <!--Colorir logo efeito em jquery - usa-se o id #logocab-->
-          <img id="logocab" src="img/grupo-2.png" alt="Logo Muchachos Perfumaria">
+           <a  href="start.jsp">
+              <img id="logocab" src="img/grupo-2.png" alt="Logo Muchachos Perfumaria">
+           </a>
         </div>
         <div class="col-lg-3 col-sm-3"><!--HORA E DATA-->
           <h1 id="calendario"></h><!--Data e calendario feito em jquery - usa-se o id #calendario-->
@@ -322,8 +324,7 @@
        <div class="botoes">
 	 <div class="row">
           <div class=" offset-md-8 col-sm-2">
-            <!--Botão Limpar-->
-	    <input type="reset" value="Limpar" class="btn btn btn-danger btn-block">						
+            						
 	     </div>
 	    <div class="col-sm-2">
 	 <!--Botão Salvar-->

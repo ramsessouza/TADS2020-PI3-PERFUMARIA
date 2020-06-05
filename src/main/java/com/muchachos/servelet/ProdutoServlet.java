@@ -61,9 +61,13 @@ public class ProdutoServlet extends HttpServlet {
             if (produto.getId() != null) {
                 
                 produtoDao.atualizar(produto);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/consultaProduto.jsp");
+                dispatcher.forward(request, response);
                 request.setAttribute("mensagem", "Produto atualizado com sucesso!!!");
             } else {
                 produtoDao.salvar(produto);
+                 RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastroProduto.jsp");
+                dispatcher.forward(request, response);
                 request.setAttribute("mensagem", "Produto salvo com sucesso!!!");
             }
         } catch (SQLException e) {
@@ -74,7 +78,6 @@ public class ProdutoServlet extends HttpServlet {
             request.setAttribute("mensagem", "Erro de Driver: " + e.getMessage());
             request.setAttribute("produto", produto);
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastroProduto.jsp");
-        dispatcher.forward(request, response);
+       
     }
 }
