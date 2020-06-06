@@ -198,33 +198,34 @@
                <select id="estado" name="estado" class="form-control">
                  <option value="${funcionario.estado}">${funcionario.estado}</option>   
                  <option value="Selecione">Selecione</option>
-                 <option value="acre">Acre</option>
-                 <option value="alagoas">Alagoas</option>
-                 <option value="amapá">Amapá</option>
-                 <option value="bahia">Bahia</option>
-                 <option value="ceará">Ceará</option>
-                 <option value="distrito federal">Distrito Federal</option>
-                 <option value="espírito santo">Espírito Santo</option>
-                 <option value="goiás">Goiás</option>
-                 <option value="maranhão">Maranhão</option>
-                 <option value="mato grosso">Mato Grosso</option>
-                 <option value="mato grosso do sul">Mato Grosso do Sul</option>
-                 <option value="minas gerais">Minas Gerais</option>
-                 <option value="pará">Pará</option>
-                 <option value="paraíba">Paraíba</option>
-                 <option value="paraná">Paraná</option>
-                 <option value="pernambuco">Pernambuco</option>
-                 <option value="piauí">Piauí</option>
-                 <option value="rio de janeiro">Rio de Janeiro</option>
-                 <option value="rio grande do norte">Rio Grande do Norte</option>
-                 <option value="rio grande do sul">Rio Grande do Sul</option>
-                 <option value="rondônia">Rondônia</option>
-                 <option value="roraima">Roraima</option>
-                 <option value="santa catarina">Santa Catarina</option>
-                 <option value="são paulo">São Paulo</option>
-                 <option value="sergipe">Sergipe</option>
-                 <option value="tocantins">Tocantins</option>
-                </select>
+                  <option value="acre">Acre</option>
+                                        <option value="alagoas">Alagoas</option>
+                                        <option value="amapa">Amapá</option>
+                                        <option value="amazonas">Amazonas</option>
+                                        <option value="bahia">Bahia</option>
+                                        <option value="ceara">Ceará</option>
+                                        <option value="distrito federal">Distrito Federal</option>
+                                        <option value="espirito santo">Espírito Santo</option>
+                                        <option value="goias">Goiás</option>
+                                        <option value="maranhao">Maranhão</option>
+                                        <option value="mato grosso">Mato Grosso</option>
+                                        <option value="mato grosso do sul">Mato Grosso do Sul</option>
+                                        <option value="minas gerais">Minas Gerais</option>
+                                        <option value="para">Pará</option>
+                                        <option value="paraiba">Paraíba</option>
+                                        <option value="parana">Paraná</option>
+                                        <option value="pernambuco">Pernambuco</option>
+                                        <option value="piaui">Piauí</option>
+                                        <option value="rio de janeiro">Rio de Janeiro</option>
+                                        <option value="rio grande do norte">Rio Grande do Norte</option>
+                                        <option value="rio grande do sul">Rio Grande do Sul</option>
+                                        <option value="rondonia">Rondônia</option>
+                                        <option value="roraima">Roraima</option>
+                                        <option value="santa catarina">Santa Catarina</option>
+                                        <option value="sao paulo">São Paulo</option>
+                                        <option value="sergipe">Sergipe</option>
+                                        <option value="tocantins">Tocantins</option>
+                                    </select>
                </div>
           </div><!--Fim Estado-->
           <div class="col-md-9 col-sm-9">
