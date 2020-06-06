@@ -100,19 +100,18 @@
                                 </div>
                             </div>
                             
-
                         </div>
                         <div class="row">
-                            <div class="offset-sm-0 col-md-2" style="top:10px">
+                            <div class="col-md-2" style="top:10px; left: -20px">
                                 <label id="textoPadrao">Total:  </label>
                                 <label id="totalPesquisa" class="mascara-decimais" size="5px">0</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </div>
                             
-                            <div class="offset-md-8 col-md-2" >
-                                <div class="form-group">
-                                    <input class="btn btn-dark" type="submit" value="Pesquisar">
-                                </div>
-                            </div>
+                            <div class="offset-sm-7 col-sm-2">
+                        <button class="btn btn-dark btn-block" type="submit">Pesquisar
+                            <span class="ml-1 fas fa-search"></span>
+                        </button>
+                    </div>
                         </div>
                     </form>
                 </div><hr>
