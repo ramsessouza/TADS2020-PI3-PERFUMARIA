@@ -49,7 +49,7 @@ public class RelatoriosServlet extends HttpServlet {
         Timestamp de = null;
         Timestamp para = null;
 
-        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         if (cliente == null) {
             cliente = "";
@@ -59,7 +59,7 @@ public class RelatoriosServlet extends HttpServlet {
 
         try {
             if (diaIni == null || diaIni.equals("")) {
-                Date c = sdf.parse("2020-01-01");
+                Date c = sdf.parse("2020-01-01 00:00:00");
                 long l = c.getTime();
                 de = new Timestamp(l);
             } else {
@@ -71,6 +71,7 @@ public class RelatoriosServlet extends HttpServlet {
             if (diaFim == null || diaFim.equals("")) {
                 para = new Timestamp(System.currentTimeMillis());
             } else {
+                diaFim += " 23:59:59";
                 Date c = sdf.parse(diaFim);
                 long l = c.getTime();
                 para = new Timestamp(l);
