@@ -24,7 +24,7 @@ public class RelatorioDao {
         try {
             Connection conexao = ConexaoDatabase.getConexao();
 
-            PreparedStatement ps = conexao.prepareStatement("select v.id,c.nome as nome,v.data,v.qtd_itens,v.val_total,f.nome as colaborador,f.filial as filial from tb_venda as v "
+            PreparedStatement ps = conexao.prepareStatement("select distinct v.id,c.nome as nome,v.data,v.qtd_itens,v.val_total,f.nome as colaborador,f.filial as filial from tb_venda as v "
                     + " inner join tb_cliente as c on v.id_cliente = c.id "
                     + " inner join tb_colaborador as f on v.id_funcionario = f.id "
                     + " inner join tb_itensvenda as iv on v.id = iv.id_venda "
