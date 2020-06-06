@@ -32,15 +32,8 @@ public class ItensVendaDao {
             preparedStatement.setFloat(4, itemVenda.getValorTotal());
             
             preparedStatement.execute();
-        } finally {
-            
-            if (preparedStatement != null && !preparedStatement.isClosed()) {
-                preparedStatement.close();
-            }
-            
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-            }
+        } catch(SQLException e){
+                System.out.println(e);
         }
     }
 }
