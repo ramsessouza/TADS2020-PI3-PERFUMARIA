@@ -96,3 +96,8 @@ QTD_ITENS INT,
 VAL_TOTAL DECIMAL(8,2),
 PRIMARY KEY(ID)
 );
+--==============================================================================
+--INSERE USUARIO ADMIN
+--==============================================================================
+INSERT INTO TB_COLABORADOR (NOME, NASCIMENTO, ESTADO_CIVIL, STATUS, CPF, TELEFONE, EMAIL, SENHA, ESTADO, CIDADE, LOGRADOURO, NUMERO)
+VALUES ('Administrador', '1900-01-01', 'nulo', 'Ativo', '000.000.000-00', '00000000000', 'admin@muchachos', 'admin', 'nulo', 'nulo', 'nulo', 0)

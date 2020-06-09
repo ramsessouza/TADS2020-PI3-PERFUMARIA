@@ -274,7 +274,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger btn-sm fechar-modal"><!--data-dismiss="modal"-->
                             <span class="fas fa-times mr-2"></span>Fechar
-                        <button
+                        </button>
                     </div>
                 </div>
             </div>

@@ -95,7 +95,7 @@
                                     <span class="fas fa-pump-soap mr-1"></span>
                                 </div>
                             </div>
-                            <input class="form-control" placeholder="Pesquisar Produto por nome" type="text"  required name="Busca" >
+                            <input class="form-control" placeholder="Pesquisar Produto por nome ou categoria" type="text"  name="Busca" >
                         </div><!--Fim do campo de Pesquisa de produto-->
                     </div>
                     <div class="col-sm-2">

@@ -89,7 +89,7 @@
                                     <span class="fas fa-pump-soap mr-1"></span>
                                 </div>
                             </div>
-                            <input class="form-control" placeholder="Pesquisar Produto por nome" maxlength="40" type="text" required name="Busca">
+                            <input class="form-control" placeholder="Pesquisar Produto por nome ou categoria" maxlength="40" type="text" name="Busca">
                         </div>
                     </div><!--Fim Pesquisa de produto-->
                     <!--Bot�o pesquisar-->

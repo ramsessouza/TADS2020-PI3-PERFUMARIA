@@ -61,7 +61,7 @@ public class ProdutoServlet extends HttpServlet {
             if (produto.getId() != null) {
                 
                 produtoDao.atualizar(produto);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/consultaProduto.jsp");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/consultaProduto.jsp");
                 dispatcher.forward(request, response);
                 request.setAttribute("mensagem", "Produto atualizado com sucesso!!!");
             } else {

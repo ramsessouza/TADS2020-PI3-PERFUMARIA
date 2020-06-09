@@ -240,7 +240,7 @@
               <div class="col-md-6 col-sm-4">
                 <div class="form-group">
                   <label>E-mail</label>
-                  <input name="email" id="email" type="E-mail" class="form-control" value="${funcionario.email}" required>
+                  <input name="email" id="email" type="email" class="form-control" value="${funcionario.email}" required>
                 </div>
               </div>
             </div><!--Fim Linha 5.1-->  
