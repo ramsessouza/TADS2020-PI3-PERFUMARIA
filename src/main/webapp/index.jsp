@@ -47,17 +47,19 @@
                             <div class="input-group-prepend">
                             <div class="input-group-text"><span class="fas fa-user"></div>
                         </div>
-                            <input class="form-control" type="email" name="email" placeholder="E-mail" required>
+                            <input class="form-control" type="email" id="email" name="email" placeholder="E-mail" required>
                         </div>
                         <!--INPUT SENHA-->
                         <div class="input-group mb-2 mr-sm-2">
                             <div class="input-group-prepend ">
                             <div class="input-group-text"><span class="fas fa-lock"></span></div>
                         </div>
-                            <input class="form-control" type="password" name="senha" placeholder="Senha" required>
+                            <input class="form-control" type="password" id="senha" name="senha" placeholder="Senha" required>
                         </div>
                         <!--BOTAO ENTRAR-->
                         <button class="btn btn-dark btn-block" type="submit" id="entrar">Login</button>
+                        <!--MENSAGEM CASO SENHA OU EMAIL INCORRETO-->
+                        <label id="mensagem-erro">${mensagemErro}</label>
                     </div>
                 </form>
             </div>

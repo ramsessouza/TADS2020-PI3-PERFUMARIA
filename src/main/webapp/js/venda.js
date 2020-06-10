@@ -71,7 +71,7 @@ $(function () {
         $('#excluir-footer').addClass('esconder-div');//esconde footer excluir
         
         //coloca valor nos campos da modal
-        $('#venda-funcionario-nome').text($('#funcionario').text());
+        //$('#venda-funcionario-nome').text($('#funcionario').text());
         $('#venda-cliente-id').text($('#cli-id').val());
         $('#venda-cliente-nome').text($('#cli-nome').text());
         $('#venda-cliente-cpf').text($('#cli-cpf').text());

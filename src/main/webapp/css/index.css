@@ -16,6 +16,7 @@
 .containner input{padding: 0 5px 0 5px; margin: 0 0; width: 100%; height: 30px; background-position: left; background-repeat: no-repeat; background-size: 20px;}
 #senha{}
 #entrar{margin-top: 1%; width: 100%; color: white; font-size: 20px; padding: 0;}
+#mensagem-erro{color: white; background-color: rgba(255,0,0,0.8); border-radius: 3px; margin-top: 9px}
 
 /*RODAPÉ*/
 .rodape{position:absolute; bottom:0; text-align: left;}

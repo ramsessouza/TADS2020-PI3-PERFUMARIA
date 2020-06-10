@@ -8,7 +8,7 @@ html, body{height: 100%; overflow: hidden;}
 
 /*CABEÇALHO - Não altere os valores*/
 .cabecalho{align-items: center; background: url("../img/background.jpg"); background-repeat: no-repeat; background-size:100%; background-attachment: fixed; background-size: cover; background-position: top center; border-bottom: 3px solid rgba(0,0,0,0.06); border-top: 3px solid rgba(255,255,255,0.06);}
-.cabecalho button{border: 0;}
+.cabecalho a{border: 0;}
 .cabecalho img{width: 70%; height: 70%;}
 .cabecalho h1{font-size: 15pt;}
 

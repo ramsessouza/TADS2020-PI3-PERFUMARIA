@@ -45,11 +45,11 @@
                 <div class="col-lg-3 col-sm-3"><!--HORA E DATA-->
                     <h1 id="calendario"></h1><!--Data e calendario feito em jquery - usa-se o id #calendario-->
                 </div>
-                <div class="col-lg-2 col-sm-2"><!--USUÁRIO-->
-                    <h1 id="funcionario"><span class="fas fa-user"></span>Ramses Souza</h>
+                <div class="col-lg-3 col-sm-3"><!--USUÁRIO-->
+                    <h1><span class="fas fa-user mr-1"></span>${sessionScope.funcionario.nome}</h>
                 </div>
                 <div class="col-lg-1 col-sm-1"><!--SAIR DO SISTEMA-->
-                    <button type="button" class="btn btn-outline-dark" >Sair <span class="fas fa-sign-out-alt"></span></button>
+                   <a class="btn btn-outline-dark" href="LogoutServlet" role="button">Sair <span class="fas fa-sign-out-alt"></span></a>
                 </div>
             </div>
         </div>
@@ -264,8 +264,8 @@
                             <!--funcionario-->
                             <div class="form-inline">
                                 <label class="form-inline bold mr-1">Funcionario:</label>
-                                <label id="venda-funcionario-nome" class="form-inline mr-1"></label>
-                                <input id="venda-funcionario-id" class="form-inline" size="2"></input>
+                                <label id="venda-funcionario-nome" class="form-inline mr-1">${sessionScope.funcionario.nome}</label>
+                                <input id="venda-funcionario-id" value="${sessionScope.funcionario.id}" class="form-inline" size="2" disabled hidden></input>
                             </div> 
                             <!--cliente nome-->
                             <div class="form-inline">
