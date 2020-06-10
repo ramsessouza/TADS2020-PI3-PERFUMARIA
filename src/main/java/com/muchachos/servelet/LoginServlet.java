@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
                 if(senha.equals(funcionario.getSenha())){
                     //nova instancia de sessao
                     HttpSession sessao = request.getSession();
-                    sessao.setAttribute("funcionario", funcionario);
+                    sessao.setAttribute("funcionarioSessao", funcionario);
                     //encaminha para a pagina inicial do sistema
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/start.jsp");
                     dispatcher.forward(request, response);

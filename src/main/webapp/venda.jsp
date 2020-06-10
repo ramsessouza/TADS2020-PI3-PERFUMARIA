@@ -46,7 +46,7 @@
                     <h1 id="calendario"></h1><!--Data e calendario feito em jquery - usa-se o id #calendario-->
                 </div>
                 <div class="col-lg-3 col-sm-3"><!--USUÁRIO-->
-                    <h1><span class="fas fa-user mr-1"></span>${sessionScope.funcionario.nome}</h>
+                    <h1><span class="fas fa-user mr-1"></span>${sessionScope.funcionarioSessao.nome}</h>
                 </div>
                 <div class="col-lg-1 col-sm-1"><!--SAIR DO SISTEMA-->
                    <a class="btn btn-outline-dark" href="LogoutServlet" role="button">Sair <span class="fas fa-sign-out-alt"></span></a>
@@ -264,8 +264,8 @@
                             <!--funcionario-->
                             <div class="form-inline">
                                 <label class="form-inline bold mr-1">Funcionario:</label>
-                                <label id="venda-funcionario-nome" class="form-inline mr-1">${sessionScope.funcionario.nome}</label>
-                                <input id="venda-funcionario-id" value="${sessionScope.funcionario.id}" class="form-inline" size="2" disabled hidden></input>
+                                <label id="venda-funcionario-nome" class="form-inline mr-1">${sessionScope.funcionarioSessao.nome}</label>
+                                <input id="venda-funcionario-id" value="${sessionScope.funcionarioSessao.id}" class="form-inline" size="2" disabled hidden></input>
                             </div> 
                             <!--cliente nome-->
                             <div class="form-inline">
@@ -276,7 +276,7 @@
                             <div class="form-inline mb-2">
                                 <label class="form-inline bold mr-1">CPF do Cliente:</label>
                                 <label id="venda-cliente-cpf" class="form-inline mr-1"></label>
-                                <label id="venda-cliente-id" class="form-inline"></label>
+                                <label id="venda-cliente-id" class="form-inline" hidden></label>
                             </div> 
                             <!--data-->
                             <div class="form-inline">

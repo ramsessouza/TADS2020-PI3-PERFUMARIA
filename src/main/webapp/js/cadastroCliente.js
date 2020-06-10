@@ -42,5 +42,6 @@ $(function(){
     $('.fechar-modal').on("click",function(){
         //fecha modal e atualiza formulario
         $('#modalMensagem').modal('hide');
+        $('#formulario').trigger("reset");
     });
 });

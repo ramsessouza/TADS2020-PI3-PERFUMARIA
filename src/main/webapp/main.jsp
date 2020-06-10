@@ -27,7 +27,7 @@
                     <h1 id="calendario"></h><!--Data e calendario feito em jquery - usa-se o id #calendario-->
                 </div>
                 <div class="col-lg-3 col-sm-3"><!--USUÁRIO-->
-                    <h1><span class="fas fa-user mr-1"></span>${sessionScope.funcionario.nome}</h>
+                    <h1><span class="fas fa-user mr-1"></span>${sessionScope.funcionarioSessao.nome}</h>
                 </div>
                 <div class="col-lg-1 col-sm-1"><!--SAIR DO SISTEMA-->
                     <a class="btn btn-outline-dark" href="LogoutServlet" role="button">Sair <span class="fas fa-sign-out-alt"></span></a>

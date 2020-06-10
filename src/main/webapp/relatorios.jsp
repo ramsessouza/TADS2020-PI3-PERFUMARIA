@@ -16,12 +16,13 @@
         <meta name=viewport content="width=device-width, initial-scale=1">
         <!--CSS -->
         <link href="css/muchachos-style.css" rel="stylesheet">
+        <link href="css/start.css" rel="stylesheet">
         <!--Titulo e icone-->
         <link rel="shortcut icon" href="img/logo-branco.png"/>
         <title>Perfumaria Muchachos: Relatório de Vendas</title>
     </head>
     <body>
-        <!--import do cabeçalho e barra lateral-->
+        <!--IMPORT DO CABECALHO E DA BARRA LATERAL-->
         <%@ include file="main.jsp" %> 
         <!--CONTEUDO DA PAGINA-->
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina" style="text-align: center; overflow: no-display">
