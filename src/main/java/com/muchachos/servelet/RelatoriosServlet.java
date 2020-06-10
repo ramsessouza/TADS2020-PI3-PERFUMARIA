@@ -63,7 +63,7 @@ public class RelatoriosServlet extends HttpServlet {
                 long l = c.getTime();
                 de = new Timestamp(l);
             } else {
-                diaIni += " 00:00:00";
+                diaIni += " 00:00:01";
                 Date c = sdf.parse(diaIni);
                 long l = c.getTime();
                 de = new Timestamp(l);

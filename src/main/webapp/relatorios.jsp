@@ -35,7 +35,7 @@
                             <div class="col-md-3 col-sm-3">
                                 <div class="form-group">
                                     <label>Cliente</label>
-                                    <input type="text" class="form-control" name="cliente" maxlength="15" placeholder="Nome">
+                                    <input type="text" class="form-control" name="cliente" maxlength="50" placeholder="Nome">
                                 </div>
                             </div>
 
