@@ -31,8 +31,8 @@ public class Filtro implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         String urlAcessada = httpRequest.getRequestURI();
         
-        //se a tela acessada for diferente de index.jsp
-        if(!urlAcessada.contains("/index")){
+        //se a tela acessada for diferente de index.jsp ou diferente de LoginServlet nao filtra
+        if(!urlAcessada.contains("/index") && !urlAcessada.contains("/LoginServlet")){
             //Verifica se usuario ja esta deslogado
             HttpSession sessao = httpRequest.getSession();
             if(sessao.getAttribute("funcionarioSessao") == null){
@@ -43,13 +43,16 @@ public class Filtro implements Filter {
 
             //verifica se tem acesso a pagina especifica (TEM QUE TERMINAR ESSA PARTE)
             Funcionario funcionarioLogado = (Funcionario) sessao.getAttribute("funcionarioSessao");
-            verificarAcesso(funcionarioLogado, httpRequest, urlAcessada);
+            verificarAcesso(funcionarioLogado, urlAcessada);
         }
         //segue com a solicitacao
         chain.doFilter(request, response);
     }
     
-    private boolean verificarAcesso(Funcionario funcionario, HttpServletRequest httpRequest, String urlAcessada){
+    private boolean verificarAcesso(Funcionario funcionario, String urlAcessada){
+        if(urlAcessada.contains("/buscaFuncionario")){
+        }
+        
         return false;
     }
     

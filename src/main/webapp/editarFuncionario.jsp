@@ -212,7 +212,7 @@
                                 <option value="${funcionario.departamento}">${funcionario.departamento}</option>     
                                 <option value="Venda">Venda</option>
                                 <option value="Marketing">Marketing</option>
-                                <option value="Publicidade">Publicidade</option>
+                                <option value="Recursos Humanos">Recursos Humanos</option>
                                 <option value="TI">TI</option>
                             </select>
                         </div>
@@ -225,10 +225,12 @@
                                     <label>Cargo</label>
                                     <select name="cargo" id="cargo" class="form-control">
                                         <option value="${funcionario.cargo}">${funcionario.cargo}</option>     
-                                        <option value="Venda">Venda</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Publicidade">Publicidade</option>
-                                        <option value="TI">TI</option>
+                                        <option value="Vendedor">Vendedor</option>
+                                        <option value="Analista de Marketing">Analista de Marketing</option>
+                                        <option value="Analista de RH">Analista de RH</option>
+                                        <option value="Analista de TI">Analista de TI</option>
+                                        <option value="Gerente">Gerente</option>
+                                        <option value="Diretor">Diretor</option>
                                     </select>
                                 </div>
                             </div>  
