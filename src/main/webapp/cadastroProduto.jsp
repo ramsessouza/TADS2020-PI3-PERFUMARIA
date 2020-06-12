@@ -47,8 +47,8 @@
                         <div class="form-group">
                             <label>Status</label>
                             <select id="status" name="status" class="form-control">
-                                <option value="ativo">Ativo</option>
-                                <option value="inativo">Inativo</option>
+                                <option value="Ativo">Ativo</option>
+                                <option value="Inativo">Inativo</option>
                             </select>
                         </div>
                     </div><!--Fim Ativo-->
@@ -58,12 +58,12 @@
                     <!--Categoria-->
                     <div class="dropdown col-sm-6">
                         <div class="form-group">
-                            <label for="categoria">Categoria</label>
+                            <label>Categoria</label>
                             <select id="categoria" name="categoria" class="form-control" required>
-                                <option value="beleza">Beleza</option>
-                                <option value="cosmeticos">Cosmeticos</option>
-                                <option value="perfumes">Perfumes</option>
-                                <option value="utensilios">Utensilios</option>
+                                <option value="Beleza">Beleza</option>
+                                <option value="Cosmeticos">Cosmeticos</option>
+                                <option value="Perfumes">Perfumes</option>
+                                <option value="Utensilios">Utensilios</option>
                             </select>
                         </div>
                     </div><!--Fim da Categoria-->

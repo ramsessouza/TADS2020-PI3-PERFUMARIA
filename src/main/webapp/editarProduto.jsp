@@ -32,7 +32,8 @@
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
 
             <!--Formulário Geral-->
-            <form  action="produtoServlet" method="post" id="formulario" class="formulario">
+            <form id="formulario" class="formulario" action="editarProdutoServlet" method="post">
+                                                             
                 <h1 class="titulo-formulario">Editar Produto: ${produto.nome}</h1> 
                 <!--Linha 1-->
                 <div class="row linha-do-nome">
@@ -116,17 +117,17 @@
             </form><!--Fim do formulário-->
             <h1>&nbsp;</h1>
         </div><!--Fim do conteudo da pagina-->
-        <!--1-jQuery.js-->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <!--1-jQuery.js-->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <!--2-Popper.js-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <!--3-Bootstrap.js-->
+        <!--3-Bootstrap.js -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <!--5-Mask Money Plugin-->
+        <!--4-Mask Money Plugin-->
         <script src="https://cdn.rawgit.com/plentz/jquery-maskmoney/master/dist/jquery.maskMoney.min.js"></script>
-        <!--6-Mask Plugin-->
+        <!--5-Mask CPF Plugin-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
-        <!--7-Específica da página-->
+        <!--6-Específica da página-->
         <script type="text/javascript" src="js/start.js"></script>
         <script type="text/javascript" src="js/cadastros.js"></script>
     </body>

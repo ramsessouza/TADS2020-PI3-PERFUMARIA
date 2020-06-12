@@ -63,26 +63,26 @@
                 <table class="table table-sm table-secondary table-hover table-striped">   
                     <thead class="thead-dark">
                         <tr>
-                            <th>ID</th>
+                            <th class="td-id">ID</th>
                             <th>PRODUTO</th>
                             <th>QUANTIDADE</th>
                             <th>CATEGORIA</th>
                             <th>VALOR</th>
                             <th>STATUS</th>
-                            <th>EDITAR</th>
-                            <th>REMOVER</th>
+                            <th class="td-editar">EDITAR</th>
+                            <th class="td-remover">REMOVER</th>
                         </tr>
                     </thead>
                     <c:forEach var="p" items="${produtos}">
                         <tr>
-                            <td>${p.id}</td>
+                            <td class="td-id">${p.id}</td>
                             <td>${p.nome}</td>
                             <td>${p.quantidade}</td>
                             <td>${p.categoria}</td>
                             <td>${p.preco}</td>
                             <td>${p.status}</td>
-                            <td><a href=produtoServlet?acao=Editar&id=${p.id}><span class="fas fa-edit"></span></td>
-                            <td><a href=consultaProdutoServlet?acao=Excluir&id=${p.id}><span class="fas fa-times"></span></td>
+                            <td class="td-editar"><a href=editarProdutoServlet?&id=${p.id}><span class="fas fa-edit"></span></td>
+                            <td class="td-remover"><a href=excluirProdutoServlet?&id=${p.id}><span class="fas fa-times"></span></td>
                         </tr>
                     </c:forEach>
                 </table>

@@ -1,6 +1,7 @@
 package com.muchachos.dao;
 
 import com.muchachos.db.ConexaoDatabase;
+import static com.muchachos.db.ConexaoDatabase.getConexao;
 import com.muchachos.model.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,17 +16,47 @@ import java.util.List;
  */
 public class ProdutoDao {
 
-    public List<Produto> getProduto() throws SQLException, ClassNotFoundException {
-        Connection conexao = ConexaoDatabase.getConexao();
-        PreparedStatement ps = conexao.prepareStatement("SELECT id, nome, quantidade, descricao, categoria, status From tb_produto");
+    public List<Produto> getProduto() throws ClassNotFoundException, SQLException {
+        String sql = "SELECT id, nome, preco, quantidade, descricao, categoria, status From tb_produto";
 
-        ResultSet rs = ps.executeQuery();
-        List<Produto> produtos = new ArrayList();
+        List<Produto> listaProdutos = new ArrayList<>();
 
-        while (rs.next()) {
-            produtos.add(new Produto(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7)));
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet result = null;
+
+        try {
+            connection = getConexao();
+            preparedStatement = connection.prepareStatement(sql);
+
+            result = preparedStatement.executeQuery();
+
+            while (result.next()) {
+                if (listaProdutos == null) {
+                    listaProdutos = new ArrayList<Produto>();
+                }
+                Produto produto = new Produto();
+                produto.setId(result.getInt("id"));
+                produto.setNome(result.getString("nome"));
+                produto.setPreco(result.getFloat("preco"));
+                produto.setQuantidade(result.getInt("quantidade"));
+                produto.setDescricao(result.getString("descricao"));
+                produto.setCategoria(result.getString("categoria"));
+                produto.setStatus(result.getString("status"));
+                listaProdutos.add(produto);
+            }
+        } finally {
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
         }
-        return produtos;
+        return listaProdutos;
     }
 
     public void salvar(Produto produto) throws ClassNotFoundException, SQLException {
@@ -104,7 +135,6 @@ public class ProdutoDao {
         PreparedStatement ps = null;
 
         ResultSet rs = null;
-        
 
         try {
             conexao = ConexaoDatabase.getConexao();
@@ -145,7 +175,7 @@ public class ProdutoDao {
         }
         return listaProduto;
     }
-    
+
     public static List<Produto> buscarDireito(String busca) throws SQLException, Exception {
         String sql = "SELECT * FROM tb_produto WHERE upper(nome) like ? or upper(categoria) like ?";
         busca = '%' + busca + '%';
@@ -155,7 +185,6 @@ public class ProdutoDao {
         PreparedStatement ps = null;
 
         ResultSet rs = null;
-        
 
         try {
             conexao = ConexaoDatabase.getConexao();
