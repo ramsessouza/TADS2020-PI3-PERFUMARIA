@@ -69,31 +69,31 @@
                 <table class="table table-sm table-secondary table-hover table-striped">   
                     <thead class="thead-dark">
                         <tr>
-                            <th>ID</th>
-                            <th>NOME</th>
+                            <th class="td-id">ID</th>
+                            <th class="td-nome">NOME</th>
                             <th>CPF</th>
-                            <th>EMAIL</th>
+                            <th class="td-email">EMAIL</th>
                             <th>CARGO</th>
                             <th>FILIAL</th>
                             <th>DEPARTAMENTO</th>
                             <th>STATUS</th>
-                            <th>EDITAR</th>
-                            <th>REMOVER</th>
+                            <th class="td-editar">EDITAR</th>
+                            <th class="td-remover">REMOVER</th>
                         </tr>
                     </thead>        
                     <c:forEach var="f" items="${listaFuncionario}">
 
                         <tr>
-                            <td> ${f.id}"</td>
-                            <td>${f.nome}</td>
+                            <td class="td-id"> ${f.id}</td>
+                            <td class="td-nome">${f.nome}</td>
                             <td>${f.cpf}</td>
-                            <td>${f.email}</td>
+                            <td class="td-email">${f.email}</td>
                             <td>${f.cargo}</td>
                             <td>${f.filial}</td>
                             <td>${f.departamento}</td>
                             <td>${f.status}</td>
-                            <td><a href=funcionarioServlet?acao=Editar&id=${f.id}><span class="fas fa-edit"</span></a></td>
-                            <td><a href=consultaFuncionarioServlet?acao=Excluir&id=${f.id}><span class="fas fa-times"></span></a></td>
+                            <td class="td-editar"><a href=editarFuncionarioServlet?&id=${f.id}><span class="fas fa-edit"</span></a></td>
+                            <td class="td-remover"><a href=excluirFuncionarioServlet?&id=${f.id}><span class="fas fa-times"></span></a></td>
                         </tr>
                     </c:forEach>
 

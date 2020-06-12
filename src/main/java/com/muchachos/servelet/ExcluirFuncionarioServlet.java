@@ -1,6 +1,6 @@
 package com.muchachos.servelet;
 
-import com.muchachos.dao.ProdutoDao;
+import com.muchachos.dao.FuncionarioDao;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
@@ -11,11 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 15/05/2020
- * @author Diego Souza de Queiroz
+ *
+ * @author Valter Lafuente Junior
  */
-@WebServlet(name = "excluirProdutoServlet", urlPatterns = {"/excluirProdutoServlet"})
-public class ExcluirProdutoServlet extends HttpServlet {
+ 
+@WebServlet(name = "excluirFuncionarioServlet", urlPatterns = {"/excluirFuncionarioServlet"})
+public class ExcluirFuncionarioServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -23,12 +24,12 @@ public class ExcluirProdutoServlet extends HttpServlet {
         String id = request.getParameter("id");
         Integer idInt = Integer.parseInt(id);
         
-        ProdutoDao produtoDao = new ProdutoDao();
+        FuncionarioDao funcionarioDao = new FuncionarioDao();
         try{
-            //faz a exclusao do Produto via dao
-            produtoDao.excluir(idInt);
-            //Reencaminho a solicitacao para ConsultarProdutoServlet assim pesquisando o Produto alterado novamente
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/consultaProdutoServlet");
+            //faz a exclusao do funcionario via dao
+            funcionarioDao.excluir(idInt);
+            //Reencaminho a solicitacao para ConsultarFuncionarioServlet assim pesquisando o funcionario alterado novamente
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/consultaFuncionarioServlet");
             dispatcher.forward(request,response);
         }catch (SQLException e){
             request.setAttribute("mensagemErro","Erro de banco de dados: " + e.getMessage());

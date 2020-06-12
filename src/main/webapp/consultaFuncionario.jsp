@@ -75,8 +75,8 @@
                             <th>FILIAL</th>
                             <th>DEPARTAMENTO</th>
                             <th>STATUS</th>
-                            <th>EDITAR</th>
-                            <th>REMOVER</th>
+                            <th class="td-editar">EDITAR</th>
+                            <th class="td-remover">REMOVER</th>
                         </tr>
                     </thead>        
                     <c:forEach var="f" items="${funcionarios}">
@@ -90,8 +90,8 @@
                             <td>${f.filial}</td>
                             <td>${f.departamento}</td>
                             <td>${f.status}</td>
-                            <td><a href=funcionarioServlet?acao=Editar&id=${f.id}><span class="fas fa-edit"</span></a></td>
-                            <td><a href=consultaFuncionarioServlet?acao=Excluir&id=${f.id}><span class="fas fa-times"></span></a></td>
+                            <td class="td-editar"><a href=editarFuncionarioServlet?&id=${f.id}><span class="fas fa-edit"</span></a></td>
+                            <td class="td-remover"><a href=excluirFuncionarioServlet?&id=${f.id}><span class="fas fa-times"></span></a></td>
                         </tr>
 
                     </c:forEach>

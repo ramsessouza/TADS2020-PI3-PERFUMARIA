@@ -21,7 +21,7 @@ public class EditarProdutoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {//aqui se usa quando seleciona editar na consulta de cliente
+            throws ServletException, IOException {//aqui se usa quando seleciona editar na consulta de produto
         String id = request.getParameter("id");
         int idInt = Integer.parseInt(id);
         Produto produto = new Produto();
@@ -64,7 +64,7 @@ public class EditarProdutoServlet extends HttpServlet {
             //salvo a atualizacao no banco chamando a dao
             produtoDao.atualizar(produto);
             //Reencaminho a solicitacao para editarProdutoServlet assim pesquisando o produto alterado novamente
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/consultaProdutoServlet");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/buscaProdutoServlet");
             dispatcher.forward(request, response);
 
         } catch (SQLException e) {

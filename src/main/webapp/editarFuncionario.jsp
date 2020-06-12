@@ -33,7 +33,7 @@
         <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
             <!--Formulário Geral-->
-            <form id="formulario" class="formulario" action="funcionarioServlet" method="post">
+            <form id="formulario" class="formulario" action="editarFuncionarioServlet" method="post">
                 <h1 class="titulo-formulario">Editar Colaborador: ${funcionario.nome}</h1> 
                 <!--Linha 1-->
                 <div class="row linha-do-nome">
