@@ -32,14 +32,14 @@
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
             <h1>Cadastro de Produto</h1> 
             <!--Formulário Geral-->
-            <form  action="produtoServlet" method="post" id="formulario" class="formulario">
-                 <!--Linha 1-->
+            <form id="formulario" class="formulario">
+                <!--Linha 1-->
                 <div class="row linha-do-nome">
                     <!--Nome do Produto-->
                     <div class="col-sm-10 col-md-10">
                         <div class="form-group">
                             <label for="nome">Nome do Produto</label>
-                            <input id="nome" name="nome" type="text" class="form-control" maxlength="20" placeholder="Exemplo.: Ferrari black" required="">
+                            <input id="nome" name="nome" type="text" class="form-control" maxlength="50" placeholder="Exemplo.: Ferrari black" required="">
                         </div>
                     </div><!--Fim do Nome do Produto-->
                     <!--Ativo-->
@@ -71,7 +71,7 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="preco">Preço</label>
-                            <input id="preco" name="preco" type="number" class="form-control mascara-decimais" maxlength="6" placeholder="Exemplo.: 250.00" required >
+                            <input id="preco" name="preco"  class="form-control mascara-decimais" maxlength="6" placeholder="Exemplo.: 250.00" required >
                         </div>
                     </div><!--Fim do preco-->
                     <!--Quantidade-->
@@ -84,11 +84,11 @@
                 </div><!--Fim da linha 2-->
                 <!--Linha 3-->
                 <div class="row">
-                  <!--Descricao-->
+                    <!--Descricao-->
                     <div class="col-sm-12" >
                         <div class="form-group">
-                           <label for="quantidade">Descrição</label> 
-			   <input id="descricao" name="descricao" type="text" class="form-control" maxlength="200" placeholder="Exemplo.: Produto para tratamento capilar" required>
+                            <label for="descricao">Descrição</label> 
+                            <input id="descricao" name="descricao" type="text" class="form-control" maxlength="200" placeholder="Exemplo.: Produto para tratamento capilar" required>
                         </div>
                     </div><!--Fim Desricao-->
                 </div><!--Fim da linha 3-->
@@ -109,8 +109,30 @@
             <h1>&nbsp;</h1>
         </div><!--Fim do conteudo da pagina-->
 
+        <!--MODAL-->
+        <div class="modal fade modal" id="modalMensagem" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Mensagem</h5>
+                        <button type="button" class="close fechar-modal"><!--data-dismiss="modal"-->
+                            <span class="fas fa-times"></span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="mensagem"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-sm fechar-modal"><!--data-dismiss="modal"-->
+                            <span class="fas fa-times mr-2"></span>Fechar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!--1-jQuery.js-->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <!--2-Popper.js-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <!--3-Bootstrap.js-->
@@ -122,5 +144,6 @@
         <!--7-Específica da página-->
         <script type="text/javascript" src="js/start.js"></script>
         <script type="text/javascript" src="js/validacao.js"></script>
+        <script type="text/javascript" src="js/cadastroProduto.js"></script>
     </body>
 </html>

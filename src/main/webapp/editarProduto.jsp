@@ -30,19 +30,17 @@
         <!--CONTEUDO DA PAGINA-->
         <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
-              
+
             <!--Formulário Geral-->
             <form  action="produtoServlet" method="post" id="formulario" class="formulario">
                 <h1 class="titulo-formulario">Editar Produto: ${produto.nome}</h1> 
-              
-                <h1 class="titulo-formulario">Gerenciamento de Produto</h1> 
                 <!--Linha 1-->
                 <div class="row linha-do-nome">
 
                     <div class="col-md-11 col-sm-11">
                         <input type="hidden" name="id" value="${produto.id}">
                     </div>
-                      
+
                     <!--Nome do Produto-->
                     <div class="col-sm-10 col-md-10">
                         <div class="form-group">
@@ -97,26 +95,26 @@
                     <!--Descricao-->
                     <div class="col-sm-12" >
                         <div class="form-group">
-                           <label for="quantidade">Descrição</label> 
-			   <input id="descricao" name="descricao" type="text" class="form-control" value="${produto.descricao}" required>
+                            <label for="descricao">Descrição</label>  
+                            <input id="descricao" name="descricao" type="text" maxlength="200" class="form-control" value="${produto.descricao}" required>
                         </div>
                     </div><!--Fim Desricao-->
                 </div><!--Fim da linha 3-->
                 <!--Linha 4-->
-                 <!--Linha 6-->
+                <!--Linha 6-->
                 <div class="botoes">
-	          <div class="row">
-                    <div class=" offset-md-8 col-sm-2">
-                					
-	            </div>
-	           <div class="col-sm-2">
-	          <!--Botão Salvar-->
-	        <input type="submit" value="Atualizar" class="btn btn-success btn-block">
-  	     </div>
-	   </div><!--Fim da linha 4-->
-         </div><!--Fim classe botoes-->
+                    <div class="row">
+                        <div class=" offset-md-8 col-sm-2">
+
+                        </div>
+                        <div class="col-sm-2">
+                            <!--Botão Salvar-->
+                            <input type="submit" value="Atualizar" class="btn btn-success btn-block">
+                        </div>
+                    </div><!--Fim da linha 4-->
+                </div><!--Fim classe botoes-->
             </form><!--Fim do formulário-->
-<h1>&nbsp;</h1>
+            <h1>&nbsp;</h1>
         </div><!--Fim do conteudo da pagina-->
         <!--1-jQuery.js-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -52,7 +52,7 @@
                                     <span class="fas fa-pump-soap mr-1"></span>
                                 </div>
                             </div>
-                            <input class="form-control" placeholder="Pesquisar Produto por nome ou categoria" type="text"  name="Busca" >
+                             <input class="form-control" placeholder="Pesquisar Produto por nome" type="text" name="Busca">
                         </div><!--Fim do campo de Pesquisa de produto-->
                     </div>
                     <div class="col-sm-2">
@@ -91,8 +91,8 @@
                     </c:forEach>        
                 </table>
               </div>
+            <h1>&nbsp;</h1>
             </div><!--Fim da Tabela--> 
-<h1>&nbsp;</h1>
             <!--1-jQuery.js-->
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <!--2-Popper.js-->

@@ -57,7 +57,7 @@
                     </div><!--Fim Bot�o pesquisar-->
                 </div><!--Fim da linha 1--> 
             </form><!--Fim do formulario--> 
-        
+
             <!--Tabela--> 
             <div class="tabela">
                 <table class="table table-sm table-secondary table-hover table-striped">   
@@ -73,29 +73,29 @@
                             <th>REMOVER</th>
                         </tr>
                     </thead>
-                        <c:forEach var="p" items="${produtos}">
-                            <tr>
-                                <td>${p.id}</td>
-                                <td>${p.nome}</td>
-                                <td>${p.quantidade}</td>
-                                <td>${p.categoria}</td>
-                                <td>${p.preco}</td>
-                                <td>${p.status}</td>
-                                <td><a href=produtoServlet?acao=Editar&id=${p.id}><span class="fas fa-edit"></span></td>
-                                <td><a href=consultaProdutoServlet?acao=Excluir&id=${p.id}><span class="fas fa-times"></span></td>
-                            </tr>
-                        </c:forEach>
+                    <c:forEach var="p" items="${produtos}">
+                        <tr>
+                            <td>${p.id}</td>
+                            <td>${p.nome}</td>
+                            <td>${p.quantidade}</td>
+                            <td>${p.categoria}</td>
+                            <td>${p.preco}</td>
+                            <td>${p.status}</td>
+                            <td><a href=produtoServlet?acao=Editar&id=${p.id}><span class="fas fa-edit"></span></td>
+                            <td><a href=consultaProdutoServlet?acao=Excluir&id=${p.id}><span class="fas fa-times"></span></td>
+                        </tr>
+                    </c:forEach>
                 </table>
-              </div>
-            </div><!--Fim da Tabela--> 
-<h1>&nbsp;</h1>
-            <!--1-jQuery.js-->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-            <!--2-Popper.js-->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-            <!--3-Bootstrap.js-->
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-            <!--4-Espec�fica da p�gina-->
-            <script type="text/javascript" src="js/start.js"></script>
+            </div>
+        </div><!--Fim da Tabela--> 
+        <h1>&nbsp;</h1>
+        <!--1-jQuery.js-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <!--2-Popper.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <!--3-Bootstrap.js-->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <!--4-Espec�fica da p�gina-->
+        <script type="text/javascript" src="js/start.js"></script>
     </body>
 </html>

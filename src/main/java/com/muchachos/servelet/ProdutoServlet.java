@@ -59,16 +59,12 @@ public class ProdutoServlet extends HttpServlet {
         }
         try {
             if (produto.getId() != null) {
-                
                 produtoDao.atualizar(produto);
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/consultaProduto.jsp");
                 dispatcher.forward(request, response);
-                request.setAttribute("mensagem", "Produto atualizado com sucesso!!!");
             } else {
-                produtoDao.salvar(produto);
-                 RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastroProduto.jsp");
-                dispatcher.forward(request, response);
-                request.setAttribute("mensagem", "Produto salvo com sucesso!!!");
+               produtoDao.salvar(produto);
+               response.getWriter().write("O Produto '"+produto.getNome()+"' foi cadastrado com sucesso!!!");
             }
         } catch (SQLException e) {
             request.setAttribute("mensagem", "Erro de banco de dados: " + e.getMessage());

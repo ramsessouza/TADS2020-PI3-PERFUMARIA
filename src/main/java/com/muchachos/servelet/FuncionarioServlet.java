@@ -76,35 +76,19 @@ public class FuncionarioServlet extends HttpServlet {
         try {
             if (funcionario.getId() != null) {
                 funcionarioDao.atualizar(funcionario);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/consultaFuncionario.jsp");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/consultaFuncionario.jsp");
                 dispatcher.forward(request, response);
-                request.setAttribute("mensagem", "Funcionario atualizado com sucesso!!!");
             } else {
                 funcionarioDao.salvar(funcionario);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastroFuncionario.jsp");
-                dispatcher.forward(request, response);
-                request.setAttribute("mensagem", "Funcionario salvo com sucesso!!!");
+                response.getWriter().write("O Colaborador '" + funcionario.getNome() + "' foi cadastrado com sucesso!!!");
             }
         } catch (SQLException e) {
             request.setAttribute("mensagem", "Erro de banco de dados: " + e.getMessage());
             request.setAttribute("funcionario", funcionario);
+
         } catch (ClassNotFoundException e) {
             request.setAttribute("mensagem", "Erro de Driver: " + e.getMessage());
             request.setAttribute("funcionario", funcionario);
         }
-        try {
-            request.setAttribute("funcionario", funcionarioDao.getFuncionario());
-        } catch (SQLException e) {
-
-            request.setAttribute("mensagem", "Erro de banco de dados: " + e.getMessage());
-            request.setAttribute("funcionario", funcionario);
-
-        } catch (ClassNotFoundException e) {
-
-            request.setAttribute("mensagem", "Erro de Driver: " + e.getMessage());
-            request.setAttribute("funcionario", funcionario);
-        }
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/consultaFuncionario.jsp");
-            dispatcher.forward(request, response);
     }
 }
