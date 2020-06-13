@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+@font-face {font-family: 'FuturaLight';	src: url("../fonts/FuturaPTLight.otf");}
+@font-face {font-family: 'FuturaBold';	src: url("../fonts/FuturaPTBold.otf");}
+body{padding-top: 30px; background-color: rgba(244,128,41,0.8); align-items: center; text-align: center; font-family: FuturaBold;}
+img{max-width:90%; height:auto;}
+#ops{font-size: 90px}
+.row{align-items: center}
+.infos{margin-top: 20px; margin-left: 30px; text-align: left}
+.infos h2{font-size: 40px}
+.infos span{font-size: 40px; font-family: FuturaLight}

@@ -50,7 +50,7 @@ public class CadastroClienteServlet extends HttpServlet {
         
         try{
             clienteDao.salvar(cliente);
-            response.getWriter().write("O Cliente '"+cliente.getNome()+"' foi cadastrado com sucesso!!!");
+            response.getWriter().write(cliente.getNome());
             
         }catch (SQLException e){
            response.getWriter().write("Erro de banco de dados: " + e.getMessage());

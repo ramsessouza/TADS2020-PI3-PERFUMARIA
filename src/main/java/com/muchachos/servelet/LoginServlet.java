@@ -46,12 +46,19 @@ public class LoginServlet extends HttpServlet {
             if(funcionario != null){
                 //verifica se senha esta correta
                 if(senha.equals(funcionario.getSenha())){
-                    //nova instancia de sessao
-                    HttpSession sessao = request.getSession();
-                    sessao.setAttribute("funcionarioSessao", funcionario);
-                    //encaminha para a pagina inicial do sistema
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/start.jsp");
-                    dispatcher.forward(request, response);
+                    //verifica se funcionario esta ATIVO
+                    if("Ativo".equals(funcionario.getStatus())){
+                        //nova instancia de sessao
+                        HttpSession sessao = request.getSession();
+                        sessao.setAttribute("funcionarioSessao", funcionario);
+                        //encaminha para a pagina inicial do sistema
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/start.jsp");
+                        dispatcher.forward(request, response);
+                    }else{
+                        request.setAttribute("mensagemErro","Sinto-lhe informar, mas você foi desligado(a)! :(");
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+                        dispatcher.forward(request, response);
+                    }
                 }else{
                     request.setAttribute("mensagemErro","Senha incorreta!");
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");

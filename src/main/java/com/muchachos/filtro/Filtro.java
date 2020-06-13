@@ -8,6 +8,7 @@ import java.io.StringWriter;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -30,29 +31,93 @@ public class Filtro implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         String urlAcessada = httpRequest.getRequestURI();
-        
-        //se a tela acessada for diferente de index.jsp ou diferente de LoginServlet nao filtra
-        if(!urlAcessada.contains("/index") && !urlAcessada.contains("/LoginServlet")){
-            //Verifica se usuario ja esta deslogado
-            HttpSession sessao = httpRequest.getSession();
+        HttpSession sessao = httpRequest.getSession();
+        Funcionario funcionarioLogado = new Funcionario();
+                
+        //Se a solicitacao for para /index ou loginServlet ou /css ou /fonts ou / img ou /js
+        if(urlAcessada.contains("/index") || urlAcessada.contains("/LoginServlet") 
+                || urlAcessada.contains("/css") || urlAcessada.contains("/fonts") 
+                || urlAcessada.contains("/img") || urlAcessada.contains("/js")){
+            
+            //segue com a solicitacao normalmente
+            chain.doFilter(request, response);
+        }else{
+            //Verifica se usuario esta logado
             if(sessao.getAttribute("funcionarioSessao") == null){
                 //se estiver deslogado envia para tela de login
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/index.jsp");
                 return;
             }
-
-            //verifica se tem acesso a pagina especifica (TEM QUE TERMINAR ESSA PARTE)
-            Funcionario funcionarioLogado = (Funcionario) sessao.getAttribute("funcionarioSessao");
-            verificarAcesso(funcionarioLogado, urlAcessada);
+            //verifica se tem acesso a pagina especifica (RESTRICAO DE ACESSO POR DEPARTAMENTO OU CARGO)
+            funcionarioLogado = (Funcionario) sessao.getAttribute("funcionarioSessao");
+            if(verificarAcesso(funcionarioLogado, urlAcessada)){
+                //segue com a solicitacao
+                chain.doFilter(request, response);  
+            }else{
+                //mostra tela de erro avisando que nao tem acesso
+                httpResponse.sendRedirect(httpRequest.getContextPath() + "/unauthorized.jsp");
+            }
         }
-        //segue com a solicitacao
-        chain.doFilter(request, response);
     }
     
+    //VERIFICA SE USUARIO TEM ACESSO AO MODULO
     private boolean verificarAcesso(Funcionario funcionario, String urlAcessada){
-        if(urlAcessada.contains("/buscaFuncionario")){
+        //TODOS DEVEM TER ACESSO!
+        if(urlAcessada.contains("error.jsp") || urlAcessada.contains("main.jsp") || urlAcessada.contains("start.jsp")
+                || urlAcessada.contains("unauthorized.jsp") || urlAcessada.contains("LogoutServlet")){
+            return true;
         }
-        
+        //Se funcionario for DIRETOR OU GERENTE
+        if(funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Gerente")){
+            //se a url acessada for relacionada ao cargo de DIRETOR OU GERENTE
+            if(urlAcessada.contains("relatorios.jsp") || urlAcessada.contains("DetalhesServlet")
+                    || urlAcessada.contains("RelatoriosServlet")){
+                return true;
+            }
+            return false;
+        }
+        //Se funcionario for do departamento de VENDA
+        if(funcionario.getDepartamento().equals("Venda")){
+            //se a url acessada for relacionada ao departamento de VENDA
+            if(urlAcessada.contains("venda.jsp") || urlAcessada.contains("consultaProdutoServlet")
+                    || urlAcessada.contains("ConsultarClienteServlet") || urlAcessada.contains("VendaServlet")
+                    || urlAcessada.contains("CadastroItensVendaServlet") || urlAcessada.contains("CadastroVendaServlet")
+                    || urlAcessada.contains("cadastroCliente.jsp") || urlAcessada.contains("consultaCliente.jsp") 
+                    || urlAcessada.contains("editarCliente.jsp") || urlAcessada.contains("CadastroClienteServlet") 
+                    || urlAcessada.contains("EditarClienteServlet") || urlAcessada.contains("ExcluirClienteServlet")){
+                return true;
+            }
+        }
+        //Se funcionario for do departamento de MARKETING
+        if(funcionario.getDepartamento().equals("Marketing")){
+            //se a url acessada for relacionada ao departamento de MARKETING
+            if(urlAcessada.contains("buscaFuncionario.jsp") || urlAcessada.contains("buscaProduto.jsp")
+                    || urlAcessada.contains("cadastroProduto.jsp") || urlAcessada.contains("consultaCliente.jsp")
+                    || urlAcessada.contains("consultaProduto.jsp") || urlAcessada.contains("editarProduto.jsp")
+                    || urlAcessada.contains("BuscaProdutoServlet") || urlAcessada.contains("ConsultaProdutoServlet") 
+                    || urlAcessada.contains("ConsultarClienteServlet") || urlAcessada.contains("ProdutoServlet")
+                    || urlAcessada.contains("produtoServlet")){
+                return true;
+            }
+        }
+        //Se funcionario for do departamento de TECNOLOGIA DA INFORMACAO
+        if(funcionario.getDepartamento().equals("TI")){
+            //se a url acessada for relacionada ao departamento de TECNOLOGIA DA INFORMACAO
+            if(urlAcessada.contains("buscaFuncionario.jsp") || urlAcessada.contains("cadastroFuncionario.jsp")
+                    || urlAcessada.contains("consultaFuncionario.jsp") || urlAcessada.contains("editarFuncionario.jsp")
+                    || urlAcessada.contains("BuscarFuncionarioServlet") || urlAcessada.contains("ConsultaFuncionarioServlet") 
+                    || urlAcessada.contains("funcionarioServlet") || urlAcessada.contains("FuncionarioServlet")){
+                return true;
+            }
+        }
+        //Se funcionario for do departamento de RECURSOS HUMANOS
+        if(funcionario.getDepartamento().equals("Recursos Humanos")){
+            //se a url acessada for relacionada ao departamento de RECURSOS HUMANOS
+            if(urlAcessada.contains("consultaFuncionario.jsp") || urlAcessada.contains("BuscarFuncionarioServlet")
+                    || urlAcessada.contains("ConsultaFuncionarioServlet") || urlAcessada.contains("FuncionarioServlet")){
+                return true;
+            }
+        }
         return false;
     }
     
@@ -61,6 +126,6 @@ public class Filtro implements Filter {
     }
 
     @Override
-    public void init(FilterConfig filterConfig) {        
+    public void init(FilterConfig filterConfig)throws ServletException {
     }
 }

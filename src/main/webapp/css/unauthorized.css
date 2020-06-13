@@ -1,0 +1,12 @@
+@charset "UTF-8";
+@font-face {font-family: 'FuturaLight';	src: url("../fonts/FuturaPTLight.otf");}
+@font-face {font-family: 'FuturaBold';	src: url("../fonts/FuturaPTBold.otf");}
+
+body{padding-top: 30px; background-color: rgba(244,128,41,0.8); align-items: center; text-align: center; font-family: FuturaBold;}
+img{max-width:120%; height:auto;}
+#ops{font-size: 90px}
+.row{align-items: center;}
+.row2{align-items: center;}
+.infos{margin-top: 20px;}
+.infos #titulo-mensagem{font-size: 60px}
+.infos #corpo-mensagem{font-size: 60px; font-family: FuturaLight}
