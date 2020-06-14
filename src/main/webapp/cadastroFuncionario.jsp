@@ -294,7 +294,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p id="mensagem"></p>
+                        <p>O Funcionario <span id="mensagem"></span> foi salvo com sucesso!</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger btn-sm fechar-modal"><!--data-dismiss="modal"-->

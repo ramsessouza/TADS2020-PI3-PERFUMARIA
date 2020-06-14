@@ -27,7 +27,7 @@
             <div class="row2">
                 <div class="infos col-md-12">
                     <h2 id="titulo-mensagem">Mensagem</h2>
-                    <h2 id="corpo-mensagem">Você não tem acesso a esse módulo do sistema!</h2>
+                    <h2 id="corpo-mensagem">Você não tem acesso a esse módulo do sistema, ou não pode executar esta ação!</h2>
                 </div>
             </div>
         </div> 

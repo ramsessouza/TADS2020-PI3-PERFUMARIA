@@ -47,8 +47,8 @@
                         <div class="form-group">
                             <label>Status</label>
                             <select id="status" name="status" class="form-control">
-                                <option value="Ativo">Ativo</option>
-                                <option value="Inativo">Inativo</option>
+                                <option value="ativo">Ativo</option>
+                                <option value="inativo">Inativo</option>
                             </select>
                         </div>
                     </div><!--Fim Ativo-->
@@ -60,10 +60,10 @@
                         <div class="form-group">
                             <label>Categoria</label>
                             <select id="categoria" name="categoria" class="form-control" required>
-                                <option value="Beleza">Beleza</option>
-                                <option value="Cosmeticos">Cosmeticos</option>
-                                <option value="Perfumes">Perfumes</option>
-                                <option value="Utensilios">Utensilios</option>
+                                <option value="beleza">Beleza</option>
+                                <option value="cosmeticos">Cosmeticos</option>
+                                <option value="perfumes">Perfumes</option>
+                                <option value="utensilios">Utensilios</option>
                             </select>
                         </div>
                     </div><!--Fim da Categoria-->
@@ -120,7 +120,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p id="mensagem"></p>
+                        <p>O Produto <span id="mensagem"></span> foi salvo com sucesso!</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger btn-sm fechar-modal"><!--data-dismiss="modal"-->

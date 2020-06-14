@@ -79,11 +79,11 @@ public class Filtro implements Filter {
         //Se funcionario for do departamento de VENDA
         if(funcionario.getDepartamento().equals("Venda")){
             //se a url acessada for relacionada ao departamento de VENDA
-            if(urlAcessada.contains("venda.jsp") || urlAcessada.contains("consultaProdutoServlet")
-                    || urlAcessada.contains("ConsultarClienteServlet") || urlAcessada.contains("VendaServlet")
-                    || urlAcessada.contains("CadastroItensVendaServlet") || urlAcessada.contains("CadastroVendaServlet")
-                    || urlAcessada.contains("cadastroCliente.jsp") || urlAcessada.contains("consultaCliente.jsp") 
-                    || urlAcessada.contains("editarCliente.jsp") || urlAcessada.contains("CadastroClienteServlet") 
+            if(urlAcessada.contains("cadastroCliente.jsp") || urlAcessada.contains("consultaCliente.jsp")
+                    || urlAcessada.contains("editarCliente.jsp") || urlAcessada.contains("venda.jsp")
+                    || urlAcessada.contains("buscaProdutoServlet") || urlAcessada.contains("CadastroClienteServlet") 
+                    || urlAcessada.contains("CadastroItensVendaServlet") || urlAcessada.contains("CadastroVendaServlet") 
+                    || urlAcessada.contains("consultaProdutoServlet") || urlAcessada.contains("ConsultarClienteServlet")
                     || urlAcessada.contains("EditarClienteServlet") || urlAcessada.contains("ExcluirClienteServlet")){
                 return true;
             }
@@ -91,12 +91,12 @@ public class Filtro implements Filter {
         //Se funcionario for do departamento de MARKETING
         if(funcionario.getDepartamento().equals("Marketing")){
             //se a url acessada for relacionada ao departamento de MARKETING
-            if(urlAcessada.contains("buscaFuncionario.jsp") || urlAcessada.contains("buscaProduto.jsp")
-                    || urlAcessada.contains("cadastroProduto.jsp") || urlAcessada.contains("consultaCliente.jsp")
-                    || urlAcessada.contains("consultaProduto.jsp") || urlAcessada.contains("editarProduto.jsp")
-                    || urlAcessada.contains("BuscaProdutoServlet") || urlAcessada.contains("ConsultaProdutoServlet") 
-                    || urlAcessada.contains("ConsultarClienteServlet") || urlAcessada.contains("ProdutoServlet")
-                    || urlAcessada.contains("produtoServlet")){
+            if(urlAcessada.contains("buscaProduto.jsp") || urlAcessada.contains("cadastroProduto.jsp")
+                    || urlAcessada.contains("consultaCliente.jsp") || urlAcessada.contains("consultaProduto.jsp") 
+                    || urlAcessada.contains("editarProduto.jsp") || urlAcessada.contains("buscaProdutoServlet")
+                    || urlAcessada.contains("CadastroProdutoServlet") || urlAcessada.contains("consultaProdutoServlet")
+                    || urlAcessada.contains("ConsultarClienteServlet") || urlAcessada.contains("editarProdutoServlet")
+                    || urlAcessada.contains("excluirProdutoServlet")){
                 return true;
             }
         }
@@ -105,16 +105,17 @@ public class Filtro implements Filter {
             //se a url acessada for relacionada ao departamento de TECNOLOGIA DA INFORMACAO
             if(urlAcessada.contains("buscaFuncionario.jsp") || urlAcessada.contains("cadastroFuncionario.jsp")
                     || urlAcessada.contains("consultaFuncionario.jsp") || urlAcessada.contains("editarFuncionario.jsp")
-                    || urlAcessada.contains("BuscarFuncionarioServlet") || urlAcessada.contains("ConsultaFuncionarioServlet") 
-                    || urlAcessada.contains("funcionarioServlet") || urlAcessada.contains("FuncionarioServlet")){
+                    || urlAcessada.contains("buscarFuncionarioServlet") || urlAcessada.contains("consultaFuncionarioServlet")
+                    || urlAcessada.contains("editarFuncionarioServlet") || urlAcessada.contains("excluirFuncionarioServlet")
+                    || urlAcessada.contains("funcionarioServlet")){
                 return true;
             }
         }
         //Se funcionario for do departamento de RECURSOS HUMANOS
         if(funcionario.getDepartamento().equals("Recursos Humanos")){
             //se a url acessada for relacionada ao departamento de RECURSOS HUMANOS
-            if(urlAcessada.contains("consultaFuncionario.jsp") || urlAcessada.contains("BuscarFuncionarioServlet")
-                    || urlAcessada.contains("ConsultaFuncionarioServlet") || urlAcessada.contains("FuncionarioServlet")){
+            if(urlAcessada.contains("buscaFuncionario.jsp") || urlAcessada.contains("consultaFuncionario.jsp")
+                    || urlAcessada.contains("buscarFuncionarioServlet") || urlAcessada.contains("consultaFuncionarioServlet")){
                 return true;
             }
         }

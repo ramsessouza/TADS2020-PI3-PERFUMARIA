@@ -39,7 +39,7 @@ public class CadastroProdutoServlet extends HttpServlet {
 
         try {
             produtoDao.salvar(produto);
-            response.getWriter().write("O Produto '" + produto.getNome() + "' foi cadastrado com sucesso!!!");
+            response.getWriter().write(produto.getNome());
 
         } catch (SQLException e) {
             response.getWriter().write("Erro de banco de dados: " + e.getMessage());

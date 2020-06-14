@@ -53,7 +53,7 @@ public class FuncionarioServlet extends HttpServlet {
 
         try {
             funcionarioDao.salvar(funcionario);
-            response.getWriter().write("O Funcionario '" + funcionario.getNome() + "' foi cadastrado com sucesso!!!");
+            response.getWriter().write(funcionario.getNome());
 
         } catch (SQLException e) {
             response.getWriter().write("Erro de banco de dados: " + e.getMessage());

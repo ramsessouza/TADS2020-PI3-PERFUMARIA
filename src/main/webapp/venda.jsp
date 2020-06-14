@@ -193,7 +193,6 @@
                     </fieldset><!--Fim do Fieldset Finalizar Venda-->
                 </div><!--Fim coluna2-->
             </div><!--Fim da Linha Geral-->
-        <h1>&nbsp;</h1>
         </div><!--Fim do conteudo da pagina-->
         
         <!--MODAL-->
