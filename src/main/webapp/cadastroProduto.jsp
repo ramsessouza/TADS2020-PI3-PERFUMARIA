@@ -142,7 +142,6 @@
         <!--6-Mask Plugin-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
         <!--7-Específica da página-->
-        <script type="text/javascript" src="js/start.js"></script>
         <script type="text/javascript" src="js/validacao.js"></script>
         <script type="text/javascript" src="js/cadastroProduto.js"></script>
     </body>

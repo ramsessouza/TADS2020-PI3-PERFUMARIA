@@ -57,5 +57,14 @@
                 <li><a class="item-linha" href="RelatoriosServlet"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
             </ul>
         </div>
+        <!--SCRIPTS-->
+        <!--1-jQuery.js-->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <!--2-Popper.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <!--3-Bootstrap.js-->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <!--6-Específica da página-->
+        <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
