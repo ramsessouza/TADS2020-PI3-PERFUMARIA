@@ -281,5 +281,59 @@ public class FuncionarioDao {
         }
         return null;
     }
+    
+    public static Funcionario obterFuncionarioCpf(String cpf) throws ClassNotFoundException, SQLException {
+        String sql = "SELECT id, nome, Cpf, Rg, Sexo,"
+                + " estado_civil , nascimento, Estado, Cidade, bairro, Logradouro, Numero,complemento, Telefone,"
+                + "Email,status , Senha, Cargo, Filial, Departamento FROM TB_COLABORADOR WHERE cpf=?";
 
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet result = null;
+
+        try {
+            connection = getConexao();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, cpf);
+            result = preparedStatement.executeQuery();
+
+            if (result.next()) {
+                Funcionario funcionario = new Funcionario();
+                funcionario.setId(result.getInt("id"));
+                funcionario.setNome(result.getString("nome"));
+                funcionario.setSexo(result.getString("sexo"));
+                funcionario.setDataNascimento(result.getString("Nascimento"));
+                funcionario.setEstadoCivil(result.getString("estado_civil"));
+                funcionario.setStatus(result.getString("status"));
+                funcionario.setRg(result.getString("rg"));
+                funcionario.setCpf(result.getString("cpf"));
+                funcionario.setTelefone(result.getString("telefone"));
+                funcionario.setEmail(result.getString("email"));
+                funcionario.setSenha(result.getString("senha"));
+                funcionario.setFilial(result.getString("filial"));
+                funcionario.setDepartamento(result.getString("departamento"));
+                funcionario.setCargo(result.getString("cargo"));
+                funcionario.setEstado(result.getString("estado"));
+                funcionario.setCidade(result.getString("cidade"));
+                funcionario.setBairro(result.getString("bairro"));
+                funcionario.setLogradouro(result.getString("logradouro"));
+                funcionario.setNumero(result.getInt("numero"));
+                funcionario.setComplemento(result.getString("complemento"));
+
+                return funcionario;
+            }
+        } finally {
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+        return null;
+    }
 }

@@ -37,7 +37,7 @@ $(function(){
         }  
     });
 //==================================================================	
-//QUANDO FECHAR A MODAL
+//QUANDO FECHAR A MODAL CADASTRO
 //==================================================================    
     $('.fechar-modal').on("click",function(){
         //fecha modal e atualiza formulario

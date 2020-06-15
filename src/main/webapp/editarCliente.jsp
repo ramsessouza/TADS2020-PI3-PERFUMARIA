@@ -99,8 +99,11 @@
                     <!--CPF-->
                     <div class="col-md-3 col-sm-3">
                         <div class="form-group">
-                            <label>CPF</label>
-                            <input value="${cliente.cpf}" name="cpf" type="text" class="form-control mascara-cpf" placeholder="Exemplo.: 522.498.635-49" required>
+                            <div class="form-inline inline-cpf">
+                                <label>CPF</label>
+                                <label id="mensagem-cpf"></label>
+                            </div>
+                            <input value="${cliente.cpf}" name="cpf" type="text" class="form-control mascara-cpf cpf-cliente" placeholder="Exemplo.: 522.498.635-49" required>
                         </div>
                     </div><!--Fim CPF-->
                     <!--Email-->

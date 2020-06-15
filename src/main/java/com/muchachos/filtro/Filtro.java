@@ -48,8 +48,17 @@ public class Filtro implements Filter {
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/index.jsp");
                 return;
             }
-            //verifica se tem acesso a pagina especifica (RESTRICAO DE ACESSO POR DEPARTAMENTO OU CARGO)
+            //Pega funcionario ativo na sessao
             funcionarioLogado = (Funcionario) sessao.getAttribute("funcionarioSessao");
+            
+            //Se for admin tem acesso a todas as paginas 
+            if(funcionarioLogado.getEmail().equals("admin@muchachos")){
+                //segue com a solicitacao normalmente
+                chain.doFilter(request, response);
+                return;
+            }
+            
+            //verifica se tem acesso a pagina especifica (RESTRICAO DE ACESSO POR DEPARTAMENTO OU CARGO)
             if(verificarAcesso(funcionarioLogado, urlAcessada)){
                 //segue com a solicitacao
                 chain.doFilter(request, response);  

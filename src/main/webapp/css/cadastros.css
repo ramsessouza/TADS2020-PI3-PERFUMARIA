@@ -9,5 +9,9 @@
 .conteudo-pagina .formulario label{font-family: FuturaBold; color: #343a40;}
 .conteudo-pagina .formulario .linha-do-nome{align-items: center;}
 .conteudo-pagina .formulario .botoes{position: absolute; bottom: 15px; width: 97.6%;}
+.conteudo-pagina .formulario #mensagem-cpf{margin-left: 60px; color: red}
+.conteudo-pagina .formulario .inline-cpf{margin-bottom: 8px; color: red}
 .modal h5{font-family: FuturaBold;}
 #mensagem{font-family: FuturaBold;}
+
+

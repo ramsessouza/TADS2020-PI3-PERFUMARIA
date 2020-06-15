@@ -56,48 +56,46 @@
 
                 <!--Linha 2-->
                 <div class="row">
-                    <div class="col-md-3 col-sm-3">
+                    <div class="col-md-2 col-sm-2">
                         <div class="form-group">
                             <label>Nascimento</label>
                             <input name="dataNascimento" id="dataNascimento" type="date" class="form-control" required >
                         </div>
                     </div>
-                    <div class="col-md-9 col-sm-9">
-                        <!--Linha 2.1-->
-                        <div class="row">
-                            <div class="col-md-3 col-sm-3">
-                                <div class="form-group">
-                                    <label>RG</label>
-                                    <input id="rg" name="rg" type="text" class="form-control mascara-rg" placeholder="Exemplo.: 52.498.635-9">
-                                </div>
+                    <div class="col-md-3 col-sm-3">
+                        <div class="form-group">
+                            <label>RG</label>
+                            <input id="rg" name="rg" type="text" class="form-control mascara-rg" placeholder="Exemplo.: 52.498.635-9">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <div class="form-group">
+                            <div class="form-inline inline-cpf">
+                                <label>CPF</label>
+                                <label id="mensagem-cpf"></label>
                             </div>
-                            <div class="col-md-3 col-sm-3">
-                                <div class="form-group">
-                                    <label>CPF</label>
-                                    <input id="cpf" name="cpf" class="form-control mascara-cpf" placeholder="Exemplo.: 522.498.635-49" required>
-                                </div>
-                            </div>
-                            <div class="dropdown col-md-3 col-sm-3">
-                                <div class="form-group">
-                                    <label>Estado Civil</label>
-                                    <select name="estadoCivil" id="estadoCivil" class="form-control" required >                                    
-                                        <option value="Casado">Casado</option>
-                                        <option value="Solteiro">Solteiro</option>
-                                        <option value="Divorciado">Divorciado</option>
-                                        <option value="UniaoEstavel">União Estável</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3">
-                                <div class="form-group">
-                                    <label>Sexo</label>
-                                    <select name="sexo" id="sexo" class="form-control">                                  
-                                        <option value="Masculino">Masculino</option>
-                                        <option value="Feminino">Feminino</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div><!--Fim Linha 2.1-->
+                            <input id="cpf" name="cpf" class="form-control mascara-cpf cpf-funcionario" placeholder="Exemplo.: 522.498.635-49" required>
+                        </div>
+                    </div>
+                    <div class="dropdown col-md-2 col-sm-2">
+                        <div class="form-group">
+                            <label>Estado Civil</label>
+                            <select name="estadoCivil" id="estadoCivil" class="form-control" required >                                    
+                                <option value="Casado">Casado</option>
+                                <option value="Solteiro">Solteiro</option>
+                                <option value="Divorciado">Divorciado</option>
+                                <option value="UniaoEstavel">União Estável</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <div class="form-group">
+                            <label>Sexo</label>
+                            <select name="sexo" id="sexo" class="form-control">                                  
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino">Feminino</option>
+                            </select>
+                        </div>
                     </div>
                 </div><!--Fim Linha 2-->
 
@@ -187,7 +185,7 @@
                             <div class="col-md-6 col-sm-4">
                                 <div class="form-group">
                                     <label>E-mail</label>
-                                    <input name="email" id="email" type="email" class="form-control" placeholder="Exemplo.: muchachos@gmail.com" required maxlength="40">
+                                    <input name="email" id="email" type="email" class="form-control" placeholder="Exemplo.: runekerub216@muchachos.com" required maxlength="40">
                                 </div>
                             </div>
                         </div><!--Fim Linha 5.1-->  

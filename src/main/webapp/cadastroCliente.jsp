@@ -94,8 +94,11 @@
                     <!--CPF-->
                     <div class="col-md-3 col-sm-3">
                         <div class="form-group">
-                            <label>CPF</label>
-                            <input id="cpf" class="form-control mascara-cpf" placeholder="Exemplo.: 522.498.635-49" required>
+                            <div class="form-inline inline-cpf">
+                                <label>CPF</label>
+                                <label id="mensagem-cpf"></label>
+                            </div>
+                            <input id="cpf" class="form-control mascara-cpf cpf-cliente" placeholder="Exemplo.: 522.498.635-49" required>
                         </div>
                     </div><!--Fim CPF-->
                     <!--Email-->
@@ -216,7 +219,7 @@
             <h1>&nbsp;</h1>
         </div><!--Fim do conteudo da pagina-->
         
-        <!--MODAL-->
+        <!--MODAL CADASTRO-->
         <div class="modal fade modal" id="modalMensagem" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
