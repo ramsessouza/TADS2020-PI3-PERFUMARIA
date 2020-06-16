@@ -56,7 +56,7 @@ public class EditarProdutoServlet extends HttpServlet {
         produto.setNome(request.getParameter("nome"));
         produto.setStatus(request.getParameter("status"));
         produto.setCategoria(request.getParameter("categoria"));
-        produto.setPreco(Float.parseFloat(request.getParameter("preco")));
+        produto.setPreco(Float.parseFloat(request.getParameter("preco").replace(",", "")));
         produto.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
         produto.setDescricao(request.getParameter("descricao"));
 

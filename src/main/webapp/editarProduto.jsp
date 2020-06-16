@@ -87,7 +87,7 @@
                     <div class="col-sm-2">
                         <div class="form-group">  
                             <label for="quantidade">Quantidade</label> 
-                            <input id="quantidade" name="quantidade" type="text" class="form-control mascara-numero" value="${produto.quantidade}" required>
+                            <input id="quantidade" name="quantidade" type="number" class="form-control mascara-numero" value="${produto.quantidade}" required>
                         </div>
                     </div><!--Fim Quantidade-->
                 </div><!--Fim da linha 2-->
@@ -117,7 +117,7 @@
             </form><!--Fim do formulário-->
             <h1>&nbsp;</h1>
         </div><!--Fim do conteudo da pagina-->
-      <!--1-jQuery.js-->
+        <!--1-jQuery.js-->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <!--2-Popper.js-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -128,6 +128,6 @@
         <!--5-Mask CPF Plugin-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
         <!--6-Específica da página-->
-        <script type="text/javascript" src="js/cadastros.js"></script>
+        <script type="text/javascript" src="js/validacao.js"></script>
     </body>
 </html>

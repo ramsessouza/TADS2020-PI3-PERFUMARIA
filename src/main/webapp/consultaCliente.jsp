@@ -65,13 +65,13 @@
                         <tr>
                             <th class="td-id">#</th>
                             <th class="td-nome">NOME</th>
+                            <th class="td-cpf">CPF</th>
                             <th class="td-email">E-MAIL</th>
                             <th class="td-telefone">TELEFONE</th>
-                            <th class="td-nascimento">NASCIMENTO</th>
-                            <th class="td-sexo">SEXO</th>
-                            <th>ESTADO</th>
+                            <th class="td-cidade">CIDADE</th>
                             <th class="td-logradouro">LOGRADOURO</th>
                             <th>NÚMERO</th>
+                            <th>STATUS</th>
                             <th class="td-editar">EDITAR</th>
                             <th class="td-remover">REMOVER</th>
                         </tr>
@@ -81,13 +81,13 @@
                             <tr>
                                 <td class="td-id">${listaClientes.id}</td>
                                 <td class="td-nome">${listaClientes.nome}</td>
+                                <td class="td-cpf">${listaClientes.cpf}</td>
                                 <td class="td-email">${listaClientes.email}</td>
                                 <td class="td-telefone">${listaClientes.telefone}</td>
-                                <td class="td-nascimento">${listaClientes.dataNascimento}</td>
-                                <td class="td-sexo">${listaClientes.sexo}</td>
-                                <td>${listaClientes.estado}</td>
+                                <td class="td-cidade">${listaClientes.cidade}</td>
                                 <td class="td-logradouro">${listaClientes.logradouro}</td>
                                 <td>${listaClientes.numero}</td>
+                                <td>${listaClientes.status}</td>
                                 <td class="td-remover"><a href="EditarClienteServlet?&id=${listaClientes.id}"><span class="fas fa-edit"></span></a></td>
                                 <td class="td-editar"><a href="ExcluirClienteServlet?&id=${listaClientes.id}"><span class="fas fa-times"></span></a></td>
                             </tr>
