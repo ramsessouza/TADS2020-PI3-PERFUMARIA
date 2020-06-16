@@ -88,7 +88,7 @@
                     <div class="col-md-3 col-sm-3">
                         <div class="form-group">
                             <label>RG</label>
-                            <input id="rg" type="text" class="form-control mascara-rg" placeholder="Exemplo.: 52.498.635-9">
+                            <input id="rg" type="text" class="form-control" maxlength="15" pattern="[a-zA-Z0-9-]+" placeholder="Apenas numeros e letra">
                         </div>
                     </div><!--Fim RG-->
                     <!--CPF-->

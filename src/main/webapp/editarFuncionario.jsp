@@ -71,7 +71,7 @@
                    <div class="col-md-3 col-sm-3">
                         <div class="form-group">
                             <label>RG</label>
-                            <input name="rg" id="rg" type="text" class="form-control mascara-rg" value="${funcionario.rg}" placeholder="Exemplo.: 52.498.635-9" >
+                            <input name="rg" id="rg" type="text" class="form-control" value="${funcionario.rg}" maxlength="15" pattern="[a-zA-Z0-9-]+" placeholder="Apenas numeros e letra">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3">
