@@ -45,7 +45,7 @@
                     <div class="col-md-9 col-sm-9">
                         <div class="form-group">
                             <label>Nome</label>
-                            <input type="text" class="form-control" name="nome" value="${funcionario.nome}" id="nome" required maxlength="30">
+                            <input type="text" class="form-control gerador-email" name="nome" value="${funcionario.nome}" id="nome" required maxlength="40">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3">
@@ -80,7 +80,7 @@
                                 <label>CPF</label>
                                 <label id="mensagem-cpf"></label>
                             </div>
-                            <input name="cpf" id="cpf" type="text" class="form-control mascara-cpf cpf-funcionario" value="${funcionario.cpf}" required  placeholder="Exemplo.: 522.498.635-49">
+                            <input name="cpf" id="cpf" type="text" class="form-control mascara-cpf cpf-funcionario gerador-email" value="${funcionario.cpf}" required  placeholder="Exemplo.: 522.498.635-49">
                         </div>
                     </div>
                     <div class="dropdown col-md-2 col-sm-2">
@@ -194,7 +194,7 @@
                             <div class="col-md-6 col-sm-4">
                                 <div class="form-group">
                                     <label>E-mail</label>
-                                    <input name="email" id="email" type="email" class="form-control" value="${funcionario.email}" placeholder="Exemplo.: runekerub216@muchachos.com" required maxlength="40">
+                                    <input name="email" id="email" type="email" class="form-control" value="${funcionario.email}" required maxlength="40" readonly="readonly">
                                 </div>
                             </div>
                         </div><!--Fim Linha 5.1-->  
@@ -236,8 +236,6 @@
                                     <label>Filial</label>
                                     <select name="filial" id="filial" class="form-control">
                                         <option value="${funcionario.filial}">${funcionario.filial}</option>     
-                                        <option value="${funcionario.estado}">${funcionario.estado}</option>   
-                                        <option value="Selecione">Selecione</option>
                                         <option value="acre">Acre</option>
                                         <option value="alagoas">Alagoas</option>
                                         <option value="amapa">Amapá</option>
@@ -305,5 +303,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
         <!--6-Específica da página-->
         <script type="text/javascript" src="js/validacao.js"></script>
+        <script type="text/javascript" src="js/editarColaborador.js"></script>
     </body>
 </html>

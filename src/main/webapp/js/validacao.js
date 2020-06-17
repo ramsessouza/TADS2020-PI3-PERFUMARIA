@@ -87,7 +87,6 @@ $(function () {
                     acao : "pesquisacpf"
                 }//dados a serem enviados
             }).always(function(responseJson) {
-                console.log($('.cpf-cliente').val());
                 if(responseJson.responseText !== "Não encontrado!"){//se encontrar
                    $('#mensagem-cpf').text("CPF já cadastrado!");//coloca o texto na label
                    $('.cpf-cliente').val("");
@@ -112,7 +111,6 @@ $(function () {
                     cpf : $(this).val()
                 }//dados a serem enviados
             }).always(function(responseJson) {
-                console.log($('.cpf-funcionario').val());
                 if(responseJson.responseText !== "Não encontrado!"){//se encontrar
                    $('#mensagem-cpf').text("CPF já cadastrado!");//coloca o texto na label
                    $('.cpf-funcionario').val("");

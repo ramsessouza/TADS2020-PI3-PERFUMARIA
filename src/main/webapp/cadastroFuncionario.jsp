@@ -40,7 +40,7 @@
                     <div class="col-md-9 col-sm-9">
                         <div class="form-group">
                             <label>Nome</label>
-                            <input id="nome" name="nome" type="text" class="form-control" maxlength="30" placeholder="Exemplo.: Zlatan Ibrahimovic" required="">
+                            <input id="nome" name="nome" type="text" class="form-control gerador-email" maxlength="40" placeholder="Exemplo.: Zlatan Ibrahimovic" required>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3">
@@ -74,7 +74,7 @@
                                 <label>CPF</label>
                                 <label id="mensagem-cpf"></label>
                             </div>
-                            <input id="cpf" name="cpf" class="form-control mascara-cpf cpf-funcionario" placeholder="Exemplo.: 522.498.635-49" required>
+                            <input id="cpf" name="cpf" class="form-control mascara-cpf cpf-funcionario gerador-email" placeholder="Exemplo.: 522.498.635-49" required>
                         </div>
                     </div>
                     <div class="dropdown col-md-2 col-sm-2">
@@ -185,7 +185,7 @@
                             <div class="col-md-6 col-sm-4">
                                 <div class="form-group">
                                     <label>E-mail</label>
-                                    <input name="email" id="email" type="email" class="form-control" placeholder="Exemplo.: runekerub216@muchachos.com" required maxlength="40">
+                                    <input name="email" id="email" type="email" class="form-control" required maxlength="40" readonly="readonly">
                                 </div>
                             </div>
                         </div><!--Fim Linha 5.1-->  
