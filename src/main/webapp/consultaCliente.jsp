@@ -66,7 +66,7 @@
                             <th class="td-id">#</th>
                             <th class="td-nome">NOME</th>
                             <th class="td-cpf">CPF</th>
-                            <th class="td-email">E-MAIL</th>
+                            <th class="td-email2">E-MAIL</th>
                             <th class="td-telefone">TELEFONE</th>
                             <th class="td-cidade">CIDADE</th>
                             <th class="td-logradouro">LOGRADOURO</th>
@@ -82,7 +82,7 @@
                                 <td class="td-id">${listaClientes.id}</td>
                                 <td class="td-nome">${listaClientes.nome}</td>
                                 <td class="td-cpf">${listaClientes.cpf}</td>
-                                <td class="td-email">${listaClientes.email}</td>
+                                <td class="td-email2">${listaClientes.email}</td>
                                 <td class="td-telefone">${listaClientes.telefone}</td>
                                 <td class="td-cidade">${listaClientes.cidade}</td>
                                 <td class="td-logradouro">${listaClientes.logradouro}</td>

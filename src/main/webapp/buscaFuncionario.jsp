@@ -69,13 +69,13 @@
                 <table class="table table-sm table-secondary table-hover table-striped">   
                     <thead class="thead-dark">
                         <tr>
-                            <th class="td-id">ID</th>
-                            <th class="td-nome">NOME</th>
-                            <th>CPF</th>
+                            <th class="td-id">#</th>
+                            <th class="td-nome2">NOME</th>
+                            <th class="td-cpf">CPF</th>
                             <th class="td-email">EMAIL</th>
                             <th>CARGO</th>
                             <th>FILIAL</th>
-                            <th>DEPARTAMENTO</th>
+                            <th class="td-departamento">DEPARTAMENTO</th>
                             <th>STATUS</th>
                             <th class="td-editar">EDITAR</th>
                             <th class="td-remover">REMOVER</th>
@@ -85,12 +85,12 @@
 
                         <tr>
                             <td class="td-id"> ${f.id}</td>
-                            <td class="td-nome">${f.nome}</td>
-                            <td>${f.cpf}</td>
+                            <td class="td-nome2">${f.nome}</td>
+                            <td class="td-cpf">${f.cpf}</td>
                             <td class="td-email">${f.email}</td>
                             <td>${f.cargo}</td>
                             <td>${f.filial}</td>
-                            <td>${f.departamento}</td>
+                            <td class="td-departamento">${f.departamento}</td>
                             <td>${f.status}</td>
                             <td class="td-editar"><a href=editarFuncionarioServlet?&id=${f.id}><span class="fas fa-edit"</span></a></td>
                             <td class="td-remover"><a href=excluirFuncionarioServlet?&id=${f.id}><span class="fas fa-times"></span></a></td>

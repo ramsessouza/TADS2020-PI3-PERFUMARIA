@@ -67,8 +67,8 @@
                 <table class="table table-sm table-secondary table-hover table-striped">   
                     <thead class="thead-dark">
                         <tr>
-                            <th class="td-id">ID</th>
-                            <th>PRODUTO</th>
+                            <th class="td-id">#</th>
+                            <th class="td-produto2">PRODUTO</th>
                             <th>QUANTIDADE</th>
                             <th>CATEGORIA</th>
                             <th>VALOR</th>
@@ -80,7 +80,7 @@
                     <c:forEach var="p" items="${listaProduto}">
                         <tr>
                             <td class="td-id">${p.id}</td>
-                            <td>${p.nome}</td>
+                            <td class="td-produto2">${p.nome}</td>
                             <td>${p.quantidade}</td>
                             <td>${p.categoria}</td>
                             <td>${p.preco}</td>                                                                                
