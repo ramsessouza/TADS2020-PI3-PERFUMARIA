@@ -29,7 +29,7 @@
         <!--CONTEUDO DA PAGINA-->
         <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
-            <img id="img" src="img/perf1.jpg" height="600" width="600" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
+            <img id="img" src="img/perfume(25).jpg" height="600" width="600" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
         </div>
 
         <!--1-jQuery.js-->
@@ -40,21 +40,14 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </body>
     <script>
-        var images = [];
-        images[0] = "img/perf1.jpg";
-        images[1] = "img/perf2.jpg";
-        images[2] = "img/perf3.jpg";
-        images[3] = "img/perf4.jpg";
-        images[4] = "img/perf5.jpg";
-        
         var i = 0;
-        setInterval(fadeDivs, 2000);
+        setInterval(fadeDivs, 4000);
 
         function fadeDivs() {
-            i = i < images.length-1 ? i : 0;
+            i = i < 25 ? i : 0;
        
             $('#img').fadeOut(500, function () {
-                $(this).attr('src', images[i]).fadeIn(500);
+                $(this).attr('src', "img/perfume("+i+").jpg").fadeIn(500);
             })
             i++;
         }
