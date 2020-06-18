@@ -14,23 +14,13 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name=viewport content="width=device-width, initial-scale=1">
-        <!--CSS -->
-        <!--Fonts Awesome-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-        <!--Bootstrap-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <!--Específica da Página-->
-        <link href="css/start.css" rel="stylesheet">
         <link href="css/consultas.css" rel="stylesheet">
+        <!--Componentes-->
         <link href="css/componentes.css" rel="stylesheet">
-        <!--
-         <link href="css/componentes.css" rel="stylesheet">
-        -->
-
-        <link href="css/consultaProduto.css" rel="stylesheet">
         <!--Titulo e icone-->
-        <link rel="shortcut icon" href="img/logo-branco.png"/>
-        <title>Perfumaria Muchachos: Início do sistema</title>
+        <link rel="shortcut icon" href="img/logo-branco.png"/>			
+        <title>Perfumaria Muchachos: Consulta de Funcionários</title>
     </head>
     <body>
         <!--IMPORT DO CABECALHO E DA BARRA LATERAL-->
@@ -98,7 +88,6 @@
 
                 </table>
             </div>   
-            <h1>&nbsp;</h1>
         </div><!--Fim da Tabela--> 
         <!--1-jQuery.js-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

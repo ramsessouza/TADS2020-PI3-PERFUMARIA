@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Perfumaria Muchachos: Error Page</title>
+        <link rel="shortcut icon" href="img/logo-branco.png"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <link href="css/error.css" rel="stylesheet">
     </head>

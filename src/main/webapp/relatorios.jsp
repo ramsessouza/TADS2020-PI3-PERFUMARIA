@@ -14,11 +14,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name=viewport content="width=device-width, initial-scale=1">
-        <!--CSS -->
-        <link href="css/muchachos-style.css" rel="stylesheet">
-        <link href="css/start.css" rel="stylesheet">
+        <!--Componentes-->
+        <link href="css/componentes.css" rel="stylesheet">
         <!--Titulo e icone-->
-        <link rel="shortcut icon" href="img/logo-branco.png"/>
+        <link rel="shortcut icon" href="img/logo-branco.png"/>			
         <title>Perfumaria Muchachos: Relatório de Vendas</title>
     </head>
     <body>
@@ -176,11 +175,9 @@
                     <th>Valor por Item</th>
                     </thead>
                     <tbody
-
                 </tbody>
             </table>
             <hr>
-            <h1>&nbsp;</h1>
         </div>
 </body>
 <!--1-Jquery.js-->

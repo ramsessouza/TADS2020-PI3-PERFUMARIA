@@ -12,16 +12,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name=viewport content="width=device-width, initial-scale=1">
-        <!--CSS -->
-        <!--Fonts Awesome-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-        <!--Bootstrap-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <!--Específica da Página-->
-        <link href="css/start.css" rel="stylesheet">
         <!--Titulo e icone-->
         <link rel="shortcut icon" href="img/logo-branco.png"/>
-        <title>Perfumaria Muchachos: Início do sistema</title>
+        <title>Perfumaria Muchachos: Bem vindo ao sistema!</title>
     </head>
     <body>
         <!--import do cabeçalho e barra lateral-->
@@ -30,6 +23,7 @@
         <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
             <img id="img" src="img/perfume(25).jpg" height="600" width="600" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
+            <h1 style="text-align: center">Produtos Muchachos Perfumaria</h1>
         </div>
 
         <!--1-jQuery.js-->
