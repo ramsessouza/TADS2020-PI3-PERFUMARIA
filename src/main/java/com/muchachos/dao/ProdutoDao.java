@@ -177,7 +177,7 @@ public class ProdutoDao {
     }
 
     public static List<Produto> buscarDireito(String busca) throws SQLException, Exception {
-        String sql = "SELECT * FROM tb_produto WHERE upper(nome) like ? or upper(categoria) like ?";
+        String sql = "SELECT * FROM tb_produto WHERE status = 'ativo' and (upper(nome) like ? or upper(categoria) like ?)";
         busca = '%' + busca + '%';
 
         List<Produto> listaProduto = null;

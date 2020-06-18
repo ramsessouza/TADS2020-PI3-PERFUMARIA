@@ -85,7 +85,6 @@ $(function () {
         $('#venda-troco').text("R$ "+$('#tot-troc').val());
         $('#venda-parcelas').text($('#tot-parc').find('option').filter(':selected').val());
         
-        
         $('#modalMensagem').modal('show');//mostra modal
     }
 //==================================================================	
@@ -228,14 +227,18 @@ $(function () {
                     acao : "pesquisacpf"
                 }//dados a serem enviados
             }).always(function(responseJson) {
-                console.log(responseJson);
-                if(responseJson.responseText !== "Não encontrado!"){//se encontrar preenche com os dados
-                    $('#cli-id').val(responseJson.id);
-                    $('#cli-nome').text(responseJson.nome);
-                    $('#cli-cpf').text(responseJson.cpf);
-                }else{//se não encontrar mostra modal
+                if(responseJson.responseText === "Não encontrado!"){//se nao encontrar mostra modal avisando
                     mostraModalCadastraCliente("Não existe cliente cadastrado com o CPF: "+$('#cpf-cliente').val()+".");//coloca o texto de retorno na modal
                     $('#cpf-cliente').val("");//remove cpf pesquisado do input
+                }else{//se encontrar
+                    if(responseJson.responseText === "Cliente inativo!"){//e estiver inativo
+                        mostraModalPadrao("Cliente com CPF: "+$('#cpf-cliente').val()+" está inativo!")//manda mensagem
+                    }else{//se tiver ativo
+                        //preenche com os dados
+                        $('#cli-id').val(responseJson.id);
+                        $('#cli-nome').text(responseJson.nome);
+                        $('#cli-cpf').text(responseJson.cpf);
+                    }
                 }
             });
         }else{//se o campo nao for preenchido
@@ -383,7 +386,6 @@ $(function () {
                     }, 1000);
                 });
             });
-            console.log("Venda cadastrada!" + response);//retorno no log para verificação
         });
     });
 });

@@ -100,7 +100,7 @@
                         <legend>Cliente</legend>
                         <!--1.Pesquisar Cliente-->
                         <div class="form-inline pesquisa-cliente">
-                            <input id="cpf-cliente" class="form-control mascara-cpf" placeholder="Ex.: 000.000.000-00">
+                            <input id="cpf-cliente" class="form-control mascara-cpf2" placeholder="Ex.: 000.000.000-00">
                             <button id="pesquisar-cliente" class="btn btn-dark">Pesquisar
                                 <span class="fas fa-search"></span>
                             </button> 

@@ -63,10 +63,15 @@ public class ConsultarClienteServlet extends HttpServlet {
                     response.setCharacterEncoding("UTF-8");
                     response.getWriter().write("Não encontrado!");
                 }else{//se encontrar o cpf
-                    response.setContentType("application/json");
-                    response.setCharacterEncoding("UTF-8");
-                    response.getWriter().write(json);
-                    //response.getWriter().write(cliente.getNome());
+                    if(cliente.getStatus().equals("Inativo")){//se ele estiver inativo
+                        response.setContentType("application/json");
+                        response.setCharacterEncoding("UTF-8");
+                        response.getWriter().write("Cliente inativo!");//avisa que esta inativo
+                    }else{//se ele estiver ativo
+                        response.setContentType("application/json");
+                        response.setCharacterEncoding("UTF-8");
+                        response.getWriter().write(json);//retorna ele para o javascript via json
+                    }
                 }
             }catch (SQLException e){
                 response.getWriter().write("Erro de banco de dados: " + e.getMessage());

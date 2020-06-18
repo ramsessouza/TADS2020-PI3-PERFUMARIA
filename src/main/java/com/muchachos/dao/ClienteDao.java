@@ -222,7 +222,7 @@ public class ClienteDao extends ConexaoDatabase{
     }
     
     public Cliente obter2(String cpf) throws ClassNotFoundException, SQLException {
-        String sql = "SELECT * FROM TB_CLIENTE WHERE CPF =? AND STATUS <> 'Inativo'";
+        String sql = "SELECT * FROM TB_CLIENTE WHERE CPF =?";
         
         Connection connection = null;
         PreparedStatement preparedStatement = null;
