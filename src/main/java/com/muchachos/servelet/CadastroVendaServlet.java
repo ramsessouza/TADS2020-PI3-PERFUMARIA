@@ -31,11 +31,11 @@ public class CadastroVendaServlet extends HttpServlet {
         //campos opcionais
         String idFunc = request.getParameter("funcId");
         String idCliente = request.getParameter("cliId");
-        String pagDin = request.getParameter("pagDin").replace("R$ ", "");
-        String pagDeb = request.getParameter("pagDeb").replace("R$ ", "");
-        String pagCred = request.getParameter("pagCred").replace("R$ ", "");
+        String pagDin = request.getParameter("pagDin").replace("R$ ", "").replace(",", "");
+        String pagDeb = request.getParameter("pagDeb").replace("R$ ", "").replace(",", "");
+        String pagCred = request.getParameter("pagCred").replace("R$ ", "").replace(",", "");
         String parcelas = request.getParameter("parcelas");
-        String desconto = request.getParameter("valDesc").replace("R$ ", "");
+        String desconto = request.getParameter("valDesc").replace("R$ ", "").replace(",", "");
         
         Venda venda = new Venda();
         
@@ -48,23 +48,23 @@ public class CadastroVendaServlet extends HttpServlet {
         java.util.Date data = new Date();
         venda.setData(data);
         venda.setQtdItens(Integer.parseInt(request.getParameter("qtdItens")));
-        venda.setSubtotal(Float.parseFloat(request.getParameter("valTotal").replace("R$ ", "")));
+        venda.setSubtotal(Float.parseFloat(request.getParameter("valTotal").replace("R$ ", "").replace(",", "")));
         if(!"".equals(pagDin)){
-            venda.setPagDinheiro(Float.parseFloat(request.getParameter("pagDin").replace("R$ ", "")));
+            venda.setPagDinheiro(Float.parseFloat(request.getParameter("pagDin").replace("R$ ", "").replace(",", "")));
         }else{venda.setPagDinheiro(0f);}
         if(!"".equals(pagDeb)){
-            venda.setPagDebito(Float.parseFloat(request.getParameter("pagDeb").replace("R$ ", "")));
+            venda.setPagDebito(Float.parseFloat(request.getParameter("pagDeb").replace("R$ ", "").replace(",", "")));
         }else{venda.setPagDebito(0f);}
         if(!"".equals(pagCred)){
-            venda.setPagCredito(Float.parseFloat(request.getParameter("pagCred").replace("R$ ", "")));
+            venda.setPagCredito(Float.parseFloat(request.getParameter("pagCred").replace("R$ ", "").replace(",", "")));
         }else{venda.setPagCredito(0f);}
         if(!"".equals(parcelas)){
             venda.setParcelamento(Integer.parseInt(request.getParameter("parcelas")));
         }else{venda.setParcelamento(0);}
         if(!"".equals(desconto)){
-            venda.setDesconto(Float.parseFloat(request.getParameter("valDesc").replace("R$ ", "")));
+            venda.setDesconto(Float.parseFloat(request.getParameter("valDesc").replace("R$ ", "").replace(",", "")));
         }else{venda.setDesconto(0f);}
-        venda.setTroco(Float.parseFloat(request.getParameter("valTroc").replace("R$ ", "")));
+        venda.setTroco(Float.parseFloat(request.getParameter("valTroc").replace("R$ ", "").replace(",", "")));
         try{
             VendaDao vendaDao = new VendaDao();
             vendaDao.salvar(venda);
