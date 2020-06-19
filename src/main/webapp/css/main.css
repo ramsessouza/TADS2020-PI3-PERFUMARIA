@@ -25,6 +25,7 @@ html, body{height: 100%; overflow: hidden;}
 .barra-lateral span{color: rgb(244 128 41);}
 /*Ativado no javascript para expandir e recolher a barra lateral*/
 #barra-lateral.ativo{margin-left: -220px;}
+#barra-lateral .copyright{position: absolute; bottom: 45px; margin-left: 5px}
 
 /*CONTEUDO DA PAGINA - Não altere os valores*/
 /*altura 100% do viewport, largura 100% - 220 pixels da barra lateral, começa 220px da lateral esquerda*/

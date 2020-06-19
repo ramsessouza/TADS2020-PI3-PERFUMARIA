@@ -151,7 +151,7 @@ $(function () {
         //Verifica se foi definido uma quantidade de produtos para ser inserido na lista de itens
         if (qtdInserindo >= 1 || qtdInserindo <= qtdEstoque) {
             //Verifica se selecionou algum item
-            if (qtdEstoque !== 0) {
+            if (produto !== '') {
                 //Verifica se tem a quantidade solicitada em estoque
                 if (qtdInserindo <= qtdEstoque) {
                     somaQtdVendendo = 0;

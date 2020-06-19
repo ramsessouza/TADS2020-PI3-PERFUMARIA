@@ -63,6 +63,9 @@
                 <p>Diretoria</p>
                 <li><a class="item-linha" href="RelatoriosServlet"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
             </ul>
+            <div class="copyright">
+              <p>Copyright &copy; 2020 - By Muchachos Perfumaria</p>
+            </div>
         </div>
         <!--SCRIPTS-->
         <!--1-jQuery.js-->

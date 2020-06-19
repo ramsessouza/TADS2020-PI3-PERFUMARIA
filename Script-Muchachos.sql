@@ -101,3 +101,13 @@ PRIMARY KEY(ID)
 --==============================================================================
 INSERT INTO TB_COLABORADOR (NOME, NASCIMENTO, ESTADO_CIVIL, STATUS, CPF, TELEFONE, EMAIL, SENHA, FILIAL, ESTADO, CIDADE, LOGRADOURO, NUMERO)
 VALUES ('Administrador', '1900-01-01', 'Solteiro', 'Ativo', '000.000.000-00', '00000000000', 'admin@muchachos', 'admin', 'Acre', 'Sao Paulo', 'Sao Paulo', 'Rua Admin', 0)
+--==============================================================================
+--TRIGGER ATUALIA ESTOQUE
+--==============================================================================
+CREATE TRIGGER ATUALIZA_ESTOQUE
+AFTER INSERT ON TB_ITENSVENDA
+REFERENCING NEW AS LINHA_INSERIDA
+FOR EACH ROW MODE DB2SQL
+UPDATE TB_PRODUTO
+SET QUANTIDADE = (SELECT QUANTIDADE FROM TB_PRODUTO WHERE ID = LINHA_INSERIDA.ID_PRODUTO) - LINHA_INSERIDA.QTD_ITENS
+WHERE ID = LINHA_INSERIDA.ID_PRODUTO
