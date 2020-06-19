@@ -44,24 +44,38 @@
         <!--BARRA NAVEGACAO LATERAL-->
         <div id="barra-lateral" class="barra-lateral"><!--expandir/recolher, feito em jquery - usa o id #barra-lateral-->
             <ul><!--Colorir botões ao apertar, feito em jquery - usa a classe .item-linha-->
-                <p>Vendas</p>
-                <li><a class="item-linha" href="venda.jsp"><span class="fas fa-shopping-cart mr-4"></span> Venda</a></li>
-                <li><a class="item-linha" href="cadastroCliente.jsp"><span class="fas fa-user-plus mr-4"></span>Cadastro de Cliente</a></li>
-                <li><a class="item-linha" href="ConsultarClienteServlet"><span class="fas fa-users mr-4"></span>Consulta de Cliente</a></li>
-                <li><a class="item-linha" href="consultaProdutoServlet"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
-                <p>Marketing</p>
-                <li><a class="item-linha" href="cadastroProduto.jsp"><span class="fas fa-pump-soap mr-4"></span> Cadastro de Produto</a></li>
-                <li><a class="item-linha" href="consultaProdutoServlet"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
-                <li><a class="item-linha" href="ConsultarClienteServlet"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
-                <p>Tecnologia da Informação</p>
-                <li><a class="item-linha" href="cadastroFuncionario.jsp"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
-                <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
-                <p>Recursos Humanos</p>
-                <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
-                <p>Gerência</p>
-                <li><a class="item-linha" href="RelatoriosServlet"><span class="fas fa-chart-line mr-3"></span> Relatório Filial</a></li>
-                <p>Diretoria</p>
-                <li><a class="item-linha" href="RelatoriosServlet"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
+                <c:if test="${'Gerente' != funcionarioSessao.cargo && 'Diretor' != funcionarioSessao.cargo}">
+                    <c:if test="${'Venda' == funcionarioSessao.departamento || 'admin@muchachos' == funcionarioSessao.email}">
+                        <p>Vendas</p>
+                        <li><a class="item-linha" href="venda.jsp"><span class="fas fa-shopping-cart mr-4"></span> Venda</a></li>
+                        <li><a class="item-linha" href="cadastroCliente.jsp"><span class="fas fa-user-plus mr-4"></span>Cadastro de Cliente</a></li>
+                        <li><a class="item-linha" href="ConsultarClienteServlet"><span class="fas fa-users mr-4"></span>Consulta de Cliente</a></li>
+                        <li><a class="item-linha" href="consultaProdutoServlet"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
+                    </c:if>
+                    <c:if test="${'Marketing' == funcionarioSessao.departamento || 'admin@muchachos' == funcionarioSessao.email}">
+                        <p>Marketing</p>
+                        <li><a class="item-linha" href="cadastroProduto.jsp"><span class="fas fa-pump-soap mr-4"></span> Cadastro de Produto</a></li>
+                        <li><a class="item-linha" href="consultaProdutoServlet"><span class="fas fa-search mr-4"></span>Consulta de Produto</a></li>
+                        <li><a class="item-linha" href="ConsultarClienteServlet"><span class="fas fa-users mr-3"></span> Consulta de Cliente</a></li>
+                    </c:if>
+                    <c:if test="${'TI' == funcionarioSessao.departamento || 'admin@muchachos' == funcionarioSessao.email}">
+                        <p>Tecnologia da Informação</p>
+                        <li><a class="item-linha" href="cadastroFuncionario.jsp"><span class="fas fa-user-tie mr-4"></span> Cadastro de Colaborador</a></li>
+                        <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+                    </c:if>
+                    <c:if test="${'Recursos Humanos' == funcionarioSessao.departamento || 'admin@muchachos' == funcionarioSessao.email}">
+                        <p>Recursos Humanos</p>
+                        <li><a class="item-linha" href="consultaFuncionarioServlet"><span class="fas fa-user-edit mr-3"></span> Consulta de Colaborador</a></li>
+                    </c:if>
+                </c:if>
+                <c:if test="${'Gerente' == funcionarioSessao.cargo || 'admin@muchachos' == funcionarioSessao.email}">
+                    <p>Gerência</p>
+                    <li><a class="item-linha" href="RelatoriosServlet"><span class="fas fa-chart-line mr-3"></span> Relatório Filial</a></li>
+                </c:if>
+                <c:if test="${'Diretor' == funcionarioSessao.cargo || 'admin@muchachos' == funcionarioSessao.email}">
+                    <p>Diretoria</p>
+                    <li><a class="item-linha" href="RelatoriosServlet"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
+                </c:if>
             </ul>
             <div class="copyright">
               <p>Copyright &copy; 2020 - By Muchachos Perfumaria</p>
