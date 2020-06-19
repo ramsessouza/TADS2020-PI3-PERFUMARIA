@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+@font-face {font-family: 'FuturaLight';	src: url("../fonts/FuturaPTLight.otf");}
+@font-face {font-family: 'FuturaBold';	src: url("../fonts/FuturaPTBold.otf");}
+
+/*CONTEÚDO DA PAGINA*/
+.conteudo-pagina{padding: 15px; height: calc(100vh - 42px); position: relative; overflow: hidden;}
+.conteudo-pagina #linha1{margin-bottom: 50px;}
+.conteudo-pagina #linha1 .relatorio-vendas{padding: 0px;}
+.conteudo-pagina #linha1 h1{font-family: FuturaBold; color: #343a40;}
+.conteudo-pagina #linha1 .total-vendas #textoPadrao{font-family: FuturaBold; color: #343a40; font-size: 16pt;}
+.conteudo-pagina #linha1 .total-vendas #totalPesquisa{color: #343a40;  font-size: 16pt;}
+.conteudo-pagina .campos .label-campos{font-family: FuturaBold; color: #343a40;}
+.conteudo-pagina .campos #label-botao{color: white;}
+.conteudo-pagina .tabela{padding-top: 15px;}
+.conteudo-pagina .tabela tbody{height: calc(100vh - 315px);}
+#filtros{padding: 0px;}
+#filtros label{font-family: FuturaBold; color: #343a40;}
+.modal h5{font-family: FuturaBold;}
+#mensagem{font-family: FuturaBold;}
