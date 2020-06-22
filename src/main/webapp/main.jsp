@@ -75,6 +75,7 @@
                 <c:if test="${'Diretor' == funcionarioSessao.cargo || 'admin@muchachos' == funcionarioSessao.email}">
                     <p>Diretoria</p>
                     <li><a class="item-linha" href="RelatoriosServlet"><span class="fas fa-chart-bar mr-3"></span> Relatório Geral</a></li>
+                    <li><a class="item-linha" href="graficos.jsp"><span class="fas fa-chart-pie mr-3"></span> Gráficos de Análise</a></li>
                 </c:if>
             </ul>
             <div class="copyright">

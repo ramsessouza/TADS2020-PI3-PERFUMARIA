@@ -53,6 +53,7 @@ window.onload = function () {
         style: 'currency',
         currency: 'BRL',
     });
+    $('#qtdVendas').text($('#tableVendas tr').length - 1);
     if (count > 0)
     {
         var total = 0;

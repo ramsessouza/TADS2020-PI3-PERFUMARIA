@@ -29,12 +29,16 @@
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
             <!--Linha 1 - Nome e Total da pesquisa-->
             <div class="form-inline" id="linha1">
-                <div class="col-md-8 col-sm-8 relatorio-vendas">
+                <div class="col-md-6 col-sm-6 relatorio-vendas">
                     <h1>Relatório de Vendas</h1>
                 </div>
-                <div class="col-md-4 col-md-4 form-inline total-vendas">
-                    <label id="textoPadrao">TOTAL DAS VENDAS:</label>
+                <div class="col-md-3 col-md-3 form-inline total-vendas">
+                    <label id="textoPadrao">TOTAL:</label>
                     <label id="totalPesquisa" class="mascara-decimais ml-1" size="5px">0</label>
+                </div>
+                <div class="col-md-3 col-md-3 form-inline total-vendas">
+                    <label id="textoPadrao">QUANTIDADE:</label>
+                    <label id="qtdVendas" class="mascara-decimais ml-1" size="5px">0</label>
                 </div>
             </div>
             <form action="RelatoriosServlet" method="POST">

@@ -15,6 +15,8 @@
         <!--Titulo e icone-->
         <link rel="shortcut icon" href="img/logo-branco.png"/>
         <title>Perfumaria Muchachos: Bem vindo ao sistema!</title>
+        <!--Específica da página-->
+        <link href="css/start.css" rel="stylesheet">
     </head>
     <body>
         <!--import do cabeçalho e barra lateral-->
@@ -22,8 +24,10 @@
         <!--CONTEUDO DA PAGINA-->
         <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
-            <img id="img" src="img/perfume(25).jpg" height="600" width="600" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
-            <h1 style="text-align: center">Produtos Muchachos Perfumaria</h1>
+            <img id="img" src="img/perfume(25).jpg" height="600" width="600">
+            <div id="produtos-muchachos">
+                <h1>Produtos Muchachos Perfumaria</h1>
+            </div>
         </div>
 
         <!--1-jQuery.js-->

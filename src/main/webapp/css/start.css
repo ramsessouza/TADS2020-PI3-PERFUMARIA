@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+@font-face {font-family: 'FuturaLight';	src: url("../fonts/FuturaPTLight.otf");}
+@font-face {font-family: 'FuturaBold';	src: url("../fonts/FuturaPTBold.otf");}
+
+/*CONTEÚDO DA PAGINA*/
+.conteudo-pagina #produtos-muchachos{text-align: center; position: absolute; bottom: 35px; width: 82.0%;}
+.conteudo-pagina #img{display: block; margin-left: auto; margin-right: auto; width: 50%;}
+
+

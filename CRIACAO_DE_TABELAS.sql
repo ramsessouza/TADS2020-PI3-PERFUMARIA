@@ -100,4 +100,4 @@ PRIMARY KEY(ID)
 --INSERE USUARIO ADMIN
 --==============================================================================
 INSERT INTO TB_COLABORADOR (NOME, NASCIMENTO, ESTADO_CIVIL, STATUS, CPF, TELEFONE, EMAIL, SENHA, FILIAL, ESTADO, CIDADE, LOGRADOURO, NUMERO)
-VALUES ('Administrador', '1900-01-01', 'Solteiro', 'Ativo', '000.000.000-00', '00000000000', 'admin@muchachos', 'admin', 'Acre', 'Sao Paulo', 'Sao Paulo', 'Rua Admin', 0)
+VALUES ('Administrador', '1900-01-01', 'Solteiro', 'Ativo', '000.000.000-00', '00000000000', 'admin@muchachos', 'adminSouzaram', 'Acre', 'Sao Paulo', 'Sao Paulo', 'Rua Admin', 0)

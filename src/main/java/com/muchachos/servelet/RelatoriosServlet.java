@@ -1,8 +1,7 @@
 package com.muchachos.servelet;
 
-import com.google.gson.Gson;
 import com.muchachos.dao.RelatorioDao;
-import com.muchachos.model.Detalhes;
+import com.muchachos.model.Funcionario;
 import com.muchachos.model.Relatorio;
 import java.io.IOException;
 import java.util.Date;
@@ -17,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author Fabio Vieira
@@ -28,26 +28,41 @@ public class RelatoriosServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession sessao = request.getSession();
+        Funcionario funcionarioLogado = new Funcionario();
+        funcionarioLogado = (Funcionario) sessao.getAttribute("funcionarioSessao");
         RelatorioDao relDao = new RelatorioDao();
-        String cliente = request.getParameter("cliente");
-
-        String diaIni = request.getParameter("dataDe");
-        String diaFim = request.getParameter("dataPara");
-
-        String filial = request.getParameter("filial");
-        String categoria = request.getParameter("categ");
-
+        
         Timestamp de = null;
         Timestamp para = null;
-
         DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
+        String cliente = request.getParameter("cliente");
+        String diaIni = request.getParameter("dataDe");
+        String diaFim = request.getParameter("dataPara");
+        String categoria = request.getParameter("categ");
+        String cargo = "";
+        String filial = "";
+        
+        //Filial e cargo
+        if(funcionarioLogado.getEmail().equals("admin@muchachos")){//se funcionario for adm
+           cargo = "administrador";//cargo = administrador
+        }else{//se funcionario
+            cargo = funcionarioLogado.getCargo();//cargo normal
+            if(cargo.equals("Gerente")){//se o funcionario for gerente
+                filial = funcionarioLogado.getFilial();//filial do gerente
+            }
+        }
+        if (filial == null || filial.equals("todas") || filial == "") {
+            filial = "%%";
+        }
+        
+        //Cliente
         if (cliente == null) {
             cliente = "";
         }
-
         cliente = "%" + cliente + "%";
-
+        
+        //Data DE e data PARA
         try {
             if (diaIni == null || diaIni.equals("")) {
                 Date c = sdf.parse("2020-01-01 00:00:00");
@@ -73,16 +88,14 @@ public class RelatoriosServlet extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
             dispatcher.forward(request,response);
         }
-        if (filial == null || filial.equals("todas")) {
-            filial = "%";
-        }
-
+        
+        //Categoria
         if (categoria == null || categoria.equals("todas")) {
-            categoria = "%";
+            categoria = "%%";
         }
 
         try {
-            List<Relatorio> r = relDao.getVendas(de, para, filial, cliente, categoria);
+            List<Relatorio> r = relDao.getVendas(de, para, filial, cliente, categoria, cargo);
             request.setAttribute("vendas", r);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/relatorios.jsp");
             dispatcher.forward(request, response);
@@ -101,26 +114,41 @@ public class RelatoriosServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession sessao = request.getSession();
+        Funcionario funcionarioLogado = new Funcionario();
+        funcionarioLogado = (Funcionario) sessao.getAttribute("funcionarioSessao");
         RelatorioDao relDao = new RelatorioDao();
-        String cliente = request.getParameter("cliente");
-
-        String diaIni = request.getParameter("dataDe");
-        String diaFim = request.getParameter("dataPara");
-
-        String filial = request.getParameter("filial");
-        String categoria = request.getParameter("categ");
-
+        
         Timestamp de = null;
         Timestamp para = null;
-
         DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
+        String cliente = request.getParameter("cliente");
+        String diaIni = request.getParameter("dataDe");
+        String diaFim = request.getParameter("dataPara");
+        String categoria = request.getParameter("categ");
+        String cargo = "";
+        String filial = "";
+        
+        //Filial e cargo
+        if(funcionarioLogado.getEmail().equals("admin@muchachos")){//se funcionario for adm
+           cargo = "administrador";//cargo = administrador
+        }else{//se funcionario
+            cargo = funcionarioLogado.getCargo();//cargo normal
+            if(cargo.equals("Gerente")){//se o funcionario for gerente
+                filial = funcionarioLogado.getFilial();//filial do gerente
+            }
+        }
+        if (filial == null || filial.equals("todas") || filial == "") {
+            filial = "%%";
+        }
+        
+        //Cliente
         if (cliente == null) {
             cliente = "";
         }
-
         cliente = "%" + cliente + "%";
-
+        
+        //Data DE e data PARA
         try {
             if (diaIni == null || diaIni.equals("")) {
                 Date c = sdf.parse("2020-01-01 00:00:00");
@@ -142,18 +170,18 @@ public class RelatoriosServlet extends HttpServlet {
                 para = new Timestamp(l);
             }
         } catch (Exception e) {
-            System.out.println("" + e.toString());
+            request.setAttribute("mensagemErro","Erro de código: " + e.getMessage());
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+            dispatcher.forward(request,response);
         }
-        if (filial == null || filial.equals("todas")) {
-            filial = "%";
-        }
-
+        
+        //Categoria
         if (categoria == null || categoria.equals("todas")) {
-            categoria = "%";
+            categoria = "%%";
         }
 
         try {
-            List<Relatorio> r = relDao.getVendas(de, para, filial, cliente, categoria);
+            List<Relatorio> r = relDao.getVendas(de, para, filial, cliente, categoria, cargo);
             request.setAttribute("vendas", r);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/relatorios.jsp");
             dispatcher.forward(request, response);

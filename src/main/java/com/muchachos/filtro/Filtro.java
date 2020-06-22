@@ -79,7 +79,7 @@ public class Filtro implements Filter {
         //Se funcionario for DIRETOR OU GERENTE
         if(funcionario.getCargo().equals("Diretor") || funcionario.getCargo().equals("Gerente")){
             //se a url acessada for relacionada ao cargo de DIRETOR OU GERENTE
-            if(urlAcessada.contains("relatorios.jsp") || urlAcessada.contains("DetalhesServlet")
+            if(urlAcessada.contains("graficos.jsp") || urlAcessada.contains("relatorios.jsp") || urlAcessada.contains("DetalhesServlet")
                     || urlAcessada.contains("RelatoriosServlet")){
                 return true;
             }
