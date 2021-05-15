@@ -14,16 +14,16 @@ public class ConexaoDatabase {
 
     static {
         try {
-            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ConexaoDatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public static Connection getConexao() throws SQLException {
-        String dbURL = "jdbc:derby://localhost:1527/BD_MUCHACHOS;create=true";
-        String user = "MUCHACHOS";
-        String password = "MUCHACHOS";
+        String dbURL = "jdbc:mysql://localhost:3306/BD_MUCHACHOS?useTimezone=true&serverTimezone=America/Sao_Paulo";
+        String user = "muchachos2";
+        String password = "123";
         return DriverManager.getConnection(dbURL, user, password);
     }    
 }

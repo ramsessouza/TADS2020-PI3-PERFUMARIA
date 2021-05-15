@@ -28,7 +28,7 @@
         <!--CONTEUDO DA PAGINA-->
         <!--expandir/recolher, feito em jquery - usa o id #conteudo-pagina-->
         <div id="conteudo-pagina" class="container-fluid conteudo-pagina">
-            <iframe width="100%" height="90%" src="https://app.powerbi.com/view?r=eyJrIjoiOGM4NzE0ZTEtNGY0Yi00MGE4LTkxMGYtMmU0NGQ3OWM0ZGYwIiwidCI6ImI0Y2M4ZDNkLTFmMzctNGMzZS05NGNlLWMxMjMyNTgwMzBjYiJ9" frameborder="0" allowFullScreen="true"></iframe>
+            <iframe width="100%" height="90%" src="https://app.powerbi.com/view?r=eyJrIjoiNDc5ZDYwMjYtYjgxOS00MzNlLTg1NzktNDMwY2RkMmFiMDcxIiwidCI6ImI0Y2M4ZDNkLTFmMzctNGMzZS05NGNlLWMxMjMyNTgwMzBjYiJ9" frameborder="0" allowFullScreen="true"></iframe>
         </div><!--Fim do conteudo da pagina-->
         <!--SCRIPTS-->
         <!--1-jQuery.js-->

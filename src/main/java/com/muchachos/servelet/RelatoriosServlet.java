@@ -131,15 +131,22 @@ public class RelatoriosServlet extends HttpServlet {
         
         //Filial e cargo
         if(funcionarioLogado.getEmail().equals("admin@muchachos")){//se funcionario for adm
-           cargo = "administrador";//cargo = administrador
+            cargo = "administrador";//cargo = administrador
+            filial = request.getParameter("filial");
+            if (filial == null || filial.equals("todas") || filial == "") {
+                filial = "%%";
+            }
         }else{//se funcionario
-            cargo = funcionarioLogado.getCargo();//cargo normal
+            cargo = funcionarioLogado.getCargo();
             if(cargo.equals("Gerente")){//se o funcionario for gerente
                 filial = funcionarioLogado.getFilial();//filial do gerente
             }
-        }
-        if (filial == null || filial.equals("todas") || filial == "") {
-            filial = "%%";
+            if(cargo.equals("Diretor")){//se o funcionario for gerente
+                filial = request.getParameter("filial");
+                if (filial == null || filial.equals("todas") || filial == "") {
+                    filial = "%%";
+                }
+            }
         }
         
         //Cliente

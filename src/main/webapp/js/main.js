@@ -19,10 +19,10 @@ $(function(){
 	
 	//Cria 2 vetores com os nomes de dias da semana e meses do ano
 	dayName = new Array ("Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado") 
-	monName = new Array ("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Agosto", "Outubro", "Novembro", "Dezembro")
+	monName = new Array ("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro")
 	
 	//Cria variavel para mostrar uma mensagem, exemplo "Terça, 14 de Abril de 2020"
-	var data = (dayName[now.getDay() ] + ", " + now.getDate () + " de " + monName [now.getMonth() ]   +  " de "  +     now.getFullYear ());
+	var data = (dayName[now.getDay() ] + ", " + now.getDate () + " de " + monName[now.getMonth()]   +  " de "  +     now.getFullYear ());
 	
 	//Criando objeto span
 	var span = document.createElement("span");	
@@ -40,7 +40,7 @@ $(function(){
 //==================================================================	
 	//Ao clicar no botao hamburger
 	$('#hamburger').on('click', function() {
-		//A classe .ativo do css vai para a #barra-lateral e #conteudo-pagina, ao clicar novamente é retirado
+                //A classe .ativo do css vai para a #barra-lateral e #conteudo-pagina, ao clicar novamente é retirado
 		$('#barra-lateral, #conteudo-pagina').toggleClass('ativo');
 	});
 
